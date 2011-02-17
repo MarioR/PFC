@@ -97,7 +97,7 @@ function menu(){
 	while (actual.keyesc=="false"){
 		//la condición de while así va, no tocarla por dios!!!!!!!
 		quien= actual.quiTeTorn;
-		//aqui tengo que controlar el refresc+o de pantalla (que no se como hacerlo todavía)
+		//aqui tengo que controlar el refresco de pantalla (que no se como hacerlo todavía)
 		if (actual.quiTeTorn == 'aliado'){
 			actual.quiTeTorn= 'enemigo';
 		}
@@ -105,46 +105,8 @@ function menu(){
 			actual.quiTeTorn= 'aliado';
 		}
 
-
-		document.captureEvents(Event.keydown);
-		
-
-		document.onKeyDown = manejador;
-
 		teclear(actual);
 	}
 	
 	
-}
-
-function manejador (evt){
-	
-	if (evt.which == 40){
-			actual.keydown = true;
-		    alert ("Se ha pulsado la tecla " + e.type);
-			updateCuadrado(actual,0,300);
-		
-		    return true;
-		}
-		if (evt.which == 39){
-			actual.keyright = true;
-			updateCuadrado(actual,20,300);
-			
-			return true;
-		}
-		if (evt.which == 38){
-			actual.keyup = true;
-			updateCuadrado(actual,20,400);
-			
-			return true;
-		}
-		if (evt.which == 37){
-			actual.keyleft = true;
-			updateCuadrado(actual,50,300);
-			
-			return true;
-		}
-		updateCuadrado(actual,50,400);
-		
-	return true;
 }
