@@ -18,6 +18,26 @@ $(document).bind('onkeydown onkeyup', function(e){e.preventDefault();});
 $('#canvas').bind('onkeydown onkeyup', function (e) {
 	
 	if ((e.type == 'onkeydown') && !esta_pulsada){
+		
+		$(function () {
+			$('#canvas').onkeydown( function (e) {
+				if (e.which == 40){
+					actual.keydown=true;
+				}
+				if (e.which == 38){
+					actual.keyup=true;
+				}
+				if (e.which == 39){
+					actual.keyright=true;
+				}
+				if (e.which == 37){
+					actual.keyleft=true;	
+				}
+				updateCuadrado(actual,100,350);
+
+			});
+
+		}
 		updateCuadrado(actual,50,280);
 		
 		
@@ -30,29 +50,6 @@ $('#canvas').bind('onkeydown onkeyup', function (e) {
 	
 });
 
-
-//cosas que están en el del profe, modificarlo para el mio
-
-$(function () {
-	//$('#canvas').keydown( function (e) {
-	$(document).onkeydown( function (e) {
-		if (e.which == 40){
-			actual.keydown=true;
-		}
-		if (e.which == 38){
-			actual.keyup=true;
-		}
-		if (e.which == 39){
-			actual.keyright=true;
-		}
-		if (e.which == 37){
-			actual.keyleft=true;	
-		}
-		updateCuadrado(actual,100,350);
-			
-	});
-
-}
 
 /*
 function observar (actual){	
