@@ -82,7 +82,6 @@ function menu(){
 	
 	inicializarJugador();	
 	pintarCuadrado(quien);
-	
 	/*
 	 * Hasta aquí funciona. Poniendo la instancia a la clase Teclado (variable EventosTec)
 	 * y después llamando a la función pintarCuadrado (siendo quien siempre aliado) funciona

@@ -6,56 +6,57 @@
  *
  */
 
-
+var esta_pulsada = false;
 
 function teclear (actual){
 
-//preparo al objeto para que capture el evento keydown
+//no estoy seguro, pero por lo que he visto en lo que me pasó JD del ipad, no se necesita llamar a la clase propiamente desde el main
+//lo unico que se hace es llamar a una "variable" que contiene x,y,hola,... (por decir algo)
 
-document.captureEvents(Event.keydown);
+$(document).bind('onkeydown onkeyup', function(e){e.preventDefault();});
 
-
-//defino la función que manejará el evento
-
-function manejador (e){
+$('#canvas').bind('onkeydown onkeyup', function (e) {
 	
-/*	if (e.which == 40){
-		actual.keydown = true;
-	    alert ("Se ha pulsado la tecla " + e.type);
-	    return true;
+	if ((e.type == 'onkeydown') && !esta_pulsada){
+		updateCuadrado(actual,50,280);
+		
+		
 	}
-	if (e.which == 39){
-		actual.keyright = true;
-		return true;
+	else if ((e.type == 'onkeydown') && esta_pulsada){
+		esta_pulsada= false;
+		updateCuadrado(actual,400,400);
+		
 	}
-	if (e.which == 38){
-		actual.keyup = true;
-		return true;
-	}
-	if (e.which == 37){
-		actual.keyleft = true;
-		return true;
-	}
-	*/
-	alert ( "Se ha pulsdo la tecla" + e.type );
-	updateCuadrado(actual,20,300);
 	
-	return true;
-	
+});
+
+
+//cosas que están en el del profe, modificarlo para el mio
+
+$(function () {
+	//$('#canvas').keydown( function (e) {
+	$(document).onkeydown( function (e) {
+		if (e.which == 40){
+			actual.keydown=true;
+		}
+		if (e.which == 38){
+			actual.keyup=true;
+		}
+		if (e.which == 39){
+			actual.keyright=true;
+		}
+		if (e.which == 37){
+			actual.keyleft=true;	
+		}
+		updateCuadrado(actual,100,350);
+			
+	});
+
 }
 
-document.onKeyDown = manejador;
-
-}
-
-
-
-
-
-
-
-function observar (actual){	
 /*
+function observar (actual){	
+
 document.onkeydown = function (key){
 	
 	if (key.which == 40){
@@ -70,9 +71,9 @@ document.onkeydown = function (key){
 	if (key.which == 37){
 		actual.keyleft = false;
 	}
-	
+
 }
-*/
+
 
 /*no termino de ver claro esto. Si lo único que hace es cambiar de false a true i viceversa,
  *no debería sumar o restar las posiciones x e y de los cuadrados, más que eso se haría en el 
@@ -82,7 +83,7 @@ document.onkeydown = function (key){
  *sume o se reste las unidades correspondientes?
  * ESTO QUIERO PREGUNTARLO, aunque si funciona teniendo las dos cosas...
 */
-
+/*
 document.onkeyup = function (key){
 	
 	if (key.which == 40){
@@ -117,3 +118,4 @@ document.onkeyup = function (key){
 return true;	
 }
 }
+*/
