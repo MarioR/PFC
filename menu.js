@@ -36,12 +36,7 @@ personajes[0][0]= 0;
 personajes[0][1]= 0;
 personajes[0][2]= "#AABBCC";
 
-//personajes[1]= /*nuevo circulo*/;
 
-//enemigos[0]= /* nuevo circulo*/;
-/*Le pongo posición x=400, porque el canvas, es de 500x500
-asi le dejo un pequeño margen, pero podría ponerle más.
-*/
 enemigos[1]= new Array ('posx','posy','color');
 enemigos[1][0]= 0;
 enemigos[1][1]= 490;
@@ -51,10 +46,7 @@ enemigos[1][2]= "#CCBBAA";
 
 function inicializarJugador (){
   
-  inicializarCuadrado ();
-  //en una clase se inicializarán por separado cuadrados y triángulos
-  //aquí lo que hago es hacer la llamada a la función
-  
+  inicializarCuadrado ();  
 
 }
 
@@ -62,17 +54,11 @@ function inicializarJugador (){
 function menu(){
 
     var quien;	
-	actual= new EventosTec();
-	quien= actual.quiTeTorn;
+	quien= 'aliado';
 	Inicio.init();
-	/*
-	Las lineas que están entre este comentario y el siguiente del mismo estilo estoy probando cosas,
-	no se si esto irá
-	*/
-	
-	//Le paso la instancia de la clase Teclado a la clase ActualizarTeclado
-//	teclear(actual);
-	
+
+	drawCharacter(quien);
+
 	//Esta linea va bien, no hay que tocarla
 	updateCuadrado(actual,300,200);
 	
@@ -93,18 +79,21 @@ function menu(){
 	 */
 		
 	//Esto será el bucle principal del juego
-	while (actual.keyesc=="false"){
-		//la condición de while así va, no tocarla por dios!!!!!!!
-		quien= actual.quiTeTorn;
+	//while (actual.keyesc=="false"){
+	  while (EventosTec.keyesc=="false"){
+		
+		//quien= actual.quiTeTorn;
 		//aqui tengo que controlar el refresco de pantalla (que no se como hacerlo todavía)
-		if (actual.quiTeTorn == 'aliado'){
-			actual.quiTeTorn= 'enemigo';
-		}
-		if (actual.quiTeTorn == 'enemigo'){
-			actual.quiTeTorn= 'aliado';
-		}
-
-		teclear(actual);
+		//if (actual.quiTeTorn == 'aliado'){
+		//	actual.quiTeTorn= 'enemigo';
+		//}
+		//if (actual.quiTeTorn == 'enemigo'){
+		//	actual.quiTeTorn= 'aliado';
+		//}
+		quien= 'enemigo';
+		drawCharacter(quien);
+	//	actualizarCuadrado(actual);
+	//	pintarCuadrado(quien);
 	}
 	
 	

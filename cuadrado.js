@@ -48,7 +48,7 @@ function inicializarCuadrado(){
 //se ha hecho para verificar que en un caso facil y directo funcionara. Hay que cambiar esos 3 pequeños detalles
 
 
-function pintarCuadrado(qui){
+function drawSquare(qui){
 	
 	var context=Inicio.ctx;
 	if ( qui == "aliado"){           //quin=0, es un aliado
@@ -58,10 +58,10 @@ function pintarCuadrado(qui){
 		context.fillRect(100,300,10,10);
 		 
 	}
-	else if (qui == "enemigo"){
+	else if ( qui == "enemigo"){
 		
-		context.fillStyle= enemigos[1][2];
-		context.fillRect(posx,posy,10,10);
+		context.fillStyle= "#33FFAA";
+		context.fillRect(15,30,10,10);
 		
 	}
 }

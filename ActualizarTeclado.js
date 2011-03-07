@@ -6,48 +6,68 @@
  *
  */
 
-var esta_pulsada = false;
 
-function teclear (actual){
+/*var EventosTec = function()
+{
+	//tecla arriba
+	this.keyup = false;
+
+	//tecla abajo
+	this.keydown = false;
+
+	//tecla derecha
+	this.keyright = false;
+
+	//tecla izquierda
+	this.keyleft = false;
+
+	//indica si el juego se ha terminado
+	this.keyesc = false;
+}
+
+actual = new EventosTec();
+*/
+EventosTec = {
+	
+	keyup: false,
+	keydown: false,
+	keyright: false,
+	keyleft: false,
+	keyesc: false
+	
+};
 
 //no estoy seguro, pero por lo que he visto en lo que me pasó JD del ipad, no se necesita llamar a la clase propiamente desde el main
 //lo unico que se hace es llamar a una "variable" que contiene x,y,hola,... (por decir algo)
 
-$(document).bind('onkeydown onkeyup', function(e){e.preventDefault();});
+//$(document).bind('onkeydown onkeyup', function(e){e.preventDefault();});
 
-$('#canvas').bind('onkeydown onkeyup', function (e) {
-	
-	if ((e.type == 'onkeydown') && !esta_pulsada){
-		
-		$(function () {
-			$('#canvas').onkeydown( function (e) {
+$(document).bind('onkeydown', function (e) {
 				if (e.which == 40){
-					actual.keydown=true;
+					EventosTec.keydown=true;
 				}
 				if (e.which == 38){
-					actual.keyup=true;
+					EventosTec.keyup=true;
 				}
 				if (e.which == 39){
-					actual.keyright=true;
+					EventosTec.keyright=true;
 				}
 				if (e.which == 37){
-					actual.keyleft=true;	
+					EventosTec.keyleft=true;	
+});
+
+$(document).bind('onkeyup', function (e) {
+				if (e.which == 40){
+					EventosTec.keydown=false;
 				}
-				updateCuadrado(actual,100,350);
-
-			});
-
-		}
-		updateCuadrado(actual,50,280);
-		
-		
-	}
-	else if ((e.type == 'onkeydown') && esta_pulsada){
-		esta_pulsada= false;
-		updateCuadrado(actual,400,400);
-		
-	}
-	
+				if (e.which == 38){
+					EventosTec.keyup=false;
+				}
+				if (e.which == 39){
+					EventosTec.keyright=false;
+				}
+				if (e.which == 37){
+					EventosTec.keyleft=false;	
 });
 
 
