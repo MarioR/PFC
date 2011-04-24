@@ -1,15 +1,3 @@
-/*Vuelta a comenzar, suponiendo clases
-esto es el menú, en el cual se centrarán
-todas las operaciones
-- Primero se llamara a la clase que contiene la funcion de teclado, la cual contiene valores true y false
-- Segundo se llama a la clase que contiene la función leer de teclado, la cual, respecto de los valores true/false anteriores, determinara
-    si se han modificado los valores
-- Tercero se actualizan los valores del "personaje" correspondiente 
-- Cuarto se dibuja el cuadrado en la nueva posición
-*/
-
-
-
 /*
  * Para crear el vector de jugadores (buenos/malos), se hace lo siguiente
  * nombreVector = new Array (ble, bleb,blel,bleled);
@@ -24,6 +12,7 @@ personajes = new Array ('cuadrado','circulo');
 enemigos = new Array ('circulo','cuadrado');
 
 personajes[0]= new Array ('posx','posy','color');
+
 /*con esto, si no voy errado, lo que hago es colocar en la posición
 0 de los personajes, correspondiente al primer jugador, una posición
 inicial (posx, posy) y también un color por defecto. Así, cada jugador
@@ -32,15 +21,15 @@ tendrá su posición inicial y color.
 Puede que haya formas mejores de hacerlo, pero ahora no se como serían
 */
 
-personajes[0][0]= 0;
+personajes[0][0]= 300;
 personajes[0][1]= 0;
 personajes[0][2]= "#AABBCC";
 
 
-enemigos[1]= new Array ('posx','posy','color');
-enemigos[1][0]= 0;
-enemigos[1][1]= 490;
-enemigos[1][2]= "#CCBBAA";
+enemigos[0]= new Array ('posx','posy','color');
+enemigos[0][0]= 0;
+enemigos[0][1]= 490;
+enemigos[0][2]= "#CCBBAA";
 
 
 
@@ -50,37 +39,51 @@ function inicializarJugador (){
 
 }
 
+//Tengo que poner la funciíon menu, ya que sino no se ejecutar el prueba.html, porque no va
+//De ahí que ponga dentro de la función el mainLoop y el setInterval y, fuera de él, inicializo
+//las variables necesarias
 
 function menu(){
 
     var quien;	
+	var x = 0;
+	var y = 0;
+	var col = "#11FF0C";
 	quien= 'aliado';
 	Inicio.init();
+//	inicializarJugador();
 
-	drawCharacter(quien);
 
-	//Esta linea va bien, no hay que tocarla
-	updateCuadrado(actual,300,200);
+
+	var cuadro = new cuadrado (0,0,"#11FFAC");
+
+	cuadro.draw();
+
+
+
+
+var mainLoop = function () {
 	
-	/*
-	desde aquí hasta el siguiente comentario va bien
-	*/
+//	drawCharacter(quien);
+//	updateCuadrado(x,y);
+//	x= x+15;
+//	y= y+30;
+		cuadro.draw();
 	
-	inicializarJugador();	
-	pintarCuadrado(quien);
-	/*
-	 * Hasta aquí funciona. Poniendo la instancia a la clase Teclado (variable EventosTec)
-	 * y después llamando a la función pintarCuadrado (siendo quien siempre aliado) funciona
-	 * 
-	 * Ahora debería hacer que el "quien" variase de aliado a enemigo
-	 * También tengo que hacer que cuando se pulse una tecla, las variables false/true
-	 * cambien de valor. 
-	 * Después de eso controlar que el cuadrado se mueva.
-	 */
-		
+	
+}
+
+//Hace que se ejecute 25 veces por segundo
+var mainLoopId = setInterval (mainLoop,25);
+
+
+
+//	drawCharacter(quien);
+
+
 	//Esto será el bucle principal del juego
-	//while (actual.keyesc=="false"){
-	  while (EventosTec.keyesc=="false"){
+
+//	  while (EventosTec.keyesc=="false"){
 		
 		//quien= actual.quiTeTorn;
 		//aqui tengo que controlar el refresco de pantalla (que no se como hacerlo todavía)
@@ -90,11 +93,11 @@ function menu(){
 		//if (actual.quiTeTorn == 'enemigo'){
 		//	actual.quiTeTorn= 'aliado';
 		//}
-		quien= 'enemigo';
-		drawCharacter(quien);
+//		quien= 'enemigo';
+//		drawCharacter(quien);
 	//	actualizarCuadrado(actual);
 	//	pintarCuadrado(quien);
-	}
+//	}
 	
 	
 }

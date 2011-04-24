@@ -1,9 +1,43 @@
+
+//buscar en el otro ordenador como estaba la variable actual creada, ya que era lo k utilizaba para hacer un objeto
+//no está, pero puedo guiarme por la variable init de la clase libreria.js, ya que ahí también hay algo parecido a lo que necesito aquí
+
+
+var Square = 
+{
+	
+	var x = 0;
+	var y = 0;
+	var color = null; //variable que indica el color del personaje
+	var draw = false; //variable que indica si toca pintarse el cuadrado o no
+					  // si es que si, llamará a la función correspondiente
+	
+}
+
+
+function cuadrado (x, y, color){
+	
+	this.x= x;
+	this.y= y;
+	this.color= color;
+	this.draw= draw();
+	
+}
+
+
+function draw(){
+	
+	var context= Inicio.ctx;
+	
+	context.fillStyle= this.color;
+	context.fillRect(this.x,this.y,10,10);
+	
+}
+
 /*
- * 
  * Esta es la clase de los cuadrados, en la cual se inicializarán, se actualizarán sus
  * posiciones, se dibujarán sobre pantalla y guardarán la posición x e y y el color
- * que tiene ese cuadrado.
- * 
+ * que tiene ese cuadrado. 
  */
 
 	var posx= 0;
@@ -26,26 +60,14 @@ function inicializarCuadrado(){
 	context.fillRect(posx,posy,10,10);
 
 	//cuadrado enemigo
-	posx= enemigos[1][0];
-	posy= enemigos[1][1];
-	context.fillStyle= enemigos[1][2];
+	posx= enemigos[0][0];
+	posy= enemigos[0][1];
+	context.fillStyle= enemigos[0][2];
 	context.fillRect (posx,posy,10,10);
     
   	
   
 }
-
-/* Esta función será utilizada cuando se requiera pintar un cuadrado de nuevo.
-*Inicialmente tiene unos valores, por eso se utiliza inicializarCuadrado,
-*pero dependiendo de las teclas pulsadas, los valores de las posiciones x e y
-*serán diferentes. Esta función se encargará unicamente de pintar el cuadrado
-*Será la funcion update la que se encargará de averiguar que posición debe
-*ocupar el cuadrado.
-*/
-
-//el main creara una instancia de la clase EventosTec, i a la funcion pintarCuadrado le pasara la variable quiTeTorn, para saber si es aliado o enemigo
-//esto está en fase de pruebas, ya que debe pintarlo con el color del cuadrado que sea y con la posición x e y que le corresponda, no 100 y 300.
-//se ha hecho para verificar que en un caso facil y directo funcionara. Hay que cambiar esos 3 pequeños detalles
 
 
 function drawSquare(qui){
@@ -66,14 +88,20 @@ function drawSquare(qui){
 	}
 }
 
-/*Esta función, tal como la he puesto funciona, es decir, si le paso "actual", que es la instancia a la clase que controla los true/false del teclado
- *y ahi le actualizo los valores y luego esos valores son utilizados, se ve como los valores han sido modificados y funciona, con lo cual debo tener
- *que pasarle cada vez la instancia a la clase. 
- */ 
-function updateCuadrado (actual,posx,posy){
+function updateCuadrado (posx,posy){
 	var context=Inicio.ctx;
-	actual.x= posx;
-	actual.y= posy;
+
 	context.fillStyle= "#FF0000";
-	context.fillRect(actual.x,actual.y,10,10);
+	context.fillRect(posx,posy,10,10);
+}
+
+function drawPrueba (square){
+	
+	var context = Inicio.ctx;
+	
+	context.fillStyle = square.color;
+	context.fillRect(square.x,square.y,10,10);
+	
+	
+	
 }
