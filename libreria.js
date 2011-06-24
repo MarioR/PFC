@@ -24,3 +24,4 @@ var Inicio=
 }
 
 //solucionado el problema de crear el canvas dentro de la variable INICIO
+

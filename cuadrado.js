@@ -1,47 +1,58 @@
+/*
+* CLASE CUADRADO
+*
+*  Esta clase es la encargada de gestionar el cuadrado, es decir, debe crearlo, pintarlo, actualizar su posicion,...
+*  Tal como tengo entendido, esta clase se trata de un OBJETO DIBUJABLE, por lo que de lo único que se debe preocupar es de
+* pintarse en el momento en el que toque, no debe saber nada acerca del teclado o de funciones de "nivel superior".
+*
+*/
+function Square(color,posx,posy){
 
-//buscar en el otro ordenador como estaba la variable actual creada, ya que era lo k utilizaba para hacer un objeto
-//no está, pero puedo guiarme por la variable init de la clase libreria.js, ya que ahí también hay algo parecido a lo que necesito aquí
+	//Estos 5 (por ahora) this.algo forman parte del constructor de la función Square, ya que como me dijo Jordi
+	//el constructor viene implícito en la función, es decir, no hay que realizar una subfunción para el constructor.
+		this.x = posx;
+
+		this.y = posy;
+
+		this.color = color;
+		
+		this.longitud = 10;   // Por definición tiene 10 unidades de longitud
+		
+		this.altitud = 10;    // Y 10 unidades de altitud
 
 
-var Square = 
-{
+	//Esta función actualiza la posición del cuadrado	
+	this.setposition = function (posx,posy){
+		this.x = posx;
+		this.y = posy;
 	
-	var x = 0;
-	var y = 0;
-	var color = null; //variable que indica el color del personaje
-	var draw = false; //variable que indica si toca pintarse el cuadrado o no
-					  // si es que si, llamará a la función correspondiente
+	}
+	
+	//La funcion cambia el color del cuadrado  (tal como tengo pensado, cuando ataque y sea dañado, el personaje cambia de color)
+	this.changecol = function (color1){
+		this.color = color1;
+	}
+
+	//Esta función pinta el cuadrado
+	this.draw = function (ctx){
+		ctx.fillStyle = this.color;
+		ctx.fillRect(this.x,this.y,this.longitud,this.altitud);
+	}
+
 	
 }
 
-
-function cuadrado (x, y, color){
-	
-	this.x= x;
-	this.y= y;
-	this.color= color;
-	this.draw= draw();
-	
-}
-
-
-function draw(){
-	
-	var context= Inicio.ctx;
-	
-	context.fillStyle= this.color;
-	context.fillRect(this.x,this.y,10,10);
-	
-}
 
 /*
- * Esta es la clase de los cuadrados, en la cual se inicializarán, se actualizarán sus
- * posiciones, se dibujarán sobre pantalla y guardarán la posición x e y y el color
- * que tiene ese cuadrado. 
- */
+*
+*  LO PONGO ASÍ PARA QUE SE VEA MÁS
+*
+*	Todo lo que hay a partir de aquí hacia abajo eran funciones que iban haciendo cosas, solo que de la forma que hay que hacer las cosas
+*	no hay que hacer nada de esto, así que esto no vale para nada.
+*	
+*
+*/
 
-	var posx= 0;
-	var posy= 0;
 
 /*Esta función inicializará los cuadrados jugadores, tanto aliados como enemigos, que formarán el juego
 *Para ello la función necesitará saber de que lado están los cuadrados, para dibujarlos en una posición 
@@ -64,11 +75,8 @@ function inicializarCuadrado(){
 	posy= enemigos[0][1];
 	context.fillStyle= enemigos[0][2];
 	context.fillRect (posx,posy,10,10);
-    
-  	
   
 }
-
 
 function drawSquare(qui){
 	

@@ -1,37 +1,3 @@
-/*
- * Para crear el vector de jugadores (buenos/malos), se hace lo siguiente
- * nombreVector = new Array (ble, bleb,blel,bleled);
- * donde ble sera nombreVector[0], bleb nombreVector[1],...
- * y despues para darle valor nombreVector[0]= "lo k se quiera";
- * 
- */
-var numAliados= 1;
-var i=0; 
-personajes = new Array ('cuadrado','circulo');
-
-enemigos = new Array ('circulo','cuadrado');
-
-personajes[0]= new Array ('posx','posy','color');
-
-/*con esto, si no voy errado, lo que hago es colocar en la posición
-0 de los personajes, correspondiente al primer jugador, una posición
-inicial (posx, posy) y también un color por defecto. Así, cada jugador
-tendrá su posición inicial y color.
-
-Puede que haya formas mejores de hacerlo, pero ahora no se como serían
-*/
-
-personajes[0][0]= 300;
-personajes[0][1]= 0;
-personajes[0][2]= "#AABBCC";
-
-
-enemigos[0]= new Array ('posx','posy','color');
-enemigos[0][0]= 0;
-enemigos[0][1]= 490;
-enemigos[0][2]= "#CCBBAA";
-
-
 
 function inicializarJugador (){
   
@@ -39,11 +5,14 @@ function inicializarJugador (){
 
 }
 
-//Tengo que poner la funciíon menu, ya que sino no se ejecutar el prueba.html, porque no va
+//Tengo que poner la función menu, ya que sino no se ejecutar el prueba.html, porque no va
 //De ahí que ponga dentro de la función el mainLoop y el setInterval y, fuera de él, inicializo
 //las variables necesarias
 
 function menu(){
+
+	
+
 
     var quien;	
 	var x = 0;
@@ -55,49 +24,48 @@ function menu(){
 
 
 
-	var cuadro = new cuadrado (0,0,"#11FFAC");
+//Las dos lineas de codigo que siguen son una fase intermedia. Interactuo directamente con la clase cuadrado, tengo que relacionarlo con la clase Personaje
 
-	cuadro.draw();
+//Aqui creamos un cuadrado nuevo
+	perso = new Square(col,x,y);
+	x= 45;
+	y= 60;
+	col = "#00AA32";
+	perso1 = new Square(col,x,y);
+	
+//para probar que va, aqui se pintan los cuadrados
+//Está puesto así para comprobar que el auxiliar suma bien, es decir, que debería tener en tableCont[0] el primer cuadrado y en tableCont[1] el segundo cuadrado
+	perso.draw(Inicio.ctx);
+	perso1.draw(Inicio.ctx);
 
 
 
 
+
+//Creo que me estoy liando al hacer esto. Por lo que creo entender ahora mismo, lo que el profe me dibujo para explicarme del personaje y el cuadrado
+//es que lo que lo que yo llamo Cuadrado.js sería la clase personaje, y la clase cuadrado solo deberia tener posx,posy,color,tamaño (es lo que puso el)
+//no tener las funciones en la clase cuadrado e intentar ligarlo todo a traves de la clase personaje
+
+
+//Creo que para hacerlo seria crear el Character asi como esta puesto, que llama a la clase cuadrado dentro de ella, y que inserte el personaje en la posicion
+// "x" de una tabla que se crea para guardar los personajes creados, así, cada vez que se mueva uno, se irá avanzando de posicion en la tabla
+//createCharacter(col);
+
+
+
+
+//Tal como lo tengo explicao con Jordi, esto es el PROGRAMA PRINCIPAL
 var mainLoop = function () {
 	
 //	drawCharacter(quien);
 //	updateCuadrado(x,y);
 //	x= x+15;
 //	y= y+30;
-		cuadro.draw();
 	
 	
 }
 
 //Hace que se ejecute 25 veces por segundo
 var mainLoopId = setInterval (mainLoop,25);
-
-
-
-//	drawCharacter(quien);
-
-
-	//Esto será el bucle principal del juego
-
-//	  while (EventosTec.keyesc=="false"){
-		
-		//quien= actual.quiTeTorn;
-		//aqui tengo que controlar el refresco de pantalla (que no se como hacerlo todavía)
-		//if (actual.quiTeTorn == 'aliado'){
-		//	actual.quiTeTorn= 'enemigo';
-		//}
-		//if (actual.quiTeTorn == 'enemigo'){
-		//	actual.quiTeTorn= 'aliado';
-		//}
-//		quien= 'enemigo';
-//		drawCharacter(quien);
-	//	actualizarCuadrado(actual);
-	//	pintarCuadrado(quien);
-//	}
-	
 	
 }
