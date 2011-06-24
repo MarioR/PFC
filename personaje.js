@@ -7,7 +7,6 @@
 *
 */
 
-
 //Si mal no entiendo, creo que esto debe ser como el cuadrado, una función que englobe a una lista de subfunciones
 
 
