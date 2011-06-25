@@ -1,11 +1,4 @@
 /*
- * Esta clase se encargará de almacenar los datos de las teclas, si están o no
- * pulsadas con valores de true y false para saber si se han pulsado o no.
- * Otra clase se encargará (o esta au no lo se) se encargará de mirar los valores
- * del teclado para ver si han variado y en tal caso ya la clase de personajes
- * actualizará sus valores o no, depende de a quien le toque el turno.
- *
- */
-
-
-
+* Como ahora mismo no me acuerdo lo que había montado en el teclado (ActualizarTeclado) y he visto cosas para montarlo de otra forma
+*que si no me equivoco debería ir bien, lo montaré con esto, que creo que es más claro a la hora de mirar el código.
+*/

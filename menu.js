@@ -41,22 +41,21 @@ function menu(){
 
 
 
-
-//Creo que me estoy liando al hacer esto. Por lo que creo entender ahora mismo, lo que el profe me dibujo para explicarme del personaje y el cuadrado
-//es que lo que lo que yo llamo Cuadrado.js sería la clase personaje, y la clase cuadrado solo deberia tener posx,posy,color,tamaño (es lo que puso el)
-//no tener las funciones en la clase cuadrado e intentar ligarlo todo a traves de la clase personaje
-
-
-//Creo que para hacerlo seria crear el Character asi como esta puesto, que llama a la clase cuadrado dentro de ella, y que inserte el personaje en la posicion
-// "x" de una tabla que se crea para guardar los personajes creados, así, cada vez que se mueva uno, se irá avanzando de posicion en la tabla
-//createCharacter(col);
-
-
-
-
 //Tal como lo tengo explicao con Jordi, esto es el PROGRAMA PRINCIPAL
+/*El mainLoop está formado por 3 partes
+* 1- Capturar entrada de eventos
+* 2- Calcular nuevo estado de juego
+* 3- Redibujar escenario
+*/
 var mainLoop = function () {
 	
+	
+	
+	
+	
+	
+//Esto de abajo era una prueba para comprobar que iba bien el mainLoop, que se repetia
+
 //	drawCharacter(quien);
 //	updateCuadrado(x,y);
 //	x= x+15;
