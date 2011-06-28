@@ -25,3 +25,22 @@ var Inicio=
 
 //solucionado el problema de crear el canvas dentro de la variable INICIO
 
+
+//Ya que aquí pongo esto, no estoy seguro de que vaya a ir bien, pero lo voy a intentar
+
+var Tecles=
+{
+	keyup: false,
+	
+	keydown: false,
+	
+	keyleft: false,
+	
+	keyright: false,
+	
+	keypause: false,
+	
+	keyesc: false
+	
+	
+}

@@ -32,6 +32,10 @@ function Character (){
 		
 	}
 	
+	this.drawSquare = function (cont){
+		
+		this.sq.draw(cont);
+	}
 	
 	//Esta función actualiza la posición del cuadrado moviéndolo a la izquierda cuando se tenga que pintar
 	this.moveLeft = function (){

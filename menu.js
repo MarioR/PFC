@@ -21,8 +21,27 @@ function menu(){
 	quien= 'aliado';
 	Inicio.init();
 //	inicializarJugador();
+	
+
+//Esta parte va
+	perso = new Character();
+	x= 45;
+	y= 60;
+	col = "#00AA32";
+	perso.createSquare(col,x,y);
+	perso.drawSquare(Inicio.ctx);
 
 
+	perso2 = new Character();
+	x= 100;
+	y= 100;
+	col = "#CCFF02";
+	perso2.createSquare(col,x,y);
+	perso2.drawSquare(Inicio.ctx);
+
+	
+
+/*
 
 //Las dos lineas de codigo que siguen son una fase intermedia. Interactuo directamente con la clase cuadrado, tengo que relacionarlo con la clase Personaje
 
@@ -38,7 +57,7 @@ function menu(){
 	perso.draw(Inicio.ctx);
 	perso1.draw(Inicio.ctx);
 
-
+*/
 
 
 //Tal como lo tengo explicao con Jordi, esto es el PROGRAMA PRINCIPAL
@@ -51,7 +70,14 @@ var mainLoop = function () {
 	
 	
 	
-	
+	if(Tecles.keydown == true){
+		perso3 = new Character();
+		x= 330;
+		y= 212;
+		col = "#AACC02";
+		perso3.createSquare(col,x,y);
+		perso3.drawSquare(Inicio.ctx);
+	}
 	
 	
 //Esto de abajo era una prueba para comprobar que iba bien el mainLoop, que se repetia
