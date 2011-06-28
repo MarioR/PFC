@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>menu.js</string>
+	<string>teclado.js</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -11,53 +11,53 @@
 			<array>
 				<dict>
 					<key>filename</key>
+					<string>teclado.js</string>
+					<key>lastUsed</key>
+					<date>2011-06-25T19:45:07Z</date>
+				</dict>
+				<dict>
+					<key>filename</key>
 					<string>ActualizarTeclado.js</string>
 					<key>lastUsed</key>
-					<date>2011-06-22T07:17:32Z</date>
+					<date>2011-06-25T14:39:19Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>personaje.js</string>
 					<key>lastUsed</key>
-					<date>2011-06-22T11:23:31Z</date>
+					<date>2011-06-25T14:39:08Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>cuadrado.js</string>
 					<key>lastUsed</key>
-					<date>2011-06-22T14:52:17Z</date>
+					<date>2011-06-24T20:32:32Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>libreria.js</string>
 					<key>lastUsed</key>
-					<date>2011-06-18T11:45:57Z</date>
+					<date>2011-06-24T10:23:32Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>/Users/mariorinablanc/Documents/UNI/PFC/menu.js</string>
 					<key>lastUsed</key>
-					<date>2011-06-22T14:52:17Z</date>
+					<date>2011-06-25T13:23:17Z</date>
 					<key>saveAsAbsolutePath</key>
 					<true/>
-					<key>selected</key>
-					<true/>
-				</dict>
-				<dict>
-					<key>filename</key>
-					<string>teclado.js</string>
-					<key>lastUsed</key>
-					<date>2011-03-06T12:11:48Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>prueba.html</string>
 					<key>lastUsed</key>
-					<date>2011-06-21T12:43:33Z</date>
+					<date>2011-06-25T14:32:47Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>jquery-1.5.js</string>
+					<key>lastUsed</key>
+					<date>2011-06-25T13:29:56Z</date>
 				</dict>
 			</array>
 			<key>expanded</key>
@@ -75,29 +75,29 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>14</integer>
+				<integer>2</integer>
 				<key>line</key>
-				<integer>35</integer>
+				<integer>89</integer>
 			</dict>
 			<key>columnSelection</key>
 			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>33</integer>
+			<integer>69</integer>
 			<key>selectFrom</key>
 			<dict>
 				<key>column</key>
-				<integer>1</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>31</integer>
+				<integer>76</integer>
 			</dict>
 			<key>selectTo</key>
 			<dict>
 				<key>column</key>
-				<integer>14</integer>
+				<integer>2</integer>
 				<key>line</key>
-				<integer>35</integer>
+				<integer>89</integer>
 			</dict>
 		</dict>
 		<key>cuadrado.js</key>
@@ -105,23 +105,69 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>2</integer>
+				<integer>30</integer>
 				<key>line</key>
-				<integer>23</integer>
+				<integer>8</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>35</integer>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>16</integer>
+				<key>line</key>
+				<integer>8</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>30</integer>
+				<key>line</key>
+				<integer>8</integer>
+			</dict>
+		</dict>
+		<key>jquery-1.5.js</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>5</integer>
+				<key>line</key>
+				<integer>2909</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>67</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>1</integer>
+				<key>line</key>
+				<integer>2901</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>5</integer>
+				<key>line</key>
+				<integer>2909</integer>
+			</dict>
 		</dict>
 		<key>libreria.js</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>40</integer>
-				<key>line</key>
 				<integer>0</integer>
+				<key>line</key>
+				<integer>27</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -133,14 +179,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>1</integer>
+				<integer>25</integer>
 				<key>line</key>
-				<integer>73</integer>
+				<integer>38</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>37</integer>
+			<integer>15</integer>
 		</dict>
 		<key>personaje.js</key>
 		<dict>
@@ -149,7 +195,7 @@
 				<key>column</key>
 				<integer>2</integer>
 				<key>line</key>
-				<integer>13</integer>
+				<integer>7</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -170,12 +216,28 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>teclado.js</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>1</integer>
+				<key>line</key>
+				<integer>108</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>68</integer>
+		</dict>
 	</dict>
 	<key>openDocuments</key>
 	<array>
 		<string>prueba.html</string>
 		<string>menu.js</string>
 		<string>ActualizarTeclado.js</string>
+		<string>jquery-1.5.js</string>
+		<string>teclado.js</string>
 		<string>cuadrado.js</string>
 		<string>personaje.js</string>
 		<string>libreria.js</string>
