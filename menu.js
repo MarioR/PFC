@@ -28,7 +28,7 @@ function prueba(){
 				Tecles.keyleft = false;
 			break;
 			case 40:
-				Tecles.keydown = true;
+				Tecles.keydown = false;
 			break;
 			case 39:
 				Tecles.keyright = false;
@@ -42,6 +42,39 @@ function prueba(){
 		}
 
 	}
+	
+	document.onkeyup = function (key){
+
+		var keynum;
+
+		if(key.which){
+			keynum = key.which;
+		}
+
+		switch (keynum){
+
+			case 38:
+				Tecles.keyup = true;
+			break;
+			case 37:
+				Tecles.keyleft = true;
+			break;
+			case 40:
+				Tecles.keydown = true;
+			break;
+			case 39:
+				Tecles.keyright = true;
+			break;
+			case 27:
+				Tecles.keyesc = true;
+			break;
+			case 112:  //letra P minúscula
+				Tecles.keypause = true;
+			break;
+		}
+
+	}
+	
 	
 }
 function menu(){
