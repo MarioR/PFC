@@ -1,10 +1,4 @@
 
-function inicializarJugador (){
-  
-  inicializarCuadrado ();  
-
-}
-
 //Tengo que poner la función menu, ya que sino no se ejecutar el prueba.html, porque no va
 //De ahí que ponga dentro de la función el mainLoop y el setInterval y, fuera de él, inicializo
 //las variables necesarias
@@ -12,38 +6,6 @@ function inicializarJugador (){
 
 function prueba(){
 	document.onkeydown = function (key){
-
-		var keynum;
-
-		if(key.which){
-			keynum = key.which;
-		}
-
-		switch (keynum){
-
-			case 38:
-				Tecles.keyup = false;
-			break;
-			case 37:
-				Tecles.keyleft = false;
-			break;
-			case 40:
-				Tecles.keydown = false;
-			break;
-			case 39:
-				Tecles.keyright = false;
-			break;
-			case 27:
-				Tecles.keyesc = false;
-			break;
-			case 112:  //letra P minúscula
-				Tecles.keypause = false;
-			break;
-		}
-
-	}
-	
-	document.onkeyup = function (key){
 
 		var keynum;
 
@@ -75,6 +37,38 @@ function prueba(){
 
 	}
 	
+	document.onkeyup = function (key){
+
+		var keynum;
+
+		if(key.which){
+			keynum = key.which;
+		}
+
+		switch (keynum){
+
+			case 38:
+				Tecles.keyup = false;
+			break;
+			case 37:
+				Tecles.keyleft = false;
+			break;
+			case 40:
+				Tecles.keydown = false;
+			break;
+			case 39:
+				Tecles.keyright = false;
+			break;
+			case 27:
+				Tecles.keyesc = false;
+			break;
+			case 112:  //letra P minúscula
+				Tecles.keypause = false;
+			break;
+		}
+
+	}
+	
 	
 }
 function menu(){
@@ -88,7 +82,6 @@ function menu(){
 	var col = "#11FF0C";
 	quien= 'aliado';
 	Inicio.init();
-//	inicializarJugador();
 	
 
 //Esta parte va
@@ -108,25 +101,6 @@ function menu(){
 	perso2.createSquare(col,x,y);
 	perso2.drawSquare(Inicio.ctx);
 
-	
-
-/*
-
-//Las dos lineas de codigo que siguen son una fase intermedia. Interactuo directamente con la clase cuadrado, tengo que relacionarlo con la clase Personaje
-
-//Aqui creamos un cuadrado nuevo
-	perso = new Square(col,x,y);
-	x= 45;
-	y= 60;
-	col = "#00AA32";
-	perso1 = new Square(col,x,y);
-	
-//para probar que va, aqui se pintan los cuadrados
-//Está puesto así para comprobar que el auxiliar suma bien, es decir, que debería tener en tableCont[0] el primer cuadrado y en tableCont[1] el segundo cuadrado
-	perso.draw(Inicio.ctx);
-	perso1.draw(Inicio.ctx);
-
-*/
 
 
 //Tal como lo tengo explicao con Jordi, esto es el PROGRAMA PRINCIPAL
@@ -135,14 +109,17 @@ function menu(){
 * 2- Calcular nuevo estado de juego
 * 3- Redibujar escenario
 */
+perso3 = new Character();
+	x= 0;
+	y= 0;
 var mainLoop = function () {
 	
 	
+//Con esto veo que funciona el teclado, pero debe estar en esta clase, sino no funciona
 	
 	if(Tecles.keydown == true){
-		perso3 = new Character();
-		x= 330;
-		y= 212;
+		x = x+30;
+		y = y+30;
 		col = "#AACC02";
 		perso3.createSquare(col,x,y);
 		perso3.drawSquare(Inicio.ctx);
