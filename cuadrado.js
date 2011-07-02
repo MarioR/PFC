@@ -40,7 +40,7 @@ function Square(color,posx,posy){
 	}
 
 	
-}
+
 
 
 /*

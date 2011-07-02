@@ -40,19 +40,65 @@ function keyPress(e)
 
 //esto es según lo que sale en el texto de ayuda de arriba
 
+function prueba(){
 
-//Ahora lo voy a poner utilizando el "document.onKeyDown"
 
+	keyup= false;
+	
+	keydown= false;
+	
+	keyleft= false;
+	
+	keyright= false;
+	
+	keypause= false;
+	
+	keyesc= false;
+	
+	
 document.onkeydown = function (key){
-	
+
 	var keynum;
-	
+
 	if(key.which){
 		keynum = key.which;
 	}
-	
+
 	switch (keynum){
-		
+
+		case 38:
+			Tecles.keyup = true;
+		break;
+		case 37:
+			Tecles.keyleft = true;
+		break;
+		case 40:
+			Tecles.keydown = true;
+		break;
+		case 39:
+			Tecles.keyright = true;
+		break;
+		case 27:
+			Tecles.keyesc = true;
+		break;
+		case 112:  //letra P minúscula
+			Tecles.keypause = true;
+		break;
+	}
+
+}
+
+
+document.onkeyup = function (key){
+
+	var keynum;
+
+	if(key.which){
+		keynum = key.which;
+	}
+
+	switch (keynum){
+
 		case 38:
 			Tecles.keyup = false;
 		break;
@@ -60,7 +106,7 @@ document.onkeydown = function (key){
 			Tecles.keyleft = false;
 		break;
 		case 40:
-			Tecles.keydown = true;
+			Tecles.keydown = false;
 		break;
 		case 39:
 			Tecles.keyright = false;
@@ -72,5 +118,7 @@ document.onkeydown = function (key){
 			Tecles.keypause = false;
 		break;
 	}
+
+}
 
 }

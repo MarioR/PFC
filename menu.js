@@ -4,73 +4,7 @@
 //las variables necesarias
 
 
-function prueba(){
-	document.onkeydown = function (key){
 
-		var keynum;
-
-		if(key.which){
-			keynum = key.which;
-		}
-
-		switch (keynum){
-
-			case 38:
-				Tecles.keyup = true;
-			break;
-			case 37:
-				Tecles.keyleft = true;
-			break;
-			case 40:
-				Tecles.keydown = true;
-			break;
-			case 39:
-				Tecles.keyright = true;
-			break;
-			case 27:
-				Tecles.keyesc = true;
-			break;
-			case 112:  //letra P minúscula
-				Tecles.keypause = true;
-			break;
-		}
-
-	}
-	
-	document.onkeyup = function (key){
-
-		var keynum;
-
-		if(key.which){
-			keynum = key.which;
-		}
-
-		switch (keynum){
-
-			case 38:
-				Tecles.keyup = false;
-			break;
-			case 37:
-				Tecles.keyleft = false;
-			break;
-			case 40:
-				Tecles.keydown = false;
-			break;
-			case 39:
-				Tecles.keyright = false;
-			break;
-			case 27:
-				Tecles.keyesc = false;
-			break;
-			case 112:  //letra P minúscula
-				Tecles.keypause = false;
-			break;
-		}
-
-	}
-	
-	
-}
 function menu(){
 
 	
@@ -83,6 +17,7 @@ function menu(){
 	quien= 'aliado';
 	Inicio.init();
 	
+	tec = new prueba();
 
 //Esta parte va
 	perso = new Character();
@@ -92,7 +27,6 @@ function menu(){
 	perso.createSquare(col,x,y);
 	perso.drawSquare(Inicio.ctx);
 	
-	prueba();
 
 	perso2 = new Character();
 	x= 100;
@@ -100,7 +34,7 @@ function menu(){
 	col = "#CCFF02";
 	perso2.createSquare(col,x,y);
 	perso2.drawSquare(Inicio.ctx);
-
+  
 
 
 //Tal como lo tengo explicao con Jordi, esto es el PROGRAMA PRINCIPAL
@@ -117,7 +51,7 @@ var mainLoop = function () {
 	
 //Con esto veo que funciona el teclado, pero debe estar en esta clase, sino no funciona
 	
-	if(Tecles.keydown == true){
+	if(tec.keydown == true){
 		x = x+30;
 		y = y+30;
 		col = "#AACC02";
