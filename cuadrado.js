@@ -28,6 +28,15 @@ function Square(color,posx,posy){
 	
 	}
 	
+	//Estas dos funciones se utilizan para actualizar cuando se pulse el teclado, ya que la otra modifica los dos datos.
+	this.setposx = function (posx){
+		this.x = posx;
+	}
+	
+	this.setposy = function (posy){
+		this.y = posy;
+	}
+	
 	//La funcion cambia el color del cuadrado  (tal como tengo pensado, cuando ataque y sea dañado, el personaje cambia de color)
 	this.changecol = function (color1){
 		this.color = color1;
@@ -40,7 +49,7 @@ function Square(color,posx,posy){
 	}
 
 	
-
+}
 
 
 /*

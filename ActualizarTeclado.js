@@ -27,13 +27,14 @@
 
 actual = new EventosTec();
 */
-EventosTec = {
+Tecles = {
 	
 	keyup: false,
 	keydown: false,
 	keyright: false,
 	keyleft: false,
-	keyesc: false
+	keyesc: false,
+	keypause: false
 	
 };
 
@@ -41,6 +42,8 @@ EventosTec = {
 //lo unico que se hace es llamar a una "variable" que contiene x,y,hola,... (por decir algo)
 
 //$(document).bind('onkeydown onkeyup', function(e){e.preventDefault();});
+
+function prueba(){
 
 $(document).bind('onkeydown', function (e) {
 				if (e.which == 40){
@@ -70,7 +73,7 @@ $(document).bind('onkeyup', function (e) {
 					EventosTec.keyleft=false;	
 });
 
-
+}
 /*
 function observar (actual){	
 

@@ -27,4 +27,3 @@ var Inicio=
 
 
 //Ya que aquí pongo esto, no estoy seguro de que vaya a ir bien, pero lo voy a intentar
-

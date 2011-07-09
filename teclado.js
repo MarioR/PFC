@@ -40,85 +40,84 @@ function keyPress(e)
 
 //esto es según lo que sale en el texto de ayuda de arriba
 
+
+//Ahora lo voy a poner utilizando el "document.onKeyDown"
+
+Tecles = {
+	
+	keyup: false,
+	keydown: false,
+	keyright: false,
+	keyleft: false,
+	keyesc: false,
+	keypause: false
+	
+};
+
+
+
 function prueba(){
+	document.onkeydown = function (key){
 
+		var keynum;
 
-	keyup= false;
-	
-	keydown= false;
-	
-	keyleft= false;
-	
-	keyright= false;
-	
-	keypause= false;
-	
-	keyesc= false;
-	
-	
-document.onkeydown = function (key){
+		if(key.which){
+			keynum = key.which;
+		}
 
-	var keynum;
+		switch (keynum){
 
-	if(key.which){
-		keynum = key.which;
+			case 38:
+				Tecles.keyup = true;
+			break;
+			case 37:
+				Tecles.keyleft = true;
+			break;
+			case 40:
+				Tecles.keydown = true;
+			break;
+			case 39:
+				Tecles.keyright = true;
+			break;
+			case 27:
+				Tecles.keyesc = true;
+			break;
+			case 112:  //letra P minúscula
+				Tecles.keypause = true;
+			break;
+		}
+
 	}
+	
+	document.onkeyup = function (key){
 
-	switch (keynum){
+		var keynum;
 
-		case 38:
-			Tecles.keyup = true;
-		break;
-		case 37:
-			Tecles.keyleft = true;
-		break;
-		case 40:
-			Tecles.keydown = true;
-		break;
-		case 39:
-			Tecles.keyright = true;
-		break;
-		case 27:
-			Tecles.keyesc = true;
-		break;
-		case 112:  //letra P minúscula
-			Tecles.keypause = true;
-		break;
+		if(key.which){
+			keynum = key.which;
+		}
+
+		switch (keynum){
+
+			case 38:
+				Tecles.keyup = false;
+			break;
+			case 37:
+				Tecles.keyleft = false;
+			break;
+			case 40:
+				Tecles.keydown = false;
+			break;
+			case 39:
+				Tecles.keyright = false;
+			break;
+			case 27:
+				Tecles.keyesc = false;
+			break;
+			case 112:  //letra P minúscula
+				Tecles.keypause = false;
+			break;
+		}
+
 	}
-
-}
-
-
-document.onkeyup = function (key){
-
-	var keynum;
-
-	if(key.which){
-		keynum = key.which;
-	}
-
-	switch (keynum){
-
-		case 38:
-			Tecles.keyup = false;
-		break;
-		case 37:
-			Tecles.keyleft = false;
-		break;
-		case 40:
-			Tecles.keydown = false;
-		break;
-		case 39:
-			Tecles.keyright = false;
-		break;
-		case 27:
-			Tecles.keyesc = false;
-		break;
-		case 112:  //letra P minúscula
-			Tecles.keypause = false;
-		break;
-	}
-
-}
-
 }

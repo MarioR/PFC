@@ -10,13 +10,17 @@
 //Si mal no entiendo, creo que esto debe ser como el cuadrado, una función que englobe a una lista de subfunciones
 
 
-function Character (){
+function Character (color,posx,posy){
 	
 	this.estado = null;
 	
-	this.vida = 3;                //Aunque esto es así, luego, dependiendo del nivel de dificultad, la vida se incrementará o decrementará
+	this.vida = 3;              //Aunque esto es así, luego, dependiendo del nivel de dificultad, la vida se incrementará o decrementará
 	
-	this.sq = null;
+	this.px = posx;
+	
+	this.py = posy;
+	
+	this.sq = new Square (color,this.px,this.py);
 	// Me estoy quedando atascado, porque ahora no estoy seguro de seguir de una forma o de otra.
 	// Desde el menú tengo que crear un Character, y despues, ¿con esa misma variable o con otra? se accederá a la subfuncion que cree el cuadrado.
 	//No se si al character (aunque es lo mas probable) hay que pasarle los datos que se le pasan al cuadrado y almacenarlos en variables "auxiliares"
@@ -26,15 +30,14 @@ function Character (){
 	//La última razon que le he buscado es que como el menú almacenara en una variable el Character que cree, ya tendrá su "this.sq" propio
 	//no hay que preocuparse de que cuando se cree otro Character el valor se sobreescriba.
 	
-	this.createSquare = function (color,posx,posy){
-		
-		this.sq = new Square (color,posx,posy);
-		
-	}
-	
 	this.drawSquare = function (cont){
 		
 		this.sq.draw(cont);
+	}
+	
+	this.updatepos = function (x,y){
+	
+		this.sq.setposition(x,y);
 	}
 	
 	//Esta función actualiza la posición del cuadrado moviéndolo a la izquierda cuando se tenga que pintar
