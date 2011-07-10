@@ -21,14 +21,7 @@ function Character (color,posx,posy){
 	this.py = posy;
 	
 	this.sq = new Square (color,this.px,this.py);
-	// Me estoy quedando atascado, porque ahora no estoy seguro de seguir de una forma o de otra.
-	// Desde el menú tengo que crear un Character, y despues, ¿con esa misma variable o con otra? se accederá a la subfuncion que cree el cuadrado.
-	//No se si al character (aunque es lo mas probable) hay que pasarle los datos que se le pasan al cuadrado y almacenarlos en variables "auxiliares"
 	
-	
-	//Creo que no tengo bien claro el concepto de cuando se crea una instancia desde menú a Character.
-	//La última razon que le he buscado es que como el menú almacenara en una variable el Character que cree, ya tendrá su "this.sq" propio
-	//no hay que preocuparse de que cuando se cree otro Character el valor se sobreescriba.
 	
 	this.drawSquare = function (cont){
 		
@@ -73,45 +66,3 @@ function Character (color,posx,posy){
 */
 	
 }
-
-//Atributos que tendrá cada personaje
-
-Atributos = {
-	estado: null,
-	color: null,
-	vida: 3,
-	posx: 0,
-	posy: 0
-};
-
-
-
-function createCharacter (color){
-	
-	Atributos.color = color;
-	Atributos.posx = 0;
-	Atributos.posy = 0;
-	
-	//Estas lineas toqueteadas por jordi
-	this.square = new Square();
-	this.square.createxxxxx();
-	
-	//Estas lineas tmb tocadas por jordi
-	this.draw = function (){
-	thsis.square.draw(Inicio.ctx);
-	}
-}
-
-
-
-
-
-//Cosas de prueba para combrobar que va el Mainloop
-
-//función que llama a drawSquare con el código del personaje que mueve en ese turno 
-function drawCharacter (codigoPersonaje){
-	
-	drawSquare(codigoPersonaje);
-	
-}
-

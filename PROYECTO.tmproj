@@ -13,51 +13,49 @@
 					<key>filename</key>
 					<string>teclado.js</string>
 					<key>lastUsed</key>
-					<date>2011-07-03T12:44:48Z</date>
-					<key>selected</key>
-					<true/>
+					<date>2011-07-09T16:35:55Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>ActualizarTeclado.js</string>
 					<key>lastUsed</key>
-					<date>2011-07-03T08:33:19Z</date>
+					<date>2011-07-05T09:14:49Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>personaje.js</string>
 					<key>lastUsed</key>
-					<date>2011-07-03T08:20:19Z</date>
+					<date>2011-07-09T16:34:57Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>cuadrado.js</string>
 					<key>lastUsed</key>
-					<date>2011-07-03T08:33:55Z</date>
+					<date>2011-07-09T16:35:55Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>libreria.js</string>
 					<key>lastUsed</key>
-					<date>2011-07-03T08:27:11Z</date>
+					<date>2011-07-09T15:12:04Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>prueba.html</string>
 					<key>lastUsed</key>
-					<date>2011-07-03T08:33:53Z</date>
+					<date>2011-07-05T07:00:10Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>jquery-1.5.js</string>
 					<key>lastUsed</key>
-					<date>2011-07-03T08:20:32Z</date>
+					<date>2011-07-05T09:15:42Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>menu.js</string>
 					<key>lastUsed</key>
-					<date>2011-07-03T12:44:48Z</date>
+					<date>2011-07-09T16:17:20Z</date>
 				</dict>
 			</array>
 			<key>expanded</key>
@@ -82,21 +80,21 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>18</integer>
+			<integer>30</integer>
 		</dict>
 		<key>cuadrado.js</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>117</integer>
 				<key>line</key>
-				<integer>9</integer>
+				<integer>30</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>16</integer>
 		</dict>
 		<key>jquery-1.5.js</key>
 		<dict>
@@ -133,14 +131,30 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>2</integer>
+				<integer>24</integer>
 				<key>line</key>
-				<integer>22</integer>
+				<integer>17</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>17</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>18</integer>
+			</dict>
 		</dict>
 		<key>menu.js</key>
 		<dict>
@@ -149,21 +163,21 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>103</integer>
+				<integer>74</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>74</integer>
+			<integer>49</integer>
 		</dict>
 		<key>personaje.js</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>2</integer>
+				<integer>29</integer>
 				<key>line</key>
-				<integer>7</integer>
+				<integer>113</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -189,14 +203,30 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>18</integer>
+				<integer>1</integer>
 				<key>line</key>
-				<integer>58</integer>
+				<integer>46</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>80</integer>
+			<integer>55</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>46</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>1</integer>
+				<key>line</key>
+				<integer>46</integer>
+			</dict>
 		</dict>
 	</dict>
 	<key>openDocuments</key>
