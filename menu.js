@@ -5,15 +5,38 @@
 //Esta es la funcion que se encargará de inicializar todas las variables que "inicialmente" estén en juego.
 function inicializacionJuego(){
 
-	
-	var x = 0;
-	var y = 0;
-	var col = "#11FF0C";
+	this.contaje = 0;
+	this.x = 0;
+	this.y = 0;
+	this.col = "#11FF0C";
+	var perso = null;
+	var perso2 = null;
+	var perso3 = null;
 	Inicio.init();
 	//Es la función en la que está implementado el teclado, así se cargará la función y el teclado funcionará
 	prueba();
 
 
+}
+
+//Esta es la función que observará que tecla se ha pulsado, para realizar una acción u otra
+function capturaEventos(){
+	
+	
+	
+	//hacer una especie de contaje donde cada vez que se cree un cuadro, se compruebe con que cuadro se está tratando
+	//podria hacerlo desde la clase menú, pero cada vez que creara un cuadro, tendría que pasarle la variable
+	//Sería mejor que estuviese en la clase personaje, no aquí, pero estoy pensando en ello, a ver si se me ocurre
+	
+	
+	//Pero ahora pienso que ese "dato" no es algo propio del personaje, por tanto, no debería tener nocion de quien es.
+	//Debido a esto, creo que lo mejor será hacer lo que pensaba, crear una variable en inicializacionJuego y después
+	//cada vez que se cree un personaje, se incrementará la variable.
+	
+	
+	
+	
+	
 }
 
 
@@ -52,20 +75,20 @@ function menu(){
 
 	inicializacionJuego();
 
-
 //Esta parte va
-    x= 45;
-    y= 60;
-    col = "#110044";
-	perso = new Character(col,x,y);
-
+   // x= 45;
+   //y= 60;
+   // col = "#110044";
+	perso = new Character(this.col,this.x,this.y,this.contaje);
+	contaje ++;
 	perso.drawSquare(Inicio.ctx);
 	
 
-	x= 100;
-	y= 100;
-	col = "#CCFF02";
-	perso2 = new Character(col,x,y);
+	//x= 100;
+	//y= 100;
+	//col = "#CCFF02";
+	perso2 = new Character(this.col,this.x,this.y,this.contaje);
+	contaje ++;
 
 	perso2.drawSquare(Inicio.ctx);
   
@@ -77,10 +100,11 @@ function menu(){
 * 3- Redibujar escenario
 */
 
-x= 0;
-y= 0;
-col = "#AACC02";
-perso3 = new Character(col,x,y);
+//x= 0;
+//y= 0;
+//col = "#AACC02";
+perso3 = new Character(this.col,this.x,this.y,this.contaje);
+contaje ++;
 
 //Esto si que va, pero hay que coordinar cuando hay que utilizarlo
 redibujarEscenario();

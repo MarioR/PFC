@@ -10,7 +10,9 @@
 //Si mal no entiendo, creo que esto debe ser como el cuadrado, una función que englobe a una lista de subfunciones
 
 
-function Character (color,posx,posy){
+function Character (color,posx,posy,num){
+	
+	this.nump = num;
 	
 	this.estado = null;
 	
