@@ -12,6 +12,8 @@ function inicializacionJuego(){
 	var perso = null;
 	var perso2 = null;
 	var perso3 = null;
+	this.a=0;
+	this.b=0;
 	Inicio.init();
 	//Es la función en la que está implementado el teclado, así se cargará la función y el teclado funcionará
 	prueba();
@@ -22,19 +24,42 @@ function inicializacionJuego(){
 //Esta es la función que observará que tecla se ha pulsado, para realizar una acción u otra
 function capturaEventos(){
 	
+//	perso2.updatepos(this.a+5, this.b+5);
 	
 	
-	//hacer una especie de contaje donde cada vez que se cree un cuadro, se compruebe con que cuadro se está tratando
-	//podria hacerlo desde la clase menú, pero cada vez que creara un cuadro, tendría que pasarle la variable
-	//Sería mejor que estuviese en la clase personaje, no aquí, pero estoy pensando en ello, a ver si se me ocurre
+	//Ahora voy a poner lo que será realmente la función, no cosas para probar
+	//En algun momento, aunque no aquí, hay que ir cambiando el "estado" de los cuadrados, de RDY a RUN, i demás, para saber cual está operativo
+	//O el estado va para RDY run i demás, o va para normal, luchando, muerto,...
 	
-	
-	//Pero ahora pienso que ese "dato" no es algo propio del personaje, por tanto, no debería tener nocion de quien es.
-	//Debido a esto, creo que lo mejor será hacer lo que pensaba, crear una variable en inicializacionJuego y después
-	//cada vez que se cree un personaje, se incrementará la variable.
-	
-	
-	
+	if (contaje == perso.nump){
+		
+		if(Tecles.keydown == true){
+			perso.moveDown();
+			Tecles.keydown = false;
+			contaje = 1;
+		}
+		
+	}
+	else {
+		
+		if (contaje == perso2.nump){
+				if(Tecles.keydown == true){
+					perso2.moveDown();
+					Tecles.keydown = false;
+					contaje = 2;
+				}
+		}
+		else{
+			if (contaje == perso3.nump){
+					if(Tecles.keydown == true){
+						perso3.moveDown();
+						Tecles.keydown = false;
+						contaje = 0;
+					}
+			}
+		}
+		
+	}
 	
 	
 }
@@ -59,8 +84,10 @@ var context = Inicio.ctx;
 	context.clearRect(0,0,500,500);
 	//Poniendo esto ya va, hago que cada vez que se limpie la pantalla, se "repinte" el cuadrado
 	//De hecho, es el punto 3- dibujar jugadores/objetos
-	perso3.drawSquare(context);
-	
+
+		perso.drawSquare(context);
+		perso2.drawSquare(context);
+		perso3.drawSquare(context);
 	
 	
 	
@@ -79,7 +106,7 @@ function menu(){
    // x= 45;
    //y= 60;
    // col = "#110044";
-	perso = new Character(this.col,this.x,this.y,this.contaje);
+	perso = new Character("#AAFFCC",100,100,this.contaje);
 	contaje ++;
 	perso.drawSquare(Inicio.ctx);
 	
@@ -87,7 +114,7 @@ function menu(){
 	//x= 100;
 	//y= 100;
 	//col = "#CCFF02";
-	perso2 = new Character(this.col,this.x,this.y,this.contaje);
+	perso2 = new Character("#000000",0,200,this.contaje);
 	contaje ++;
 
 	perso2.drawSquare(Inicio.ctx);
@@ -104,32 +131,29 @@ function menu(){
 //y= 0;
 //col = "#AACC02";
 perso3 = new Character(this.col,this.x,this.y,this.contaje);
-contaje ++;
+
 
 //Esto si que va, pero hay que coordinar cuando hay que utilizarlo
 redibujarEscenario();
 
 var mainLoop = function () {
 	
+	capturaEventos();
 	
 //Con esto veo que funciona el teclado, pero debe estar en esta clase, sino no funciona
-	
-	if(Tecles.keydown == true){
-		x = x+30;
-		y = y+30;
-		perso3.updatepos(x,y);
+/*	if(Tecles.keydown == true){
+		this.x = this.x+30;
+		this.y = this.y+30;
+	//A y B son dos variables creadas para comprobar si funciona bien la variable contaje, viendo que se incrementa
+		this.a = this.a+5;
+		this.b = this.b+5;		
+		perso3.updatepos(this.x,this.y);
 		perso3.drawSquare(Inicio.ctx);
 		Tecles.keydown= false;
-	}
+	}*/
+	
+	
 	redibujarEscenario();
-	
-//Esto de abajo era una prueba para comprobar que iba bien el mainLoop, que se repetia
-
-//	drawCharacter(quien);
-//	updateCuadrado(x,y);
-//	x= x+15;
-//	y= y+30;
-	
 	
 }
 

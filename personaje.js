@@ -38,25 +38,25 @@ function Character (color,posx,posy,num){
 	//Esta función actualiza la posición del cuadrado moviéndolo a la izquierda cuando se tenga que pintar
 	this.moveLeft = function (){
 		//Pongo que le sumo 10 ya que lo que ocupa el cuadrado son 10 unidades
-		this.sq.y = this.sq.y - 10;
+		this.sq.setposx(this.sq.x - 1);
 	}
 	
 	//Esta función actualiza la posición del cuadrado moviéndolo a la derecha cuando se tenga que pintar
 	this.moveRight = function(){
 		
-		this.sq.y = this.sq.y + 10;
+		this.sq.setposx(this.sq.x + 1);
 	}
 	
 	//Esta función actualiza la posición del cuadrado moviéndolo arriba cuando se tenga que pintar
 	this.moveUp = function(){
 		
-		this.sq.x = this.sq.x - 10;
+		this.sq.setposy(this.sq.y - 1);
 	}
 	
 	//Esta función actualiza la posición del cuadrado moviéndolo abajo cuando se tenga que pintar
 	this.moveDown = function(){
 		
-		this.sq.x = this.sq.x + 10;
+		this.sq.setposy(this.sq.y + 1);
 	}
 	
 	//Aunque ahora no está implementado, la función y demás funciones que hagan cosas del estilo irán aquí
