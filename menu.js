@@ -4,7 +4,8 @@
 
 //Esta es la funcion que se encargará de inicializar todas las variables que "inicialmente" estén en juego.
 function inicializacionJuego(){
-
+	
+	this.contenedor = new Array ();  //Esta variable contendrá la lista con los personajes creados
 	this.contaje = 0;
 	this.x = 0;
 	this.y = 0;
@@ -12,6 +13,7 @@ function inicializacionJuego(){
 	var perso = null;
 	var perso2 = null;
 	var perso3 = null;
+	var perso5 = null;
 	this.a=0;
 	this.b=0;
 	Inicio.init();
@@ -92,29 +94,59 @@ function capturaEventosPRUEBA_PREVIA(){
 					if(Tecles.keydown == true){
 						perso3.moveDown();
 						Tecles.keydown = false;
-						contaje = 0;
+						contaje = 3;
 					}
 					else{
 						if(Tecles.keyup == true){
 							perso3.moveUp();
 							Tecles.keyup = false;
-							contaje = 0;
+							contaje = 3;
 						}
 						else{
 							if(Tecles.keyright == true){
 								perso3.moveRight();
 								Tecles.keyright = false;
-								contaje = 0;
+								contaje = 3;
 							}
 							else{
 								if(Tecles.keyleft == true){
 									perso3.moveLeft();
 									Tecles.keyleft = false;
-									contaje = 0;
+									contaje = 3;
 								}
 							}
 						}
 					}
+			}
+			else{
+				if (contaje == perso5.nump){
+						if(Tecles.keydown == true){
+							perso5.moveDown();
+							Tecles.keydown = false;
+							contaje = 0;
+						}
+						else{
+							if(Tecles.keyup == true){
+								perso5.moveUp();
+								Tecles.keyup = false;
+								contaje = 0;
+							}
+							else{
+								if(Tecles.keyright == true){
+									perso5.moveRight();
+									Tecles.keyright = false;
+									contaje = 0;
+								}
+								else{
+									if(Tecles.keyleft == true){
+										perso5.moveLeft();
+										Tecles.keyleft = false;
+										contaje = 0;
+									}
+								}
+							}
+						}
+				}
 			}
 		}
 		
@@ -132,8 +164,7 @@ function capturaEventos(){
 	
 	document.onmousedown = function(e){
 		if(e.which == 1){
-			this.contaje++;
-			perso5 = new Character("#28AC0D",300,300,this.contaje);
+			perso5.updatepos(200,300);
 			perso5.drawSquare(Inicio.ctx);
 			
 		}
@@ -212,13 +243,17 @@ function menu(){
 //col = "#AACC02";
 perso3 = new Character(this.col,this.x,this.y,this.contaje);
 
+contaje++;
+
+perso5 = new Character("#28AC0D",300,300,this.contaje);
+
 
 //Esto si que va, pero hay que coordinar cuando hay que utilizarlo
 redibujarEscenario();
+capturaEventos();
 
 var mainLoop = function () {
-	
-	capturaEventos();
+	capturaEventosPRUEBA_PREVIA();
 	
 //Con esto veo que funciona el teclado, pero debe estar en esta clase, sino no funciona
 /*	if(Tecles.keydown == true){
