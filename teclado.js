@@ -1,6 +1,9 @@
-
-//Ahora lo voy a poner utilizando el "document.onKeyDown"
-
+/*
+* CLASE TECLADO
+*
+* 
+*
+*/
 Tecles = {
 	
 	keyup: false,

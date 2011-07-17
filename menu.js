@@ -22,14 +22,10 @@ function inicializacionJuego(){
 }
 
 //Esta es la función que observará que tecla se ha pulsado, para realizar una acción u otra
-function capturaEventos(){
+function capturaEventosPRUEBA_PREVIA(){
 	
-//	perso2.updatepos(this.a+5, this.b+5);
-	
-	
-	//Ahora voy a poner lo que será realmente la función, no cosas para probar
-	//En algun momento, aunque no aquí, hay que ir cambiando el "estado" de los cuadrados, de RDY a RUN, i demás, para saber cual está operativo
-	//O el estado va para RDY run i demás, o va para normal, luchando, muerto,...
+	//POR LO QUE ENTIENDO, AQUI NO SE TRATARÁ CON EL TECLADO, SINO CON EL MOVIMIENTO DEL RATÓN
+	//El teclado ya se trata en su clase. Otra función de esta clase "mezclara" las funciones para obtener el resultado
 	
 	if (contaje == perso.nump){
 		
@@ -37,6 +33,27 @@ function capturaEventos(){
 			perso.moveDown();
 			Tecles.keydown = false;
 			contaje = 1;
+		}
+		else{
+			if(Tecles.keyup == true){
+				perso.moveUp();
+				Tecles.keyup = false;
+				contaje = 1;
+			}
+			else{
+				if(Tecles.keyright == true){
+					perso.moveRight();
+					Tecles.keyright = false;
+					contaje = 1;
+				}
+				else{
+					if(Tecles.keyleft == true){
+						perso.moveLeft();
+						Tecles.keyleft = false;
+						contaje = 1;
+					}
+				}
+			}
 		}
 		
 	}
@@ -48,6 +65,27 @@ function capturaEventos(){
 					Tecles.keydown = false;
 					contaje = 2;
 				}
+				else{
+					if(Tecles.keyup == true){
+						perso2.moveUp();
+						Tecles.keyup = false;
+						contaje = 2;
+					}
+					else{
+						if(Tecles.keyright == true){
+							perso2.moveRight();
+							Tecles.keyright = false;
+							contaje = 2;
+						}
+						else{
+							if(Tecles.keyleft == true){
+								perso2.moveLeft();
+								Tecles.keyleft = false;
+								contaje = 2;
+							}
+						}
+					}
+				}
 		}
 		else{
 			if (contaje == perso3.nump){
@@ -56,10 +94,51 @@ function capturaEventos(){
 						Tecles.keydown = false;
 						contaje = 0;
 					}
+					else{
+						if(Tecles.keyup == true){
+							perso3.moveUp();
+							Tecles.keyup = false;
+							contaje = 0;
+						}
+						else{
+							if(Tecles.keyright == true){
+								perso3.moveRight();
+								Tecles.keyright = false;
+								contaje = 0;
+							}
+							else{
+								if(Tecles.keyleft == true){
+									perso3.moveLeft();
+									Tecles.keyleft = false;
+									contaje = 0;
+								}
+							}
+						}
+					}
 			}
 		}
 		
 	}
+	
+	
+}
+
+//Esta es la "verdadera" función captura eventos
+function capturaEventos(){
+	
+	
+	//Por lo que entiendo, ahora no se utiliza esto, esto irá cuando vaya el raton, que es cuando se hagan los diferentes estados (AGOSTO)
+	//Pero podría hacer alguna cosilla, haciendo que si se pulsa el raton, se cree otro cuadrado
+	
+	document.onmousedown = function(e){
+		if(e.which == 1){
+			this.contaje++;
+			perso5 = new Character("#28AC0D",300,300,this.contaje);
+			perso5.drawSquare(Inicio.ctx);
+			
+		}
+	}
+	
 	
 	
 }
@@ -89,6 +168,7 @@ var context = Inicio.ctx;
 		perso2.drawSquare(context);
 		perso3.drawSquare(context);
 	
+		perso5.drawSquare(context);
 	
 	
 	
