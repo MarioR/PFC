@@ -218,6 +218,7 @@ function menu(){
    //y= 60;
    // col = "#110044";
 	perso = new Character("#AAFFCC",100,100,this.contaje);
+	contenedor[this.contaje] = perso; //kreo k no es asi, pero es posible
 	contaje ++;
 	perso.drawSquare(Inicio.ctx);
 	
@@ -226,6 +227,8 @@ function menu(){
 	//y= 100;
 	//col = "#CCFF02";
 	perso2 = new Character("#000000",0,200,this.contaje);
+	contenedor[this.contaje] = perso2; //kreo k no es asi, pero es posible
+	
 	contaje ++;
 
 	perso2.drawSquare(Inicio.ctx);
@@ -242,10 +245,12 @@ function menu(){
 //y= 0;
 //col = "#AACC02";
 perso3 = new Character(this.col,this.x,this.y,this.contaje);
+contenedor[this.contaje] = perso3; //kreo k no es asi, pero es posible
 
 contaje++;
 
 perso5 = new Character("#28AC0D",300,300,this.contaje);
+contenedor[this.contaje] = perso5; //kreo k no es asi, pero es posible
 
 
 //Esto si que va, pero hay que coordinar cuando hay que utilizarlo
