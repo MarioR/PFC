@@ -35,6 +35,14 @@ function Character (color,posx,posy,num){
 		this.sq.setposition(x,y);
 	}
 	
+	//Esta función actualiza el estado del cuadrado. Irá de 0 a 2
+	//0 = en pausa
+	//1 = ejecutándose
+	//2 = muerto
+	this.setestado = function(aux){
+		this.estado = aux;
+	}
+	
 	//Esta función actualiza la posición del cuadrado moviéndolo a la izquierda cuando se tenga que pintar
 	this.moveLeft = function (){
 		//Pongo que le sumo 10 ya que lo que ocupa el cuadrado son 10 unidades

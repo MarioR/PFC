@@ -10,10 +10,10 @@ function inicializacionJuego(){
 	this.x = 0;
 	this.y = 0;
 	this.col = "#11FF0C";
-	var perso = null;
-	var perso2 = null;
-	var perso3 = null;
-	var perso5 = null;
+	this.perso = null;
+	this.perso2 = null;
+	this.perso3 = null;
+	this.perso5 = null;
 	this.a=0;
 	this.b=0;
 	Inicio.init();
@@ -29,28 +29,28 @@ function capturaEventosPRUEBA_PREVIA(){
 	//POR LO QUE ENTIENDO, AQUI NO SE TRATARÁ CON EL TECLADO, SINO CON EL MOVIMIENTO DEL RATÓN
 	//El teclado ya se trata en su clase. Otra función de esta clase "mezclara" las funciones para obtener el resultado
 	
-	if (contaje == perso.nump){
+	if (contaje == this.perso.nump){
 		
 		if(Tecles.keydown == true){
-			perso.moveDown();
+			this.perso.moveDown();
 			Tecles.keydown = false;
 			contaje = 1;
 		}
 		else{
 			if(Tecles.keyup == true){
-				perso.moveUp();
+				this.perso.moveUp();
 				Tecles.keyup = false;
 				contaje = 1;
 			}
 			else{
 				if(Tecles.keyright == true){
-					perso.moveRight();
+					this.perso.moveRight();
 					Tecles.keyright = false;
 					contaje = 1;
 				}
 				else{
 					if(Tecles.keyleft == true){
-						perso.moveLeft();
+						this.perso.moveLeft();
 						Tecles.keyleft = false;
 						contaje = 1;
 					}
@@ -61,27 +61,27 @@ function capturaEventosPRUEBA_PREVIA(){
 	}
 	else {
 		
-		if (contaje == perso2.nump){
+		if (contaje == this.perso2.nump){
 				if(Tecles.keydown == true){
-					perso2.moveDown();
+					this.perso2.moveDown();
 					Tecles.keydown = false;
 					contaje = 2;
 				}
 				else{
 					if(Tecles.keyup == true){
-						perso2.moveUp();
+						this.perso2.moveUp();
 						Tecles.keyup = false;
 						contaje = 2;
 					}
 					else{
 						if(Tecles.keyright == true){
-							perso2.moveRight();
+							this.perso2.moveRight();
 							Tecles.keyright = false;
 							contaje = 2;
 						}
 						else{
 							if(Tecles.keyleft == true){
-								perso2.moveLeft();
+								this.perso2.moveLeft();
 								Tecles.keyleft = false;
 								contaje = 2;
 							}
@@ -90,27 +90,27 @@ function capturaEventosPRUEBA_PREVIA(){
 				}
 		}
 		else{
-			if (contaje == perso3.nump){
+			if (contaje == this.perso3.nump){
 					if(Tecles.keydown == true){
-						perso3.moveDown();
+						this.perso3.moveDown();
 						Tecles.keydown = false;
 						contaje = 3;
 					}
 					else{
 						if(Tecles.keyup == true){
-							perso3.moveUp();
+							this.perso3.moveUp();
 							Tecles.keyup = false;
 							contaje = 3;
 						}
 						else{
 							if(Tecles.keyright == true){
-								perso3.moveRight();
+								this.perso3.moveRight();
 								Tecles.keyright = false;
 								contaje = 3;
 							}
 							else{
 								if(Tecles.keyleft == true){
-									perso3.moveLeft();
+									this.perso3.moveLeft();
 									Tecles.keyleft = false;
 									contaje = 3;
 								}
@@ -119,27 +119,27 @@ function capturaEventosPRUEBA_PREVIA(){
 					}
 			}
 			else{
-				if (contaje == perso5.nump){
+				if (contaje == this.perso5.nump){
 						if(Tecles.keydown == true){
-							perso5.moveDown();
+							this.perso5.moveDown();
 							Tecles.keydown = false;
 							contaje = 0;
 						}
 						else{
 							if(Tecles.keyup == true){
-								perso5.moveUp();
+								this.perso5.moveUp();
 								Tecles.keyup = false;
 								contaje = 0;
 							}
 							else{
 								if(Tecles.keyright == true){
-									perso5.moveRight();
+									this.perso5.moveRight();
 									Tecles.keyright = false;
 									contaje = 0;
 								}
 								else{
 									if(Tecles.keyleft == true){
-										perso5.moveLeft();
+										this.perso5.moveLeft();
 										Tecles.keyleft = false;
 										contaje = 0;
 									}
@@ -173,6 +173,51 @@ function capturaEventos(){
 	
 	
 }
+//Lo programo sin saber si va todo hasta el final, ya que no funciona nada si esto está activo
+
+
+
+/*
+//Esta función actualizará los jugadores, recibe por parámetro la lista con los jugadores, "una var auxiliar" para saber el nº de jugadores
+//y ¿la estructura del teclado? (si ya la tienen de por si, con Tecles.loquesea)
+//characters = lista de jugadores,   cant = numero de jugadores
+function actualizaJugadores(characters,cant){
+	
+	int aux = 0;
+	
+	//El bucle tiene la gracia de la función, para cada jugador, miraré si tiene la variable X con el valor correspondiente a su cuadrado
+	//y entonces le variaré la posición, ya que no irán todos los jugadores a la vez, será por turnos, primero uno, después otro,...
+	for (aux = 0; aux <= cant; aux++){
+		
+		if(characters[aux].estado == 1){
+			if (Tecles.keydown == true){
+				characters[aux].moveDown();
+				Tecles.keydown = false;
+			}
+			else{
+				if(Tecles.keyup == true){
+					characters[aux].moveUp();
+					Tecles.keyup = false;
+				}
+				else{
+					if(Tecles.keyright == true){
+						characters[aux].moveRight();
+						Tecles.keyright = false;
+					}
+					else{
+						if(Tecles.keyleft == true){
+							characters[aux].moveLeft();
+							Tecles.keyleft = false;
+						}
+					}
+				}
+			}
+		}//fin de 1er IF
+		
+	}//FIN DE FOR
+	
+}
+*/
 
 
 //Esta es la función que se encargará de limpiar la pantalla, dibujar tablero, jugadores e interfaz.
@@ -195,11 +240,11 @@ var context = Inicio.ctx;
 	//Poniendo esto ya va, hago que cada vez que se limpie la pantalla, se "repinte" el cuadrado
 	//De hecho, es el punto 3- dibujar jugadores/objetos
 
-		perso.drawSquare(context);
-		perso2.drawSquare(context);
-		perso3.drawSquare(context);
+		this.perso.drawSquare(context);
+		this.perso2.drawSquare(context);
+		this.perso3.drawSquare(context);
 	
-		perso5.drawSquare(context);
+		this.perso5.drawSquare(context);
 	
 	
 	
@@ -217,8 +262,8 @@ function menu(){
    // x= 45;
    //y= 60;
    // col = "#110044";
-	perso = new Character("#AAFFCC",100,100,this.contaje);
-	contenedor[this.contaje] = perso; //kreo k no es asi, pero es posible
+	this.perso = new Character("#AAFFCC",100,100,this.contaje);
+	contenedor[this.contaje] = this.perso; //kreo k no es asi, pero es posible
 	contaje ++;
 	perso.drawSquare(Inicio.ctx);
 	
@@ -226,12 +271,13 @@ function menu(){
 	//x= 100;
 	//y= 100;
 	//col = "#CCFF02";
-	perso2 = new Character("#000000",0,200,this.contaje);
-	contenedor[this.contaje] = perso2; //kreo k no es asi, pero es posible
+	this.perso2 = new Character("#000000",0,200,this.contaje);
+	contenedor[this.contaje] = this.perso2; //kreo k no es asi, pero es posible
+	
 	
 	contaje ++;
 
-	perso2.drawSquare(Inicio.ctx);
+	this.perso2.drawSquare(Inicio.ctx);
   
 
 //Tal como lo tengo explicao con Jordi, esto es el PROGRAMA PRINCIPAL
@@ -244,13 +290,13 @@ function menu(){
 //x= 0;
 //y= 0;
 //col = "#AACC02";
-perso3 = new Character(this.col,this.x,this.y,this.contaje);
-contenedor[this.contaje] = perso3; //kreo k no es asi, pero es posible
+this.perso3 = new Character(this.col,this.x,this.y,this.contaje);
+contenedor[this.contaje] = this.perso3; //kreo k no es asi, pero es posible
 
 contaje++;
 
-perso5 = new Character("#28AC0D",300,300,this.contaje);
-contenedor[this.contaje] = perso5; //kreo k no es asi, pero es posible
+this.perso5 = new Character("#28AC0D",300,300,this.contaje);
+contenedor[this.contaje] = this.perso5; //kreo k no es asi, pero es posible
 
 
 //Esto si que va, pero hay que coordinar cuando hay que utilizarlo
@@ -259,6 +305,7 @@ capturaEventos();
 
 var mainLoop = function () {
 	capturaEventosPRUEBA_PREVIA();
+//	actualizaJugadores(this.contenedor,this.contaje);
 	
 //Con esto veo que funciona el teclado, pero debe estar en esta clase, sino no funciona
 /*	if(Tecles.keydown == true){
