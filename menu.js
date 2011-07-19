@@ -218,7 +218,7 @@ function actualizaJugadores(characters,cant){
 		
 	}//FIN DE FOR
 	this.num = 0;
-	this.characters[this.aux2].estado = this.num;
+	characters[this.aux2].estado = this.num;
 	this.aux2 = this.aux2 + 1;
 	this.aux3 = this.contaje + 1;
 	if(this.aux2 == this.aux3) {
