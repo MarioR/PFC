@@ -22,7 +22,7 @@ function inicializacionJuego(){
 
 
 }
-
+/*
 //Esta es la función que observará que tecla se ha pulsado, para realizar una acción u otra
 function capturaEventosPRUEBA_PREVIA(){
 	
@@ -154,7 +154,7 @@ function capturaEventosPRUEBA_PREVIA(){
 	
 	
 }
-
+*/
 //Esta es la "verdadera" función captura eventos
 function capturaEventos(){
 	
