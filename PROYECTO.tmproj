@@ -25,7 +25,9 @@
 					<key>filename</key>
 					<string>personaje.js</string>
 					<key>lastUsed</key>
-					<date>2011-07-21T13:24:31Z</date>
+					<date>2011-07-22T14:21:55Z</date>
+					<key>selected</key>
+					<true/>
 				</dict>
 				<dict>
 					<key>filename</key>
@@ -55,7 +57,7 @@
 					<key>filename</key>
 					<string>menu.js</string>
 					<key>lastUsed</key>
-					<date>2011-07-21T13:24:31Z</date>
+					<date>2011-07-22T14:21:55Z</date>
 				</dict>
 			</array>
 			<key>expanded</key>
@@ -145,28 +147,28 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>2</integer>
+				<integer>30</integer>
 				<key>line</key>
-				<integer>156</integer>
+				<integer>324</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>298</integer>
+			<integer>304</integer>
 		</dict>
 		<key>personaje.js</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>29</integer>
+				<integer>2</integer>
 				<key>line</key>
-				<integer>106</integer>
+				<integer>130</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>85</integer>
+			<integer>95</integer>
 		</dict>
 		<key>prueba.html</key>
 		<dict>

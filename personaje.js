@@ -80,14 +80,14 @@ function Character (color,posx,posy,num){
 	//PROBANDO SI ESTO VA
 	
 	this.actualizarExp = function(){
-		this.siguienteNiv = (this.siguienteNiv) * (this.nivel);
+		this.siguienteNiv = ((this.siguienteNiv) * (this.nivel)) + 1;
 	}
 	
 	//Si ha eliminado a un enemigo ha de actualizar su experiencia
 	this.setExperiencia = function(){
+		
 		//Aquí hará falta diferenciar entre niveles que tengan los personajes
-		//Por ahora será únicamente para nivel 1 y/o subir al 2
-		this.aux = 0;
+		//¿¿¿¿¿no termino de entender el comentario de arriba ... ?????
 		
 		this.experiencia = this.experiencia + 2;
 		
@@ -130,6 +130,7 @@ function Character (color,posx,posy,num){
 		
 	}
 	
+	port aventura 6, 10, 13, 26, 29, 32, 33, 40, 64
 	
 */
 	 
