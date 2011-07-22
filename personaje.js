@@ -26,6 +26,8 @@ function Character (color,posx,posy,num){
 	
 	this.nivel = 1;
 	
+	this.siguienteNiv = 10;
+	
 	this.sq = new Square (color,this.px,this.py);
 	
 	
@@ -75,6 +77,12 @@ function Character (color,posx,posy,num){
 	//Aunque ahora no está implementado, la función y demás funciones que hagan cosas del estilo irán aquí
 	
 	
+	//PROBANDO SI ESTO VA
+	
+	this.actualizarExp = function(){
+		this.siguienteNiv = (this.siguienteNiv) * (this.nivel);
+	}
+	
 	//Si ha eliminado a un enemigo ha de actualizar su experiencia
 	this.setExperiencia = function(){
 		//Aquí hará falta diferenciar entre niveles que tengan los personajes
@@ -96,10 +104,12 @@ function Character (color,posx,posy,num){
 		
 		 
 		*/
-		if (this.experiencia >= 10){
-			this.nivel = 2;
-			this.aux = this.experiencia - 10;
-			this.experiencia = this.aux;
+		if (this.experiencia >= this.siguienteNiv){
+			this.nivel = this.nivel + 1;
+			//Llamar a la "subfunción" siguiente nivel, para que actualice la cantidad this.siguienteNiv, así cada vez le costará 
+			//más subir de nivel
+			this.actualizarExp();  //parece que la llamada funciona, ya que la ejecución no se para
+
 		}
 		
 	}

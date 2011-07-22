@@ -322,7 +322,7 @@ capturaEventos();
 var mainLoop = function () {
 //	capturaEventosPRUEBA_PREVIA();
 	actualizaJugadores(this.contenedor,this.contaje);
-	
+	this.perso3.setExperiencia();
 //Con esto veo que funciona el teclado, pero debe estar en esta clase, sino no funciona
 /*	if(Tecles.keydown == true){
 		this.x = this.x+30;

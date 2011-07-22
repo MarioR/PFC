@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>teclado.js</string>
+	<string>personaje.js</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -13,7 +13,7 @@
 					<key>filename</key>
 					<string>teclado.js</string>
 					<key>lastUsed</key>
-					<date>2011-07-09T16:35:55Z</date>
+					<date>2011-07-17T19:47:52Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
@@ -25,19 +25,19 @@
 					<key>filename</key>
 					<string>personaje.js</string>
 					<key>lastUsed</key>
-					<date>2011-07-09T16:34:57Z</date>
+					<date>2011-07-21T13:24:31Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>cuadrado.js</string>
 					<key>lastUsed</key>
-					<date>2011-07-09T16:35:55Z</date>
+					<date>2011-07-21T13:24:19Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>libreria.js</string>
 					<key>lastUsed</key>
-					<date>2011-07-09T15:12:04Z</date>
+					<date>2011-07-11T20:05:57Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
@@ -49,13 +49,13 @@
 					<key>filename</key>
 					<string>jquery-1.5.js</string>
 					<key>lastUsed</key>
-					<date>2011-07-05T09:15:42Z</date>
+					<date>2011-07-16T08:55:33Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>menu.js</string>
 					<key>lastUsed</key>
-					<date>2011-07-09T16:17:20Z</date>
+					<date>2011-07-21T13:24:31Z</date>
 				</dict>
 			</array>
 			<key>expanded</key>
@@ -87,44 +87,28 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>117</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>30</integer>
+				<integer>52</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>16</integer>
+			<integer>0</integer>
 		</dict>
 		<key>jquery-1.5.js</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>5</integer>
+				<integer>24</integer>
 				<key>line</key>
-				<integer>2909</integer>
+				<integer>3241</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>1</integer>
-				<key>line</key>
-				<integer>2901</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>5</integer>
-				<key>line</key>
-				<integer>2909</integer>
-			</dict>
 		</dict>
 		<key>libreria.js</key>
 		<dict>
@@ -161,14 +145,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>2</integer>
 				<key>line</key>
-				<integer>74</integer>
+				<integer>156</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>49</integer>
+			<integer>298</integer>
 		</dict>
 		<key>personaje.js</key>
 		<dict>
@@ -177,12 +161,12 @@
 				<key>column</key>
 				<integer>29</integer>
 				<key>line</key>
-				<integer>113</integer>
+				<integer>106</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>85</integer>
 		</dict>
 		<key>prueba.html</key>
 		<dict>
@@ -203,30 +187,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>1</integer>
+				<integer>2</integer>
 				<key>line</key>
-				<integer>46</integer>
+				<integer>3</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>55</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>46</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>1</integer>
-				<key>line</key>
-				<integer>46</integer>
-			</dict>
+			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>openDocuments</key>
@@ -243,6 +211,6 @@
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{210, 75}, {1230, 803}}</string>
+	<string>{{210, 78}, {1230, 800}}</string>
 </dict>
 </plist>
