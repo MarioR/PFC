@@ -22,9 +22,9 @@ function Character (color,posx,posy,num){
 	
 	this.py = posy;
 	
-	this.experiencia = 0;
+	this.experiencia = 0;     //Experiencia que tiene el personaje
 	
-	this.nivel = 1;
+	this.nivel = 1;  		  //Nivel que tiene el personaje
 	
 	this.siguienteNiv = 10;
 	
@@ -125,13 +125,16 @@ function Character (color,posx,posy,num){
 			this.vida = this.vida - 10;
 		}
 	}
-/*
-	this.attack = function(){
+
+	this.attack = function(persoAtac){
 		
+		persoAtac.esAtacado();
+		
+		if(persoAtac.estado == 2){
+			this.setExperiencia();
+		}
 	}
-	
-	port aventura 6, 10, 13, 26, 29, 32, 33, 40, 64
-	
-*/
+
+
 	 
 }
