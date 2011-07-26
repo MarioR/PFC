@@ -1,7 +1,8 @@
 /*
 * CLASE TECLADO
 *
-* 
+* Esta clase contine una estructura que contiene las diferentes variables a utilizar en la clase
+* y tiene la función llamada prueba, que es la que engloba al teclado, al onkeydown y al onkeyup
 *
 */
 Tecles = {

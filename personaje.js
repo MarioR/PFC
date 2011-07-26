@@ -7,8 +7,6 @@
 *
 */
 
-//Si mal no entiendo, creo que esto debe ser como el cuadrado, una función que englobe a una lista de subfunciones
-
 
 function Character (color,posx,posy,num){
 	
@@ -51,7 +49,7 @@ function Character (color,posx,posy,num){
 	
 	//Esta función actualiza la posición del cuadrado moviéndolo a la izquierda cuando se tenga que pintar
 	this.moveLeft = function (){
-		//Pongo que le sumo 10 ya que lo que ocupa el cuadrado son 10 unidades
+
 		this.sq.setposx(this.sq.x - 1);
 	}
 	
@@ -74,10 +72,8 @@ function Character (color,posx,posy,num){
 	}
 	
 	
-	//Aunque ahora no está implementado, la función y demás funciones que hagan cosas del estilo irán aquí
-	
-	
 	//PROBANDO SI ESTO VA
+	//El programa no peta, así que debería ir, pero falta que Jordi conteste al mail para continuar
 	
 	this.actualizarExp = function(){
 		this.siguienteNiv = ((this.siguienteNiv) * (this.nivel)) + 1;
@@ -86,24 +82,10 @@ function Character (color,posx,posy,num){
 	//Si ha eliminado a un enemigo ha de actualizar su experiencia
 	this.setExperiencia = function(){
 		
-		//Aquí hará falta diferenciar entre niveles que tengan los personajes
-		//¿¿¿¿¿no termino de entender el comentario de arriba ... ?????
 		
 		this.experiencia = this.experiencia + 2;
 		
-		//Si la experiencia es mayor a 10, subirá de nivel. 
-		/* 
-		* No se como ponerlo, pero de momento cada vez que suba de nivel, la experiencia será igual a 0 y subirá el numero de puntos a subir
-		* para alcanzar el siguiente nivel
-		
-		
-		Se me ocurre poner una funcion que cada vez k suba de nivel, se ponga un dato de "siguiente nivel" aumente, así cada vez habrá más
-		"muertes" para poder ganar experiencia y subir.
-		
-		Lo que no me termina de convencer es crear una función interna, y llamarla desde dentro de esta función, lo que no se si irá bien o no
-		
-		 
-		*/
+
 		if (this.experiencia >= this.siguienteNiv){
 			this.nivel = this.nivel + 1;
 			//Llamar a la "subfunción" siguiente nivel, para que actualice la cantidad this.siguienteNiv, así cada vez le costará 
@@ -134,7 +116,6 @@ function Character (color,posx,posy,num){
 			this.setExperiencia();
 		}
 	}
-
 
 	 
 }
