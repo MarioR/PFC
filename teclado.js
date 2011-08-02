@@ -41,10 +41,13 @@ function prueba(){
 			case 39:
 				Tecles.keyright = true;
 			break;
+			
 			case 27:
 				Tecles.keyesc = true;
 			break;
-			case 112:  //letra P minúscula
+			//segun la tabla de codigo ascii no pone que sea el caracter 80, pero es el valor que tengo que poner
+			//para que funcione con la letre P minúscula
+			case 80:  //letra P minúscula
 				Tecles.keypause = true;
 			break;
 		}
@@ -76,7 +79,7 @@ function prueba(){
 			case 27:
 				Tecles.keyesc = false;
 			break;
-			case 112:  //letra P minúscula
+			case 80:  //letra P minúscula
 				Tecles.keypause = false;
 			break;
 		}

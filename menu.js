@@ -132,15 +132,28 @@ var context = Inicio.ctx;
 	
 }
 
-//Tengo que poner la función menu, ya que sino no se ejecuta el prueba.html, porque no va
-//De ahí que ponga dentro de la función el mainLoop y el setInterval y, fuera de él, inicializo
-//las variables necesarias
+//Funcion de prueba que abre una ventana a la pagina indicada
+function creaVentanaSecundariaPrueba(){
+	
+	window.open("http://www.desarrolloweb.com" , "ventana1" , "width=120,height=300,scrollbars=NO");
+	
+}
 
+
+//Tengo que poner la función menu, ya que sino no se ejecuta el prueba.html, porque no va
+//De ahí que ponga dentro de la función el mainLoop y el setInterval.
 function menu(){
 
+	//Llamada a la función inicializacionJuego(), que carga los parametros y variables iniciales
 	inicializacionJuego();
 
-
+	
+	//Creacion de los personajes iniciales (pruebas, para ver que funcionan varios)
+	//1º se crea el personaje
+	//2º se le marca un estado
+	//3º se almacena en el array de personajes
+	//4º se incrementa una variable necesaria para el array
+	//5º se dibuja el peronaje
 	this.perso = new Character("#AAFFCC",100,100,this.contaje);
 	this.perso.setestado(1);
 	this.contenedor[this.contaje] = this.perso; //kreo k no es asi, pero es posible
@@ -151,18 +164,9 @@ function menu(){
 	this.perso2 = new Character("#000000",0,200,this.contaje);
 	this.perso2.setestado(0);
 	this.contenedor[this.contaje] = this.perso2; //kreo k no es asi, pero es posible
-
 	contaje ++;
-
 	this.perso2.drawSquare(Inicio.ctx);
   
-
-//Tal como lo tengo explicao con Jordi, esto es el PROGRAMA PRINCIPAL
-/*El mainLoop está formado por 3 partes
-* 1- Capturar entrada de eventos
-* 2- Calcular nuevo estado de juego
-* 3- Redibujar escenario
-*/
 
 
 
@@ -177,17 +181,37 @@ this.perso5.setestado(0);
 this.contenedor[this.contaje] = this.perso5; //kreo k no es asi, pero es posible
 
 
+
+//Tal como lo tengo explicao con Jordi, esto es el PROGRAMA PRINCIPAL
+/*El mainLoop está formado por 3 partes
+* 1- Capturar entrada de eventos
+* 2- Calcular nuevo estado de juego
+* 3- Redibujar escenario
+*/
+
+
+
 //Esto si que va, pero hay que coordinar cuando hay que utilizarlo
 redibujarEscenario();
 capturaEventos();
 
 var mainLoop = function () {
-
+	
 	actualizaJugadores(this.contenedor,this.contaje);
 	this.perso3.setExperiencia();
-
+	
+	//Aqui deberá ir el comprobar si el juego ha terminado
+	// Ahora es una manera simple, pero hago que se abra la pagina a continuación
+	//Cuando toque, ya se cambiará o se modificará bien para lo que tengo que hacer
+	if(Tecles.keyesc == true){
+	//	window.open("http://www.desarrolloweb.com" , "ventana1" , "width=120,height=300,scrollbars=NO");
+		Tecles.keyesc = false;
+		creaVentanaSecundariaPrueba();
+	}
+	
 	
 	redibujarEscenario();
+	
 	
 }
 

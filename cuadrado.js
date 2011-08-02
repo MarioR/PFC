@@ -8,8 +8,7 @@
 */
 function Square(color,posx,posy){
 
-	//Estos 5 (por ahora) this.algo forman parte del constructor de la función Square, ya que como me dijo Jordi
-	//el constructor viene implícito en la función, es decir, no hay que realizar una subfunción para el constructor.
+	//Aqui tenemos implícito el constructor de la clase Square. Se inicializan las variables para posteriormente tener las funciones de la clase
 		this.x = posx;
 
 		this.y = posy;
@@ -37,6 +36,8 @@ function Square(color,posx,posy){
 		this.y = posy;
 	}
 	
+	//esto es para la version inicial, porque una vez tenga imágenes, no será así. Aunque puedo cambiar la imagen por el mismo personaje
+	//llevando una venda o algo parecido
 	//La funcion cambia el color del cuadrado  (tal como tengo pensado, cuando ataque y sea dañado, el personaje cambia de color)
 	this.changecol = function (color1){
 		this.color = color1;

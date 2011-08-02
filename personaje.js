@@ -15,7 +15,7 @@ function Character (color,posx,posy,num){
 	this.estado = null;
 	
 	this.vida = 100;              //Aunque esto es así, luego, dependiendo del nivel de dificultad, la vida se incrementará o decrementará
-	
+								  //Esto es una decisión de diseño, si llego a implementarlo
 	this.px = posx;
 	
 	this.py = posy;
@@ -31,7 +31,10 @@ function Character (color,posx,posy,num){
 	
 	this.drawSquare = function (cont){
 		
-		this.sq.draw(cont);
+		if(this.estado != 2){
+			this.sq.draw(cont);
+		}	
+
 	}
 	
 	this.updatepos = function (x,y){
@@ -74,9 +77,17 @@ function Character (color,posx,posy,num){
 	
 	//PROBANDO SI ESTO VA
 	//El programa no peta, así que debería ir, pero falta que Jordi conteste al mail para continuar
+	//Como he llamado a la funcion desde el menú..., i sigue funcionando, debería funcionar todo
 	
 	this.actualizarExp = function(){
 		this.siguienteNiv = ((this.siguienteNiv) * (this.nivel)) + 1;
+		
+		
+	
+		//Prueba tonta para ver que entra en esta función
+
+	//	this.updatepos(400,400);
+
 	}
 	
 	//Si ha eliminado a un enemigo ha de actualizar su experiencia
