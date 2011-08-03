@@ -15,7 +15,7 @@ function inicializacionJuego(){
 	this.contaje = 0;
 	this.x = 0;
 	this.y = 0;
-	this.col = "#11FF0C";
+	this.col = "#008080";
 	this.perso = null;
 	this.perso2 = null;
 	this.perso3 = null;
@@ -135,7 +135,7 @@ var context = Inicio.ctx;
 //Funcion de prueba que abre una ventana a la pagina indicada
 function creaVentanaSecundariaPrueba(){
 	
-	window.open("http://www.desarrolloweb.com" , "ventana1" , "width=120,height=300,scrollbars=NO");
+	window.open("opciones.html" , "ventana1" , "width=120,height=300,scrollbars=NO");
 	
 }
 
@@ -154,14 +154,14 @@ function menu(){
 	//3º se almacena en el array de personajes
 	//4º se incrementa una variable necesaria para el array
 	//5º se dibuja el peronaje
-	this.perso = new Character("#AAFFCC",100,100,this.contaje);
+	this.perso = new Character("#000080",100,100,this.contaje);
 	this.perso.setestado(1);
 	this.contenedor[this.contaje] = this.perso; //kreo k no es asi, pero es posible
 	contaje ++;
 	this.perso.drawSquare(Inicio.ctx);
 	
 
-	this.perso2 = new Character("#000000",0,200,this.contaje);
+	this.perso2 = new Character("#00FF00",0,200,this.contaje);
 	this.perso2.setestado(0);
 	this.contenedor[this.contaje] = this.perso2; //kreo k no es asi, pero es posible
 	contaje ++;
@@ -176,7 +176,7 @@ this.contenedor[this.contaje] = this.perso3; //kreo k no es asi, pero es posible
 
 contaje++;
 
-this.perso5 = new Character("#28AC0D",300,300,this.contaje);
+this.perso5 = new Character("#C0C0C0",300,300,this.contaje);
 this.perso5.setestado(0);
 this.contenedor[this.contaje] = this.perso5; //kreo k no es asi, pero es posible
 
