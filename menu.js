@@ -10,7 +10,6 @@
 
 //Esta es la funcion que se encargará de inicializar todas las variables que "inicialmente" estén en juego.
 function inicializacionJuego(){
-	
 	this.contenedor = new Array ();  //Esta variable contendrá la lista con los personajes creados
 	this.contaje = 0;
 	this.x = 0;
@@ -20,8 +19,8 @@ function inicializacionJuego(){
 	this.perso2 = null;
 	this.perso3 = null;
 	this.perso5 = null;
-	this.a=0;
-	this.b=0;
+	
+	this.a = 0;
 	Inicio.init();
 	//Es la función en la que está implementado el teclado, así se cargará la función y el teclado funcionará
 	prueba();
@@ -37,6 +36,7 @@ function capturaEventos(){
 		
 	document.onmousedown = function(e){
 		if(e.which == 1){
+
 			perso5.updatepos(200,300);
 			perso5.drawSquare(Inicio.ctx);
 			
@@ -140,13 +140,33 @@ function creaVentanaSecundariaPrueba(){
 }
 
 
+function ventanaInicial(){
+	
+
+	document.onmousedown = function(e){
+		if(e.which == 1){
+
+			menu();
+			
+		}
+	}
+	
+}
+
 //Tengo que poner la función menu, ya que sino no se ejecuta el prueba.html, porque no va
 //De ahí que ponga dentro de la función el mainLoop y el setInterval.
 function menu(){
-
+	
 	//Llamada a la función inicializacionJuego(), que carga los parametros y variables iniciales
 	inicializacionJuego();
 
+//	ventanaInicial();
+	
+/*	while (pruRat != 1){
+	//	document.write("PARA COMENZAR, PULSA EL BOTON IZQUIERDO DEL RATON");
+		
+	}*/
+	
 	
 	//Creacion de los personajes iniciales (pruebas, para ver que funcionan varios)
 	//1º se crea el personaje
