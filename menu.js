@@ -27,6 +27,9 @@ function inicializacionJuego(){
 	this.perso5 = null;
 	
 	this.a = 0;
+	
+	this.myimages = new ImageSet();
+	
 	Inicio.init();
 	//Es la función en la que está implementado el teclado, así se cargará la función y el teclado funcionará
 	prueba();
@@ -128,11 +131,17 @@ var context = Inicio.ctx;
 	//Poniendo esto ya va, hago que cada vez que se limpie la pantalla, se "repinte" el cuadrado
 	//De hecho, es el punto 3- dibujar jugadores/objetos
 
+	if (Tecles.intento == true){
+		this.myimages.draw();
+	}
+	else{
 		this.perso.drawSquare(context);
 		this.perso2.drawSquare(context);
 		this.perso3.drawSquare(context);
 	
 		this.perso5.drawSquare(context);
+	}
+	
 	
 	
 	
@@ -168,7 +177,7 @@ function menu(){
 	
 	
 	
-	var myimages = new ImageSet();
+	//var myimages = new ImageSet();
 
 	//LOAD THE IMAGES FROM THE DATA
 	var i;
@@ -178,11 +187,11 @@ function menu(){
 		var img = new ImageData(i,context,imagelist[i].src);
 		img.setPosition(imagelist[i].posx,imagelist[i].posy);
 		img.setSize(imagelist[i].w,imagelist[i].h);
-		myimages.add(img);
+		this.myimages.add(img);
 		
 	}
 	
-	myimages.draw();
+	this.myimages.draw();
 	
 	//He conseguido avanzar
 	//No se veían las imágenes porque se hacía el redibujar escenario, con lo que no se podían ver
@@ -258,16 +267,7 @@ var mainLoop = function () {
 		creaVentanaSecundariaPrueba();
 	}
 	
-/*	if(Tecles.keypause == true){
-		for (i=0;i<imagelist.length;i++){
-			var img = new ImageData(i,Inicio.ctx,imagelist[i].src);
-			img.setPosition(imagelist[i].posx,imagelist[i].posy);
-			img.setSize(imagelist[i].w,imagelist[i].h);
-			myimages.add(img);
-			myimages.draw();
-			
-		}
-	}*/
+	
 	
 	//Aqui encima del redibujar escenario habrá que comprobar que si está pulsada la tecla "p", habrá que cargar la imagen de "pausa juego"
 	//Pero como no se como se hace lo de poner imágenes, no lo entiendo

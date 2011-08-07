@@ -12,13 +12,14 @@ Tecles = {
 	keyright: false,
 	keyleft: false,
 	keyesc: false,
-	keypause: false
-	
+	keypause: false,
+	intento: false
 };
 
 
 
 function prueba(){
+		
 	document.onkeydown = function (key){
 
 		var keynum;
@@ -61,7 +62,7 @@ function prueba(){
 		if(key.which){
 			keynum = key.which;
 		}
-
+		
 		switch (keynum){
 
 			case 38:
@@ -80,7 +81,16 @@ function prueba(){
 				Tecles.keyesc = false;
 			break;
 			case 80:  //letra P minúscula
-				Tecles.keypause = false;
+			
+				if (Tecles.intento == false){
+					Tecles.keypause = true;
+					Tecles.intento = true;
+				}
+				else{
+					Tecles.intento = false;
+					Teles.keypause = false;
+				}
+			//	Tecles.keypause = false;
 			break;
 		}
 
