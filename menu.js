@@ -7,6 +7,12 @@
 *
 */
 
+var imagelist = [
+     { "src" : './imagenes/nami.jpg', "posx" : 0, "posy" : 0, "w" : 330, "h" : 321},
+     { "src" : './imagenes/zoro.jpg', "posx" : 300, "posy" : 300, "w" : 200, "h" : 200}
+//zoro: 349, 315
+     //{ "src" : './images/brick.png', "posx" : 400, "posy" : 400, "w" : 128, "h" : 128}
+];
 
 //Esta es la funcion que se encargará de inicializar todas las variables que "inicialmente" estén en juego.
 function inicializacionJuego(){
@@ -139,15 +145,13 @@ function creaVentanaSecundariaPrueba(){
 	
 }
 
-
+//De momento la primera VENTANA, con la que se inicia el juego. Si se pulsa el boton izquierdo del ratón
+//se pasará a ejecutar la función "menu()", que es la que tiene todo el programa en su interior
 function ventanaInicial(){
 	
-
 	document.onmousedown = function(e){
 		if(e.which == 1){
-
-			menu();
-			
+			menu();			
 		}
 	}
 	
@@ -159,8 +163,33 @@ function menu(){
 	
 	//Llamada a la función inicializacionJuego(), que carga los parametros y variables iniciales
 	inicializacionJuego();
+	
+	
+	
+	
+	
+	var myimages = new ImageSet();
 
-//	ventanaInicial();
+	//LOAD THE IMAGES FROM THE DATA
+	var i;
+	var context = Inicio.ctx;
+	
+	for (i=0;i<imagelist.length;i++){
+		var img = new ImageData(i,context,imagelist[i].src);
+		img.setPosition(imagelist[i].posx,imagelist[i].posy);
+		img.setSize(imagelist[i].w,imagelist[i].h);
+		myimages.add(img);
+		
+	}
+	
+	myimages.draw();
+	
+	//He conseguido avanzar
+	//No se veían las imágenes porque se hacía el redibujar escenario, con lo que no se podían ver
+	
+	
+	
+	
 	
 /*	while (pruRat != 1){
 	//	document.write("PARA COMENZAR, PULSA EL BOTON IZQUIERDO DEL RATON");
@@ -229,6 +258,19 @@ var mainLoop = function () {
 		creaVentanaSecundariaPrueba();
 	}
 	
+/*	if(Tecles.keypause == true){
+		for (i=0;i<imagelist.length;i++){
+			var img = new ImageData(i,Inicio.ctx,imagelist[i].src);
+			img.setPosition(imagelist[i].posx,imagelist[i].posy);
+			img.setSize(imagelist[i].w,imagelist[i].h);
+			myimages.add(img);
+			myimages.draw();
+			
+		}
+	}*/
+	
+	//Aqui encima del redibujar escenario habrá que comprobar que si está pulsada la tecla "p", habrá que cargar la imagen de "pausa juego"
+	//Pero como no se como se hace lo de poner imágenes, no lo entiendo
 	
 	redibujarEscenario();
 	
