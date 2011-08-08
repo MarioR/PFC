@@ -13,7 +13,8 @@ Tecles = {
 	keyleft: false,
 	keyesc: false,
 	keypause: false,
-	intento: false
+	intento: false,
+	intento1: false
 };
 
 
@@ -78,7 +79,14 @@ function prueba(){
 				Tecles.keyright = false;
 			break;
 			case 27:
-				Tecles.keyesc = false;
+				if (Tecles.intento1 == false){
+					Tecles.keyesc = true;
+					Tecles.intento1 = true;
+				}
+				else{
+					Tecles.intento1 = false;
+					Teles.keyesc = false;
+				}
 			break;
 			case 80:  //letra P minúscula
 			

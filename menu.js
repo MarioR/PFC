@@ -11,7 +11,11 @@ var imagelist = [
      { "src" : './imagenes/nami.jpg', "posx" : 0, "posy" : 0, "w" : 330, "h" : 321},
      { "src" : './imagenes/zoro.jpg', "posx" : 300, "posy" : 300, "w" : 200, "h" : 200}
 //zoro: 349, 315
-     //{ "src" : './images/brick.png', "posx" : 400, "posy" : 400, "w" : 128, "h" : 128}
+];
+
+var imagePause = [
+
+     { "src" : './imagenes/pause.jpg', "posx" : 0, "posy" : 0, "w" : 500, "h" : 500}
 ];
 
 //Esta es la funcion que se encargará de inicializar todas las variables que "inicialmente" estén en juego.
@@ -29,12 +33,13 @@ function inicializacionJuego(){
 	this.a = 0;
 	
 	this.myimages = new ImageSet();
+	this.myimageP = new ImageSet();
 	
 	Inicio.init();
 	//Es la función en la que está implementado el teclado, así se cargará la función y el teclado funcionará
 	prueba();
 
-
+	this.prueba5000 = null;
 }
 
 
@@ -132,14 +137,22 @@ var context = Inicio.ctx;
 	//De hecho, es el punto 3- dibujar jugadores/objetos
 
 	if (Tecles.intento == true){
-		this.myimages.draw();
+		this.myimageP.draw();
+		
 	}
 	else{
-		this.perso.drawSquare(context);
-		this.perso2.drawSquare(context);
-		this.perso3.drawSquare(context);
+		
+		if (Tecles.intento1 == true){
+			this.myimages.draw();
+		}
+		else{
+			
+			this.perso.drawSquare(context);
+			this.perso2.drawSquare(context);
+			this.perso3.drawSquare(context);
 	
-		this.perso5.drawSquare(context);
+			this.perso5.drawSquare(context);
+		}	
 	}
 	
 	
@@ -188,6 +201,14 @@ function menu(){
 		img.setPosition(imagelist[i].posx,imagelist[i].posy);
 		img.setSize(imagelist[i].w,imagelist[i].h);
 		this.myimages.add(img);
+		
+	}
+	
+	for (i=0;i<imagePause.length;i++){
+		var img = new ImageData(i,context,imagePause[i].src);
+		img.setPosition(imagePause[i].posx,imagePause[i].posy);
+		img.setSize(imagePause[i].w,imagePause[i].h);
+		this.myimageP.add(img);
 		
 	}
 	
@@ -261,11 +282,12 @@ var mainLoop = function () {
 	//Aqui deberá ir el comprobar si el juego ha terminado
 	// Ahora es una manera simple, pero hago que se abra la pagina a continuación
 	//Cuando toque, ya se cambiará o se modificará bien para lo que tengo que hacer
-	if(Tecles.keyesc == true){
+	
+//	if(Tecles.keyesc == true){
 	//	window.open("http://www.desarrolloweb.com" , "ventana1" , "width=120,height=300,scrollbars=NO");
-		Tecles.keyesc = false;
-		creaVentanaSecundariaPrueba();
-	}
+//		Tecles.keyesc = false;
+//		creaVentanaSecundariaPrueba();
+//	}
 	
 	
 	
