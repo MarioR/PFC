@@ -4,7 +4,7 @@
 * Esta es la clase principal, la que contiene el bucle principal.
 * Tenemos las funciones necesarias para inicializar el juego, capturar los eventos que ocurran, redibujar el escenario
 * actualizar los distintos jugadores, y la función menú, que es la que contiene el bucle.
-*
+* También están las listas con las imágenes que se utilizan en el juego
 */
 
 var imagelist = [
@@ -143,20 +143,17 @@ var context = Inicio.ctx;
 	else{
 		
 		if (Tecles.intento1 == true){
-			this.myimages.draw();
+	//		this.myimages.draw();
 		}
 		else{
-			
-			this.perso.drawSquare(context);
+			this.perso.drawImagen();
+		//	this.perso.drawSquare(context);
 			this.perso2.drawSquare(context);
 			this.perso3.drawSquare(context);
 	
 			this.perso5.drawSquare(context);
 		}	
-	}
-	
-	
-	
+	}	
 	
 }
 
@@ -212,19 +209,8 @@ function menu(){
 		
 	}
 	
-	this.myimages.draw();
-	
-	//He conseguido avanzar
-	//No se veían las imágenes porque se hacía el redibujar escenario, con lo que no se podían ver
-	
-	
-	
-	
-	
-/*	while (pruRat != 1){
-	//	document.write("PARA COMENZAR, PULSA EL BOTON IZQUIERDO DEL RATON");
-		
-	}*/
+//	this.myimages.draw();
+
 	
 	
 	//Creacion de los personajes iniciales (pruebas, para ver que funcionan varios)
@@ -237,7 +223,19 @@ function menu(){
 	this.perso.setestado(1);
 	this.contenedor[this.contaje] = this.perso; //kreo k no es asi, pero es posible
 	contaje ++;
-	this.perso.drawSquare(Inicio.ctx);
+	
+	
+	//Creo la imagen
+	this.perso.setImagen(context,imagelist[0].src);
+	//Le pongo posicion
+	this.perso.img.setPosition(imagelist[0].posx,imagelist[0].posy);
+	//Le pongo tamaño
+	this.perso.img.setSize(imagelist[0].w,imagelist[0].h);
+	//Añado imagen
+	this.perso.addImagen();
+	//Pinto Imagen
+	this.perso.drawImagen();	
+//	this.perso.drawSquare(Inicio.ctx);
 	
 
 	this.perso2 = new Character("#00FF00",0,200,this.contaje);

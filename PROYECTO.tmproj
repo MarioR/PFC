@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>menu.js</string>
+	<string>image.js</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -13,7 +13,7 @@
 					<key>filename</key>
 					<string>teclado.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-02T14:05:35Z</date>
+					<date>2011-08-08T14:57:52Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
@@ -23,59 +23,59 @@
 				</dict>
 				<dict>
 					<key>filename</key>
+					<string>imagen.js</string>
+					<key>lastUsed</key>
+					<date>2011-08-11T14:11:16Z</date>
+				</dict>
+				<dict>
+					<key>filename</key>
 					<string>personaje.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-03T13:53:23Z</date>
+					<date>2011-08-11T14:04:35Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>cuadrado.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-02T14:07:29Z</date>
+					<date>2011-08-07T12:16:42Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>libreria.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-06T14:44:15Z</date>
-				</dict>
-				<dict>
-					<key>filename</key>
-					<string>pantInicial.html</string>
-					<key>lastUsed</key>
-					<date>2011-08-06T13:10:09Z</date>
+					<date>2011-08-07T08:40:54Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>opciones.html</string>
 					<key>lastUsed</key>
-					<date>2011-08-06T13:11:59Z</date>
+					<date>2011-08-07T12:16:43Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>prueba.html</string>
 					<key>lastUsed</key>
-					<date>2011-08-06T13:11:21Z</date>
+					<date>2011-08-08T14:24:49Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>jquery-1.5.js</string>
 					<key>lastUsed</key>
-					<date>2011-07-26T14:59:06Z</date>
+					<date>2011-08-07T17:25:59Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
-					<string>imagenes.js</string>
+					<string>image.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-06T14:48:22Z</date>
+					<date>2011-08-11T14:11:16Z</date>
+					<key>selected</key>
+					<true/>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>menu.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-06T15:33:39Z</date>
-					<key>selected</key>
-					<true/>
+					<date>2011-08-11T14:02:13Z</date>
 				</dict>
 			</array>
 			<key>expanded</key>
@@ -102,14 +102,44 @@
 			<key>firstVisibleLine</key>
 			<integer>10</integer>
 		</dict>
-		<key>imagenes.js</key>
+		<key>image.js</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
+				<integer>1</integer>
+				<key>line</key>
+				<integer>14</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>16</integer>
+				<integer>14</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>1</integer>
+				<key>line</key>
+				<integer>14</integer>
+			</dict>
+		</dict>
+		<key>imagen.js</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>1</integer>
+				<key>line</key>
+				<integer>17</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -121,9 +151,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>24</integer>
+				<integer>38</integer>
 				<key>line</key>
-				<integer>3241</integer>
+				<integer>8147</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -151,12 +181,12 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>31</integer>
+				<integer>213</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>3</integer>
+			<integer>13</integer>
 		</dict>
 		<key>opciones.html</key>
 		<dict>
@@ -177,21 +207,21 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>68</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>17</integer>
+				<integer>85</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>91</integer>
+			<integer>60</integer>
 		</dict>
 		<key>prueba.html</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>34</integer>
+				<integer>18</integer>
 				<key>line</key>
 				<integer>11</integer>
 			</dict>
@@ -205,9 +235,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>47</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>48</integer>
+				<integer>81</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -220,11 +250,12 @@
 		<string>prueba.html</string>
 		<string>opciones.html</string>
 		<string>menu.js</string>
-		<string>imagenes.js</string>
+		<string>image.js</string>
 		<string>jquery-1.5.js</string>
 		<string>teclado.js</string>
 		<string>cuadrado.js</string>
 		<string>personaje.js</string>
+		<string>imagen.js</string>
 		<string>libreria.js</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>

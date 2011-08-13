@@ -28,6 +28,9 @@ function Character (color,posx,posy,num){
 	
 	this.sq = new Square (color,this.px,this.py);
 	
+	this.img = null;
+	
+	this.imagen = new Array (1);
 	
 	this.drawSquare = function (cont){
 		
@@ -74,6 +77,35 @@ function Character (color,posx,posy,num){
 		this.sq.setposy(this.sq.y + 1);
 	}
 	
+
+
+
+
+
+
+	//No se si funcionará, pero por intentar no se pierde
+	
+	this.setImagen = function(ctx,src){
+		
+		this.img = new ImageGen (ctx,src);
+	}
+
+	this.addImagen = function(){
+		this.imagen[0] = this.img;
+	}
+
+	this.drawImagen = function(){
+		this.imagen[0].draw();
+	}
+	
+
+
+
+
+
+
+
+
 	
 	//PROBANDO SI ESTO VA
 	//El programa no peta, así que debería ir, pero falta que Jordi conteste al mail para continuar
