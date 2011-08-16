@@ -8,7 +8,7 @@
 */
 
 
-function Character (color,posx,posy,num){
+function Character (color,posx,posy,num,context,src){
 	
 	this.nump = num;
 	
@@ -28,9 +28,17 @@ function Character (color,posx,posy,num){
 	
 	this.sq = new Square (color,this.px,this.py);
 	
+//	this.img2 = new ImageData('personaje'+num, context, './imagenes/nami.jpg' );
+
+	this.img2 = new ImageData('personaje'+num, context,src);
+	
+	
+	this.img2.setPosition(this.px,this.py);
+	this.img2.setSize(50, 51);
+	
 	this.img = null;
 	
-	this.imagen = new Array (1);
+	this.imagen = new Array(2);
 	
 	this.drawSquare = function (cont){
 		
@@ -55,49 +63,48 @@ function Character (color,posx,posy,num){
 	
 	//Esta función actualiza la posición del cuadrado moviéndolo a la izquierda cuando se tenga que pintar
 	this.moveLeft = function (){
-
-		this.sq.setposx(this.sq.x - 1);
+		this.px = this.px-2;
+		this.img2.setPosition(this.px,this.py);
+		//this.sq.setposx(this.sq.x - 1);
 	}
 	
 	//Esta función actualiza la posición del cuadrado moviéndolo a la derecha cuando se tenga que pintar
 	this.moveRight = function(){
-		
-		this.sq.setposx(this.sq.x + 1);
+		this.px = this.px+2;
+		this.img2.setPosition(this.px,this.py);
+		//this.sq.setposx(this.sq.x + 1);
 	}
 	
 	//Esta función actualiza la posición del cuadrado moviéndolo arriba cuando se tenga que pintar
 	this.moveUp = function(){
-		
-		this.sq.setposy(this.sq.y - 1);
+		this.py = this.py-2;
+		this.img2.setPosition(this.px,this.py);
+		//this.sq.setposy(this.sq.y - 1);
 	}
 	
 	//Esta función actualiza la posición del cuadrado moviéndolo abajo cuando se tenga que pintar
 	this.moveDown = function(){
-		
-		this.sq.setposy(this.sq.y + 1);
+		this.py = this.py+2;
+		this.img2.setPosition(this.px,this.py);
+		//this.sq.setposy(this.sq.y + 1);
 	}
 	
 
 
 
 
-
-
-	//No se si funcionará, pero por intentar no se pierde
-	
-	this.setImagen = function(ctx,src){
+	//La imagen se queda bien guardada, y también se pinta bien
+	//Ahora la cosa es conseguir actualizar la posición de la imagen para volverlo a pintar
+	this.setImagen = function(imag){
 		
-		this.img = new ImageGen (ctx,src);
+		this.img = imag;
 	}
-
-	this.addImagen = function(){
-		this.imagen[0] = this.img;
-	}
-
+	
 	this.drawImagen = function(){
-		this.imagen[0].draw();
+		
+		this.img2.draw();
+		//this.img.draw();
 	}
-	
 
 
 

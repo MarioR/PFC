@@ -48,6 +48,11 @@ function Square(color,posx,posy){
 		ctx.fillStyle = this.color;
 		ctx.fillRect(this.x,this.y,this.longitud,this.altitud);
 	}
+	
+	this.drawImg = function (img){
+		
+		img.draw();
+	}
 
 	
 }

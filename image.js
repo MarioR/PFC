@@ -92,6 +92,22 @@ function ImageSet()
 		}
 	};
 	
+	
+	
+	//Draw only a image
+	this.drawX = function(x){
+		this.images[x].draw();
+	}
+	
+	//Get the image
+	this.getImg = function(x){
+		return this.images[x];
+	}
+	
+	
+	
+	
+	
 	//Returns the most frontal image at position x,y
 	this.getFrontImage = function(x, y){
 		var img = 'notfound';

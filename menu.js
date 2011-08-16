@@ -31,6 +31,7 @@ function inicializacionJuego(){
 	this.perso5 = null;
 	
 	this.a = 0;
+	this.ctx = Inicio.ctx;
 	
 	this.myimages = new ImageSet();
 	this.myimageP = new ImageSet();
@@ -136,6 +137,10 @@ var context = Inicio.ctx;
 	//Poniendo esto ya va, hago que cada vez que se limpie la pantalla, se "repinte" el cuadrado
 	//De hecho, es el punto 3- dibujar jugadores/objetos
 
+	//Dibujar tablero
+	
+	//Dibujar cuadricula
+
 	if (Tecles.intento == true){
 		this.myimageP.draw();
 		
@@ -143,15 +148,19 @@ var context = Inicio.ctx;
 	else{
 		
 		if (Tecles.intento1 == true){
-	//		this.myimages.draw();
+		//	this.myimages.draw();
+			this.myimages.drawX(0);
 		}
 		else{
 			this.perso.drawImagen();
+			this.perso2.drawImagen();
+			this.perso3.drawImagen();
+			this.perso5.drawImagen();
 		//	this.perso.drawSquare(context);
-			this.perso2.drawSquare(context);
-			this.perso3.drawSquare(context);
+		//	this.perso2.drawSquare(context);
+		//	this.perso3.drawSquare(context);
 	
-			this.perso5.drawSquare(context);
+		//	this.perso5.drawSquare(context);
 		}	
 	}	
 	
@@ -206,7 +215,7 @@ function menu(){
 		img.setPosition(imagePause[i].posx,imagePause[i].posy);
 		img.setSize(imagePause[i].w,imagePause[i].h);
 		this.myimageP.add(img);
-		
+
 	}
 	
 //	this.myimages.draw();
@@ -219,41 +228,44 @@ function menu(){
 	//3º se almacena en el array de personajes
 	//4º se incrementa una variable necesaria para el array
 	//5º se dibuja el peronaje
-	this.perso = new Character("#000080",100,100,this.contaje);
+	
+	this.perso = new Character("#000080",100,100,this.contaje, context, imagelist[0].src);
 	this.perso.setestado(1);
 	this.contenedor[this.contaje] = this.perso; //kreo k no es asi, pero es posible
 	contaje ++;
-	
+	//this.perso.setImagen(this.myimages.getImg(1));
+	//this.perso.drawImagen();
+
 	
 	//Creo la imagen
-	this.perso.setImagen(context,imagelist[0].src);
+//	this.perso.setImagen(this.ctx,imagelist[0].src);
 	//Le pongo posicion
-	this.perso.img.setPosition(imagelist[0].posx,imagelist[0].posy);
+//	this.perso.img.setPosition(imagelist[0].posx,imagelist[0].posy);
 	//Le pongo tamaño
-	this.perso.img.setSize(imagelist[0].w,imagelist[0].h);
+//	this.perso.img.setSize(imagelist[0].w,imagelist[0].h);
 	//Añado imagen
-	this.perso.addImagen();
+//	this.perso.addImagen();
 	//Pinto Imagen
-	this.perso.drawImagen();	
-//	this.perso.drawSquare(Inicio.ctx);
+//	this.perso.drawImagen();	
+	this.perso.drawSquare(Inicio.ctx);
 	
 
-	this.perso2 = new Character("#00FF00",0,200,this.contaje);
+	this.perso2 = new Character("#00FF00",0,200,this.contaje, context,imagelist[1].src);
 	this.perso2.setestado(0);
 	this.contenedor[this.contaje] = this.perso2; //kreo k no es asi, pero es posible
 	contaje ++;
-	this.perso2.drawSquare(Inicio.ctx);
+	//this.perso2.drawSquare(Inicio.ctx);
   
 
 
 
-this.perso3 = new Character(this.col,this.x,this.y,this.contaje);
+this.perso3 = new Character(this.col,this.x,this.y,this.contaje, context,imagelist[0].src);
 this.perso3.setestado(0);
 this.contenedor[this.contaje] = this.perso3; //kreo k no es asi, pero es posible
 
 contaje++;
 
-this.perso5 = new Character("#C0C0C0",300,300,this.contaje);
+this.perso5 = new Character("#C0C0C0",300,300,this.contaje, context,imagelist[1].src);
 this.perso5.setestado(0);
 this.contenedor[this.contaje] = this.perso5; //kreo k no es asi, pero es posible
 
@@ -276,6 +288,12 @@ var mainLoop = function () {
 	
 	actualizaJugadores(this.contenedor,this.contaje);
 	this.perso3.setExperiencia();
+	
+	
+	
+	
+	
+	
 	
 	//Aqui deberá ir el comprobar si el juego ha terminado
 	// Ahora es una manera simple, pero hago que se abra la pagina a continuación
