@@ -28,10 +28,17 @@ function Character (color,posx,posy,num,context,src){
 	
 	this.sq = new Square (color,this.px,this.py);
 	
-	//Creación de la imagen de cada personaje
+//	this.img2 = new ImageData('personaje'+num, context, './imagenes/nami.jpg' );
+
 	this.img2 = new ImageData('personaje'+num, context,src);
+	
+	
 	this.img2.setPosition(this.px,this.py);
 	this.img2.setSize(50, 51);
+	
+	this.img = null;
+	
+	this.imagen = new Array(2);
 	
 	this.drawSquare = function (cont){
 		
@@ -42,11 +49,8 @@ function Character (color,posx,posy,num,context,src){
 	}
 	
 	this.updatepos = function (x,y){
-		this.px = x;
-		this.py = y;	
-		this.img2.setPosition(x,y);
-		
-		//this.sq.setposition(x,y);
+	
+		this.sq.setposition(x,y);
 	}
 	
 	//Esta función actualiza el estado del cuadrado. Irá de 0 a 2
@@ -85,15 +89,31 @@ function Character (color,posx,posy,num,context,src){
 		//this.sq.setposy(this.sq.y + 1);
 	}
 	
+
+
+
+
+	//La imagen se queda bien guardada, y también se pinta bien
+	//Ahora la cosa es conseguir actualizar la posición de la imagen para volverlo a pintar
+	this.setImagen = function(imag){
+		
+		this.img = imag;
+	}
 	
-	//Esta función pinta la imagen correspondiente al personaje
 	this.drawImagen = function(){
 		
 		this.img2.draw();
+		//this.img.draw();
 	}
 
 
 
+
+
+
+
+
+	
 	//PROBANDO SI ESTO VA
 	//El programa no peta, así que debería ir, pero falta que Jordi conteste al mail para continuar
 	//Como he llamado a la funcion desde el menú..., i sigue funcionando, debería funcionar todo

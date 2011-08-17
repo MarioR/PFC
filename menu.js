@@ -8,7 +8,6 @@
 */
 
 var imagelist = [
-	{ "src" : './imagenes/escenario1.jpg', "posx" : 0, "posy" : 0, "w" : 1000, "h" : 680},
      { "src" : './imagenes/nami.jpg', "posx" : 0, "posy" : 0, "w" : 330, "h" : 321},
      { "src" : './imagenes/zoro.jpg', "posx" : 300, "posy" : 300, "w" : 200, "h" : 200}
 //zoro: 349, 315
@@ -39,10 +38,9 @@ function inicializacionJuego(){
 	
 	Inicio.init();
 	//Es la función en la que está implementado el teclado, así se cargará la función y el teclado funcionará
-	pruebaraton();
-
 	prueba();
 
+	this.prueba5000 = null;
 }
 
 
@@ -51,26 +49,15 @@ function capturaEventos(){
 	
 	//En esta parte aún no tiene mucha lógica utilizarlo, pero hago alguna cosa, para ver que funciona
 		
-	/*document.onmousedown = function(e){
+	document.onmousedown = function(e){
 		if(e.which == 1){
 
 			perso5.updatepos(200,300);
 			perso5.drawSquare(Inicio.ctx);
 			
 		}
-	}*/
-	if (Pulsar.lbutton == true){
-		Pulsar.lbutton = false;
-		perso5.updatepos(500,500);
-		this.perso5.drawImagen();
 	}
-	else{
-		if (Pulsar.rbutton == true){
-			Pulsar.rbutton = false;
-			perso2.updatepos(700,400);
-			this.perso2.drawImagen();
-		}
-	}
+	
 }
 
 
@@ -165,7 +152,6 @@ var context = Inicio.ctx;
 			this.myimages.drawX(0);
 		}
 		else{
-			this.myimages.drawX(0);
 			this.perso.drawImagen();
 			this.perso2.drawImagen();
 			this.perso3.drawImagen();
@@ -196,36 +182,6 @@ function ventanaInicial(){
 			menu();			
 		}
 	}
-
-
-
-
-/*
-pruebaraton();
-
-
-	var pruLoop = function () {
-
-		if(Pulsar.lbutton == true){
-			Pulsar.lbutton = false;
-			menu();
-		}
-	}
-
-	//Hace que se ejecute 25 veces por segundo
-	var pruLoopId = setInterval (pruLoop,25);
-*/
-
-
-
-
-/*	pruebaraton();	
-
-	if(Pulsar.lbutton == true){
-		Pulsar.lbutton = false;
-		menu();
-	}
-*/
 	
 }
 
@@ -264,7 +220,7 @@ function menu(){
 	
 //	this.myimages.draw();
 
-	this.myimages.drawX(0);
+	
 	
 	//Creacion de los personajes iniciales (pruebas, para ver que funcionan varios)
 	//1º se crea el personaje
@@ -273,7 +229,7 @@ function menu(){
 	//4º se incrementa una variable necesaria para el array
 	//5º se dibuja el peronaje
 	
-	this.perso = new Character("#000080",100,100,this.contaje, context, imagelist[1].src);
+	this.perso = new Character("#000080",100,100,this.contaje, context, imagelist[0].src);
 	this.perso.setestado(1);
 	this.contenedor[this.contaje] = this.perso; //kreo k no es asi, pero es posible
 	contaje ++;
@@ -303,13 +259,13 @@ function menu(){
 
 
 
-this.perso3 = new Character(this.col,this.x,this.y,this.contaje, context,imagelist[2].src);
+this.perso3 = new Character(this.col,this.x,this.y,this.contaje, context,imagelist[0].src);
 this.perso3.setestado(0);
 this.contenedor[this.contaje] = this.perso3; //kreo k no es asi, pero es posible
 
 contaje++;
 
-this.perso5 = new Character("#C0C0C0",300,300,this.contaje, context,imagelist[2].src);
+this.perso5 = new Character("#C0C0C0",300,300,this.contaje, context,imagelist[1].src);
 this.perso5.setestado(0);
 this.contenedor[this.contaje] = this.perso5; //kreo k no es asi, pero es posible
 
@@ -326,6 +282,7 @@ this.contenedor[this.contaje] = this.perso5; //kreo k no es asi, pero es posible
 
 //Esto si que va, pero hay que coordinar cuando hay que utilizarlo
 redibujarEscenario();
+capturaEventos();
 
 var mainLoop = function () {
 	
@@ -334,8 +291,10 @@ var mainLoop = function () {
 	
 	
 	
-	capturaEventos();
-
+	
+	
+	
+	
 	//Aqui deberá ir el comprobar si el juego ha terminado
 	// Ahora es una manera simple, pero hago que se abra la pagina a continuación
 	//Cuando toque, ya se cambiará o se modificará bien para lo que tengo que hacer
@@ -346,6 +305,10 @@ var mainLoop = function () {
 //		creaVentanaSecundariaPrueba();
 //	}
 	
+	
+	
+	//Aqui encima del redibujar escenario habrá que comprobar que si está pulsada la tecla "p", habrá que cargar la imagen de "pausa juego"
+	//Pero como no se como se hace lo de poner imágenes, no lo entiendo
 	
 	redibujarEscenario();
 	
