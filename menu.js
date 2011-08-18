@@ -18,8 +18,9 @@ var imagelist = [
 //He puesto que habrá 2 tipos de obstáculos, aunque falta encontrar las imagenes
 
 var obstaculos = [
-	{"src" : './imagenes/escenario1.jpg', "posx" : 0, "posy" : 0, "w" : 50, "h" : 50},
-	{"src" : './imagenes/escenario1.jpg', "posx" : 0, "posy" : 0, "w" : 50, "h" : 50}
+	{"src" : './imagenes/wall.jpg', "posx" : 400, "posy" : 0, "w" : 50, "h" : 50},
+	{"src" : './imagenes/infernal.jpg', "posx" : 0, "posy" : 300, "w" : 50, "h" : 50},
+	{"src" : './imagenes/mine.jpg', "posx" : 200, "posy" : 600, "w" : 50, "h" : 50}	
 
 ];
 
@@ -45,7 +46,7 @@ function inicializacionJuego(){
 	
 	this.myimages = new ImageSet();
 	this.myimageP = new ImageSet();
-	
+	this.myimageO = new ImageSet();
 	
 	/*
 	* Aquí voy a poner la creación de la matriz con la que se distribuirán los jugadores
@@ -96,20 +97,14 @@ function capturaEventos(){
 	
 	//En esta parte aún no tiene mucha lógica utilizarlo, pero hago alguna cosa, para ver que funciona
 		
-	/*document.onmousedown = function(e){
-		if(e.which == 1){
-
-			perso5.updatepos(200,300);
-			perso5.drawSquare(Inicio.ctx);
-			
-		}
-	}*/
 	if (Pulsar.lbutton == true){
 		Pulsar.lbutton = false;
 		perso5.updatepos(500,500);
 		this.perso5.drawImagen();
 	}
 	else{
+		//La pulsacion derecha del raton no funciona, va la izquierda, y necesito el raton si quiero probar la central
+		//porque en el trackpad no hay boton central de raton.
 		if (Pulsar.rbutton == true){
 			Pulsar.rbutton = false;
 			perso2.updatepos(700,400);
@@ -210,7 +205,8 @@ var context = Inicio.ctx;
 			this.myimages.drawX(0);
 		}
 		else{
-			this.myimages.drawX(0);
+			this.myimages.drawX(0);  //esta siempre primero, que es el escenario de juego
+			this.myimageO.draw();
 			this.perso.drawImagen();
 			this.perso2.drawImagen();
 			this.perso3.drawImagen();
@@ -242,7 +238,9 @@ function ventanaInicial(){
 		}
 	}
 
-
+//Si pongo como codigo el primer comentario, se hace un lio despues en el menu, ya que hay 2 bucles. por lo menos se lia, creo que es por eso
+//Si pongo el segundo, no va, puesto que hace la pasada i como no le has dado antes, luego no hay forma de hacer que funcione
+//i si pongo un bucle while o un for infinito para que esté dando vueltas hasta que se necesite..., no funciona el programa
 
 
 /*
@@ -280,12 +278,7 @@ function menu(){
 	
 	//Llamada a la función inicializacionJuego(), que carga los parametros y variables iniciales
 	inicializacionJuego();
-	
-	
-	
-	
-	
-	//var myimages = new ImageSet();
+
 
 	//LOAD THE IMAGES FROM THE DATA
 	var i;
@@ -307,8 +300,17 @@ function menu(){
 
 	}
 	
-//	this.myimages.draw();
+	for (i=0;i<obstaculos.length;i++){
+		var img = new ImageData(i,context,obstaculos[i].src);
+		img.setPosition(obstaculos[i].posx,obstaculos[i].posy);
+		img.setSize(obstaculos[i].w,obstaculos[i].h);
+		this.myimageO.add(img);
 
+	}
+	
+	this.myimageO.draw();
+
+	//Probando que se pinta una sola imagen, no todas, como en el comentario de arriba
 	this.myimages.drawX(0);
 	
 	//Creacion de los personajes iniciales (pruebas, para ver que funcionan varios)
@@ -323,7 +325,7 @@ function menu(){
 	this.contenedor[this.contaje] = this.perso; //kreo k no es asi, pero es posible
 	contaje ++;
 	//this.perso.setImagen(this.myimages.getImg(1));
-	//this.perso.drawImagen();
+	this.perso.drawImagen();
 
 	
 	//Creo la imagen
@@ -336,27 +338,28 @@ function menu(){
 //	this.perso.addImagen();
 	//Pinto Imagen
 //	this.perso.drawImagen();	
-	this.perso.drawSquare(Inicio.ctx);
 	
 
 	this.perso2 = new Character("#00FF00",0,200,this.contaje, context,imagelist[1].src);
 	this.perso2.setestado(0);
 	this.contenedor[this.contaje] = this.perso2; //kreo k no es asi, pero es posible
 	contaje ++;
-	//this.perso2.drawSquare(Inicio.ctx);
-  
+  	this.perso2.drawImagen();
+
 
 
 
 this.perso3 = new Character(this.col,this.x,this.y,this.contaje, context,imagelist[2].src);
 this.perso3.setestado(0);
 this.contenedor[this.contaje] = this.perso3; //kreo k no es asi, pero es posible
+this.perso3.drawImagen();
 
 contaje++;
 
 this.perso5 = new Character("#C0C0C0",300,300,this.contaje, context,imagelist[2].src);
 this.perso5.setestado(0);
 this.contenedor[this.contaje] = this.perso5; //kreo k no es asi, pero es posible
+this.perso5.drawImagen();
 
 
 
