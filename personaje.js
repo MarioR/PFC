@@ -59,28 +59,28 @@ function Character (color,posx,posy,num,context,src){
 	
 	//Esta función actualiza la posición del cuadrado moviéndolo a la izquierda cuando se tenga que pintar
 	this.moveLeft = function (){
-		this.px = this.px-2;
+		this.px = this.px-50;
 		this.img2.setPosition(this.px,this.py);
 		//this.sq.setposx(this.sq.x - 1);
 	}
 	
 	//Esta función actualiza la posición del cuadrado moviéndolo a la derecha cuando se tenga que pintar
 	this.moveRight = function(){
-		this.px = this.px+2;
+		this.px = this.px+50;
 		this.img2.setPosition(this.px,this.py);
 		//this.sq.setposx(this.sq.x + 1);
 	}
 	
 	//Esta función actualiza la posición del cuadrado moviéndolo arriba cuando se tenga que pintar
 	this.moveUp = function(){
-		this.py = this.py-2;
+		this.py = this.py-50;
 		this.img2.setPosition(this.px,this.py);
 		//this.sq.setposy(this.sq.y - 1);
 	}
 	
 	//Esta función actualiza la posición del cuadrado moviéndolo abajo cuando se tenga que pintar
 	this.moveDown = function(){
-		this.py = this.py+2;
+		this.py = this.py+50;
 		this.img2.setPosition(this.px,this.py);
 		//this.sq.setposy(this.sq.y + 1);
 	}

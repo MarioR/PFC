@@ -14,6 +14,15 @@ var imagelist = [
 //zoro: 349, 315
 ];
 
+
+//He puesto que habrá 2 tipos de obstáculos, aunque falta encontrar las imagenes
+
+var obstaculos = [
+	{"src" : './imagenes/escenario1.jpg', "posx" : 0, "posy" : 0, "w" : 50, "h" : 50},
+	{"src" : './imagenes/escenario1.jpg', "posx" : 0, "posy" : 0, "w" : 50, "h" : 50}
+
+];
+
 var imagePause = [
 
      { "src" : './imagenes/pause.jpg', "posx" : 0, "posy" : 0, "w" : 500, "h" : 500}
@@ -50,11 +59,11 @@ function inicializacionJuego(){
 	//Empieza la creacion de la matriz
 	this.cellarray = new Array (13);
 	
-	for (i=0;i<=20;i++){
+	for (i=0;i<20;i++){
 		this.cellarray[i] = new Array (20);
 	}
 	//Finaliza la creacion de la matriz
-	
+	inicializarMatriz();
 	
 	
 	
@@ -65,6 +74,21 @@ function inicializacionJuego(){
 	prueba();
 
 }
+
+
+//No se seguro si sería correcto hacerlo así o no, pero no se como hacerlo sino
+
+function inicializarMatriz (){
+	
+	for (i=0;i<13;i++){
+		for(j=0;j<20;j++){
+			this.cellarray[i][j] = 0;
+		}
+	}
+	
+}
+
+
 
 
 //Esta es la "verdadera" función captura eventos
