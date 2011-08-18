@@ -31,7 +31,7 @@ function Character (color,posx,posy,num,context,src){
 	//Creación de la imagen de cada personaje
 	this.img2 = new ImageData('personaje'+num, context,src);
 	this.img2.setPosition(this.px,this.py);
-	this.img2.setSize(50, 51);
+	this.img2.setSize(50, 50);
 	
 	this.drawSquare = function (cont){
 		

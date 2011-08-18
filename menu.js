@@ -8,7 +8,7 @@
 */
 
 var imagelist = [
-	{ "src" : './imagenes/escenario1.jpg', "posx" : 0, "posy" : 0, "w" : 1000, "h" : 680},
+	{ "src" : './imagenes/escenario1.jpg', "posx" : 0, "posy" : 0, "w" : 1000, "h" : 650},
      { "src" : './imagenes/nami.jpg', "posx" : 0, "posy" : 0, "w" : 330, "h" : 321},
      { "src" : './imagenes/zoro.jpg', "posx" : 300, "posy" : 300, "w" : 200, "h" : 200}
 //zoro: 349, 315
@@ -37,10 +37,31 @@ function inicializacionJuego(){
 	this.myimages = new ImageSet();
 	this.myimageP = new ImageSet();
 	
+	
+	/*
+	* Aquí voy a poner la creación de la matriz con la que se distribuirán los jugadores
+	* y en la cual habrá obstáculos y premios.
+	*/
+	
+	//Al hacerlo de esta forma diferente, me estoy liando un poco, pero creo que está bien.
+	//Sería primero se crean las filas, que son 13, y cada fila contendrá 20 columnas.
+	//Si no me equivoco es así.
+	
+	//Empieza la creacion de la matriz
+	this.cellarray = new Array (13);
+	
+	for (i=0;i<=20;i++){
+		this.cellarray[i] = new Array (20);
+	}
+	//Finaliza la creacion de la matriz
+	
+	
+	
+	
 	Inicio.init();
-	//Es la función en la que está implementado el teclado, así se cargará la función y el teclado funcionará
+	//Es la función en la que está implementado el raton
 	pruebaraton();
-
+	//Es la función en la que está implementado el teclado, así se cargará la función y el teclado funcionará
 	prueba();
 
 }
