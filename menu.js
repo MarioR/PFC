@@ -41,7 +41,6 @@ function inicializacionJuego(){
 	this.perso3 = null;
 	this.perso5 = null;
 	
-	this.a = 0;
 	this.ctx = Inicio.ctx;
 	
 	this.myimages = new ImageSet();
@@ -61,7 +60,7 @@ function inicializacionJuego(){
 	//Empieza la creacion de la matriz
 	this.cellarray = new Array (13);
 	
-	for (i=0;i<20;i++){
+	for (i=0;i<13;i++){
 		this.cellarray[i] = new Array (20);
 	}
 	//Finaliza la creacion de la matriz
@@ -96,9 +95,40 @@ function inicializarMatriz (){
 //numObs = numero de obstaculos (dependerá del nivel de dificultad)
 function createArray (numP,numObs){
 	
-//	this.controlArray = ;
+	var cuantos = numP+numObs;
+	this.controlArray = new Array (cuantos);   
+	
+	for (i=0;i<cuantos;i++){
+		this.controlArray[i] = new Array (2); 
+	} 
 }
 
+//Inicializar el array guardando los valores por defecto, es decir
+//los personajes y los obstáculos iniciales
+function inicializarArray (a,b){
+	
+	this.controlArray[0][0] = this.perso.px;
+	this.controlArray[0][1] = this.perso.py;
+	this.controlArray[1][0] = this.perso2.px;
+	this.controlArray[1][1] = this.perso2.py;
+	this.controlArray[2][0] = this.perso3.px;
+	this.controlArray[2][1] = this.perso3.py;
+	this.controlArray[3][0] = this.perso5.px;
+	this.controlArray[3][1] = this.perso5.py;
+	this.controlArray[4][0] = obstaculos[0].posx;
+	this.controlArray[4][1] = obstaculos[0].posy;
+	this.controlArray[5][0] = obstaculos[1].posx;
+	this.controlArray[5][1] = obstaculos[1].posy;
+	this.controlArray[6][0] = obstaculos[2].posx;
+	this.controlArray[6][1] = obstaculos[2].posy;
+	this.controlArray[7][0] = a - 400;
+	this.controlArray[7][1] = b - 300;
+	this.controlArray[8][0] = a - 200;
+	this.controlArray[8][1] = b - 150;
+	this.controlArray[9][0] = a;
+	this.controlArray[9][1] = b;
+	
+}
 
 
 //Esta es la "verdadera" función captura eventos
@@ -327,7 +357,7 @@ function menu(){
 		img.setPosition(k,z);
 		img.setSize(obstaculos[i].w,obstaculos[i].h);
 		this.myimageO.add(img);
-		z = z+ 200;
+		z = z+200;
 		k = k+150;
 
 	}
@@ -348,20 +378,8 @@ function menu(){
 	this.perso.setestado(1);
 	this.contenedor[this.contaje] = this.perso; //kreo k no es asi, pero es posible
 	contaje ++;
-	//this.perso.setImagen(this.myimages.getImg(1));
 	this.perso.drawImagen();
 
-	
-	//Creo la imagen
-//	this.perso.setImagen(this.ctx,imagelist[0].src);
-	//Le pongo posicion
-//	this.perso.img.setPosition(imagelist[0].posx,imagelist[0].posy);
-	//Le pongo tamaño
-//	this.perso.img.setSize(imagelist[0].w,imagelist[0].h);
-	//Añado imagen
-//	this.perso.addImagen();
-	//Pinto Imagen
-//	this.perso.drawImagen();	
 	
 
 	this.perso2 = new Character("#00FF00",0,200,this.contaje, context,imagelist[1].src);
@@ -386,6 +404,12 @@ this.contenedor[this.contaje] = this.perso5; //kreo k no es asi, pero es posible
 this.perso5.drawImagen();
 
 
+//Pongo this.contaje+1 debido a que el contaje hace 0,1,2,3 (lo k suma 4 personajes) y si le paso this.contaje, le pasará 3
+//con lo que resultaria al crear el array 0,1,2, con lo cual faltaría una posición
+//6 son los obstáculos. 3 en el primer bucle de obstáculos y otros 3 en el segundo
+createArray(this.contaje+1, 6);
+inicializarArray(z,k);
+
 
 //Tal como lo tengo explicao con Jordi, esto es el PROGRAMA PRINCIPAL
 /*El mainLoop está formado por 3 partes
@@ -393,8 +417,6 @@ this.perso5.drawImagen();
 * 2- Calcular nuevo estado de juego
 * 3- Redibujar escenario
 */
-
-
 
 //Esto si que va, pero hay que coordinar cuando hay que utilizarlo
 redibujarEscenario();
@@ -413,7 +435,6 @@ var mainLoop = function () {
 	//Cuando toque, ya se cambiará o se modificará bien para lo que tengo que hacer
 	
 //	if(Tecles.keyesc == true){
-	//	window.open("http://www.desarrolloweb.com" , "ventana1" , "width=120,height=300,scrollbars=NO");
 //		Tecles.keyesc = false;
 //		creaVentanaSecundariaPrueba();
 //	}
