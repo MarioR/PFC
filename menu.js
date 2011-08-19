@@ -48,6 +48,7 @@ function inicializacionJuego(){
 	this.myimageP = new ImageSet();
 	this.myimageO = new ImageSet();
 	
+	this.controlArray = null;
 	/*
 	* Aquí voy a poner la creación de la matriz con la que se distribuirán los jugadores
 	* y en la cual habrá obstáculos y premios.
@@ -89,6 +90,14 @@ function inicializarMatriz (){
 	
 }
 
+
+//Crear el vector de elementos para controlar la matriz
+//numP = numero de personajes
+//numObs = numero de obstaculos (dependerá del nivel de dificultad)
+function createArray (numP,numObs){
+	
+//	this.controlArray = ;
+}
 
 
 
@@ -305,6 +314,21 @@ function menu(){
 		img.setPosition(obstaculos[i].posx,obstaculos[i].posy);
 		img.setSize(obstaculos[i].w,obstaculos[i].h);
 		this.myimageO.add(img);
+
+	}
+	
+	/*
+	*Modo cutre de hacer que una lista de imagenes se repita varias veces
+	*/
+	var z = 100;
+	var k = 200;
+	for (i=0;i<obstaculos.length;i++){
+		var img = new ImageData(i,context,obstaculos[i].src);
+		img.setPosition(k,z);
+		img.setSize(obstaculos[i].w,obstaculos[i].h);
+		this.myimageO.add(img);
+		z = z+ 200;
+		k = k+150;
 
 	}
 	
