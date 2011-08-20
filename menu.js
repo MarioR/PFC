@@ -18,9 +18,9 @@ var imagelist = [
 //He puesto que habrá 2 tipos de obstáculos, aunque falta encontrar las imagenes
 
 var obstaculos = [
-	{"src" : './imagenes/wall.jpg', "posx" : 400, "posy" : 0, "w" : 50, "h" : 50},
-	{"src" : './imagenes/infernal.jpg', "posx" : 0, "posy" : 300, "w" : 50, "h" : 50},
-	{"src" : './imagenes/mine.jpg', "posx" : 200, "posy" : 600, "w" : 50, "h" : 50}	
+	{"src" : './imagenes/wall.jpg', "posx" : 300, "posy" : 0, "w" : 50, "h" : 50, "num": 100},
+	{"src" : './imagenes/infernal.jpg', "posx" : 0, "posy" : 300, "w" : 50, "h" : 50, "num": 85},
+	{"src" : './imagenes/mine.jpg', "posx" : 200, "posy" : 600, "w" : 50, "h" : 50, "num": 30}	
 
 ];
 
@@ -58,10 +58,10 @@ function inicializacionJuego(){
 	//Si no me equivoco es así.
 	
 	//Empieza la creacion de la matriz
-	this.cellarray = new Array (13);
+	this.cellarray = new Array (20);
 	
-	for (i=0;i<13;i++){
-		this.cellarray[i] = new Array (20);
+	for (i=0;i<20;i++){
+		this.cellarray[i] = new Array (13);
 	}
 	//Finaliza la creacion de la matriz
 	inicializarMatriz();
@@ -81,14 +81,38 @@ function inicializacionJuego(){
 
 function inicializarMatriz (){
 	
-	for (i=0;i<13;i++){
-		for(j=0;j<20;j++){
-			this.cellarray[i][j] = 0;
+	for (i=0;i<20;i++){
+		for(j=0;j<13;j++){
+			this.cellarray[i][j] = 12345;  //12345 será el numero nulo por defecto, ya que el numero 0 lo necesita el personaje 1  
 		}
 	}
 	
 }
 
+function valoresInicialesMatriz(){
+	
+	//Para cada I J del vector controlArray, se irá recorriendo y miraremos los dos valores, se dividirán, dando una Z K, las cuales serviran de 
+	//X e Y para la matriz cellarray al colocarlos donde vayan.  
+	//Lo que estoy pensando es que estaría bien ponerles un número concreto, es decir, un identificador, para que se sepa si es personaje, 
+	//obstáculo o premio. Tengo que cavilar sobre eso
+	var z = 0;
+	var k = 0;
+	var aux = 0;
+	
+	for (i=0;i<10;i++){
+		
+		z = this.controlArray[i][0];
+		z = z / 50;       
+		k = this.controlArray[i][1];
+		k = k / 50;
+
+		aux = this.controlArray[i][2];
+
+		this.cellarray[k][z] = aux;
+	}
+	
+	
+}
 
 //Crear el vector de elementos para controlar la matriz
 //numP = numero de personajes
@@ -99,7 +123,7 @@ function createArray (numP,numObs){
 	this.controlArray = new Array (cuantos);   
 	
 	for (i=0;i<cuantos;i++){
-		this.controlArray[i] = new Array (2); 
+		this.controlArray[i] = new Array (3); 
 	} 
 }
 
@@ -109,24 +133,45 @@ function inicializarArray (a,b){
 	
 	this.controlArray[0][0] = this.perso.px;
 	this.controlArray[0][1] = this.perso.py;
+	this.controlArray[0][2] = this.perso.nump;
+	
+	
 	this.controlArray[1][0] = this.perso2.px;
 	this.controlArray[1][1] = this.perso2.py;
+	this.controlArray[1][2] = this.perso2.nump;
+	
 	this.controlArray[2][0] = this.perso3.px;
 	this.controlArray[2][1] = this.perso3.py;
+	this.controlArray[2][2] = this.perso3.nump;
+
+	
 	this.controlArray[3][0] = this.perso5.px;
 	this.controlArray[3][1] = this.perso5.py;
+	this.controlArray[3][2] = this.perso5.nump;
+	
 	this.controlArray[4][0] = obstaculos[0].posx;
 	this.controlArray[4][1] = obstaculos[0].posy;
+	this.controlArray[4][2] = obstaculos[0].num;
+	
 	this.controlArray[5][0] = obstaculos[1].posx;
 	this.controlArray[5][1] = obstaculos[1].posy;
+	this.controlArray[5][2] = obstaculos[1].num;
+	
 	this.controlArray[6][0] = obstaculos[2].posx;
 	this.controlArray[6][1] = obstaculos[2].posy;
+	this.controlArray[6][2] = obstaculos[2].num;
+	
 	this.controlArray[7][0] = a - 400;
 	this.controlArray[7][1] = b - 300;
+	this.controlArray[7][2] = obstaculos[0].num;
+	
 	this.controlArray[8][0] = a - 200;
 	this.controlArray[8][1] = b - 150;
+	this.controlArray[8][2] = obstaculos[1].num;
+	
 	this.controlArray[9][0] = a;
 	this.controlArray[9][1] = b;
+	this.controlArray[9][2] = obstaculos[2].num;
 	
 }
 
@@ -409,6 +454,7 @@ this.perso5.drawImagen();
 //6 son los obstáculos. 3 en el primer bucle de obstáculos y otros 3 en el segundo
 createArray(this.contaje+1, 6);
 inicializarArray(z,k);
+valoresInicialesMatriz();
 
 
 //Tal como lo tengo explicao con Jordi, esto es el PROGRAMA PRINCIPAL

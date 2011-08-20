@@ -10,10 +10,34 @@
 	Ahora se me est\'e1 ocurriendo que tal vez se podr\'eda poner una variable que se fuera incrementando a cada vuelta del bucle, para que el jugador tuviera X segundos para tirar, antes de que se le pierda el turno.\
 \
 \
-- El pintar deltas: Esto es un poco tonter\'eda considerarlo un problema, pero lo indico tambi\'e9n. Pretend\'eda que en la imagen que hay de fondo, hubiera lineas que la atravesasen, implementando las celdas de 50x50. Debido a que no he sabido hacerlo, he considerado oportuno mover las im\'e1genes correspondientes a cada personaje 50 posiciones, ya que es lo que ocupa en si la imagen, as\'ed ser\'eda como si estuviese implementado lo que necesitamos.\
+\
+\
+\
+- El pintar celdas: Esto es un poco tonter\'eda considerarlo un problema, pero lo indico tambi\'e9n. Pretend\'eda que en la imagen que hay de fondo, hubiera lineas que la atravesasen, implementando las celdas de 50x50. Debido a que no he sabido hacerlo, he considerado oportuno mover las im\'e1genes correspondientes a cada personaje 50 posiciones, ya que es lo que ocupa en si la imagen, as\'ed ser\'eda como si estuviese implementado lo que necesitamos.\
+\
+\
+\
+\
 \
 - Problema en pintar im\'e1genes: Una vez tengo puestos obst\'e1culos, se guardan ya en una posici\'f3n fijada y \'fanica. Se me ocurre duplicar la definici\'f3n de la variable para poder poner mas minas, muros,\'85\
 	Este problema se puede solucionar de una manera, aunque no creo que sea muy eficiente que digamos. Ser\'eda o repetir el c\'f3digo de la creaci\'f3n de la variable que contiene las im\'e1genes, o duplicar o sustituir el momento en el cual se a\'f1aden al vector de im\'e1genes, poniendo "K y Z" en vez de "pos, pos", y una vez a\'f1adida la imagen, se incrementan dichas variables. (Pero creo que no es la forma m\'e1s eficiente de hacerlo). Y no, hay que repetir c\'f3digo, porque s\'f3lo se guarda una vez la imagen, no varias.\
 \
+\
+\
+\
+\
 - No se me ocurre como meterle las posiciones iniciales de los objetos si no es de la forma de la cual lo he realizado.\
-	Aunque eso ahora me da que pensar en que no puedo saber el c\'f3mo poner las cosas para saber si es personaje en la matriz o es obst\'e1culo, aunque si en la matriz pongo gui\'e1ndome por n\'fameros y en el vector las posiciones, no hay problema, o eso creo.}
+	Aunque eso ahora me da que pensar en que no puedo saber el c\'f3mo poner las cosas para saber si es personaje en la matriz o es obst\'e1culo, aunque si en la matriz pongo gui\'e1ndome por n\'fameros y en el vector las posiciones, no hay problema, o eso creo.\
+\
+\
+- No es un problema propiamente dicho, pero lo indico tambi\'e9n. A la hora de inicializar la matriz, ten\'eda el valor 0, pero no se puede inicializar las celdas de la matriz con ese valor debido a que ese valor, el numero 0, lo utiliza el personaje 1 como identificador. Por tanto, he decidido poner (como decisi\'f3n de dise\'f1o, se podr\'eda decir) el valor 12345 como valor nulo por defecto.\
+\
+\
+\
+-Error en valoresInicialesMatriz(): Creo que se donde est\'e1 el error, aunque a mi me parece que est\'e1 bien, creo recordar que en primero nos dijeran que no pod\'edamos hacer las cosas as\'ed, aunque pasando previamente a una variable auxiliar, sigue sin funcionar.\
+	El problema es lo siguiente:    this.cellarray[z][k] = this.controlArray[i][2].\
+	Dir\'eda yo que as\'ed no se pod\'eda poner, pero es que ya no se me ocurre otra manera de hacerlo. \
+	Una causa del problema podr\'eda ser (aunque no estoy muy seguro) es que la matriz tuviera los datos en forma de STRING y el controlArray los tuviera en forma de INTEGER, o algo parecido.\
+\
+\
+}
