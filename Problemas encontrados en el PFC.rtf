@@ -26,11 +26,13 @@
 \
 \
 \
-- No se me ocurre como meterle las posiciones iniciales de los objetos si no es de la forma de la cual lo he realizado.\
+- No se me ocurre como meterle las posiciones iniciales de los objetos si no es de la forma de la cual lo he realizado. (en la matriz)\
 	Aunque eso ahora me da que pensar en que no puedo saber el c\'f3mo poner las cosas para saber si es personaje en la matriz o es obst\'e1culo, aunque si en la matriz pongo gui\'e1ndome por n\'fameros y en el vector las posiciones, no hay problema, o eso creo.\
 \
 \
+\
 - No es un problema propiamente dicho, pero lo indico tambi\'e9n. A la hora de inicializar la matriz, ten\'eda el valor 0, pero no se puede inicializar las celdas de la matriz con ese valor debido a que ese valor, el numero 0, lo utiliza el personaje 1 como identificador. Por tanto, he decidido poner (como decisi\'f3n de dise\'f1o, se podr\'eda decir) el valor 12345 como valor nulo por defecto.\
+\
 \
 \
 \
@@ -38,6 +40,10 @@
 	El problema es lo siguiente:    this.cellarray[z][k] = this.controlArray[i][2].\
 	Dir\'eda yo que as\'ed no se pod\'eda poner, pero es que ya no se me ocurre otra manera de hacerlo. \
 	Una causa del problema podr\'eda ser (aunque no estoy muy seguro) es que la matriz tuviera los datos en forma de STRING y el controlArray los tuviera en forma de INTEGER, o algo parecido.\
+\
+	ERROR SOLUCIONADO, ERA QUE TEN\'cdA LA MATRIZ MAL DEFINIDA, Y SE INTENTABA ACCEDER A UNA POSICI\'d3N DE MEMORIA QUE NO EXISTIA\
+\
+\
 \
 \
 }
