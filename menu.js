@@ -47,6 +47,8 @@ function inicializacionJuego(){
 	this.myimageP = new ImageSet();
 	this.myimageO = new ImageSet();
 	
+	this.cambioPerso = 0;   //Esta variable se necesita para poder hacer bien la función actualizaJugadores.
+	
 	this.controlArray = null;
 	/*
 	* Aquí voy a poner la creación de la matriz con la que se distribuirán los jugadores
@@ -256,18 +258,25 @@ function actualizaJugadores(characters,cant){
 		}//fin de 1er IF
 		
 	}//FIN DE FOR
-	this.num = 0;
-	characters[this.aux2].estado = this.num;
-	this.aux2 = this.aux2 + 1;
-	this.aux3 = this.contaje + 1;
-	if(this.aux2 == this.aux3) {
-		this.num = 1;
-		characters[0].estado = this.num;
-	}
-	else{
-		this.num = 1;
+	
+	
+	if (this.cambioPerso >= 250){
+
+		this.cambioPerso = 0;
+		this.num = 0;
 		characters[this.aux2].estado = this.num;
+		this.aux2 = this.aux2 + 1;
+		this.aux3 = this.contaje + 1;
+		if(this.aux2 == this.aux3) {
+			this.num = 1;
+			characters[0].estado = this.num;
+		}
+		else{
+			this.num = 1;
+			characters[this.aux2].estado = this.num;
+		}
 	}
+	
 }
 
 
@@ -503,7 +512,7 @@ var mainLoop = function () {
 //		Tecles.keyesc = false;
 //		creaVentanaSecundariaPrueba();
 //	}
-	
+	this.cambioPerso = this.cambioPerso + 1;
 	
 	redibujarEscenario();
 	
