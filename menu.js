@@ -201,34 +201,53 @@ function capturaEventos(){
 //Esta función actualizará los jugadores, recibe por parámetro la lista con los jugadores, "una var auxiliar" para saber el nº de jugadores
 
 function actualizaJugadores(characters,cant){
-	 this.num = 0;
-	 this.aux = 0;
-	 this.aux2 = 0;
- 	 this.aux3 = 0;
-
+	this.num = 0;
+	this.aux = 0;
+	this.aux2 = 0;
+ 	this.aux3 = 0;
+	this.px1 = 0;
+	this.py1 = 0;
+	
 	//El bucle tiene la gracia de la función, para cada jugador, miraré si tiene la variable X con el valor correspondiente a su cuadrado
 	//y entonces le variaré la posición, ya que no irán todos los jugadores a la vez, será por turnos, primero uno, después otro,...
 	for (this.aux = 0; this.aux <= cant; this.aux++){
 		
 		if(characters[this.aux].estado == 1){
 			this.aux2 = this.aux;
+			this.px1 = characters[this.aux].px;
+			this.py1 = characters[this.aux].py;
+			this.px1 = this.px1 / 50;
+			this.py1 = this.py1 / 50;
+
 			if (Tecles.keydown == true){
+				this.cellarray[px1][py1] = 12345;
 				characters[this.aux].moveDown();
+				this.py1 = this.py1 + 1;
+				this.cellarray[px1][py1] = characters[this.aux].nump;				
 				Tecles.keydown = false;
 			}
 			else{
 				if(Tecles.keyup == true){
+					this.cellarray[px1][py1] = 12345;
 					characters[this.aux].moveUp();
+					this.py1 = this.py1 - 1;
+					this.cellarray[px1][py1] = characters[this.aux].nump;
 					Tecles.keyup = false;
 				}
 				else{
 					if(Tecles.keyright == true){
+						this.cellarray[px1][py1] = 12345;
 						characters[this.aux].moveRight();
+						this.px1 = this.px1 + 1;
+						this.cellarray[px1][py1] = characters[this.aux].nump;
 						Tecles.keyright = false;
 					}
 					else{
 						if(Tecles.keyleft == true){
+							this.cellarray[px1][py1] = 12345;
 							characters[this.aux].moveLeft();
+							this.px1 = this.px1 - 1;
+							this.cellarray[px1][py1] = characters[this.aux].nump;
 							Tecles.keyleft = false;
 						}
 					}
