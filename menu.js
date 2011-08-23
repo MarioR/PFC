@@ -21,7 +21,7 @@ var obstaculos = [
 	{"src" : './imagenes/wall.jpg', "posx" : 300, "posy" : 0, "w" : 50, "h" : 50, "num": 100},
 	{"src" : './imagenes/infernal.jpg', "posx" : 0, "posy" : 300, "w" : 50, "h" : 50, "num": 85},
 	{"src" : './imagenes/mine.jpg', "posx" : 200, "posy" : 600, "w" : 50, "h" : 50, "num": 30}	
-
+//repetir lo de las imagenes aki no en el menu
 ];
 
 var imagePause = [
@@ -72,9 +72,7 @@ function inicializacionJuego(){
 	
 	Inicio.init();
 	//Es la función en la que está implementado el raton
-	pruebaraton();
 	//Es la función en la que está implementado el teclado, así se cargará la función y el teclado funcionará
-	prueba();
 
 }
 
@@ -129,11 +127,17 @@ function createArray (numP,numObs){
 	} 
 }
 
+
+function ArrayData(px,py,nump){
+	this.px=px;
+	this.py=py;
+}
 //Inicializar el array guardando los valores por defecto, es decir
 //los personajes y los obstáculos iniciales
 function inicializarArray (a,b){
 	
-	this.controlArray[0][0] = this.perso.px;
+	this.controlArray[0] = new ArrayData(this.perso.px,this.perso.py,this.perso.nump);
+	this.controlArray[0][0] =  0;
 	this.controlArray[0][1] = this.perso.py;
 	this.controlArray[0][2] = this.perso.nump;
 	
@@ -209,6 +213,8 @@ function actualizaJugadores(characters,cant){
  	this.aux3 = 0;
 	this.px1 = 0;
 	this.py1 = 0;
+	this.pos1x = 0;
+	this.pos1y = 0;
 	
 	//El bucle tiene la gracia de la función, para cada jugador, miraré si tiene la variable X con el valor correspondiente a su cuadrado
 	//y entonces le variaré la posición, ya que no irán todos los jugadores a la vez, será por turnos, primero uno, después otro,...
@@ -220,36 +226,54 @@ function actualizaJugadores(characters,cant){
 			this.py1 = characters[this.aux].py;
 			this.px1 = this.px1 / 50;
 			this.py1 = this.py1 / 50;
+			this.pos1x = this.px1;
+			this.pos1y = this.py1;
 
 			if (Tecles.keydown == true){
+				this.cambioPerso = 250;
 				this.cellarray[px1][py1] = 12345;
 				characters[this.aux].moveDown();
 				this.py1 = this.py1 + 1;
-				this.cellarray[px1][py1] = characters[this.aux].nump;				
+				comprobarSiBatalla(this.pos1x,this.pos1y,this.px1,this.py1);
+				this.cellarray[px1][py1] = characters[this.aux].nump;			
+				this.controlArray[this.aux][0] = characters[this.aux].px;
+				this.controlArray[this.aux][1] = characters[this.aux].py;
 				Tecles.keydown = false;
 			}
 			else{
 				if(Tecles.keyup == true){
+					this.cambioPerso = 250;
 					this.cellarray[px1][py1] = 12345;
 					characters[this.aux].moveUp();
 					this.py1 = this.py1 - 1;
+					comprobarSiBatalla(this.pos1x,this.pos1y,this.px1,this.py1);
 					this.cellarray[px1][py1] = characters[this.aux].nump;
+					this.controlArray[this.aux][0] = characters[this.aux].px;
+					this.controlArray[this.aux][1] = characters[this.aux].py;
 					Tecles.keyup = false;
 				}
 				else{
 					if(Tecles.keyright == true){
+						this.cambioPerso = 250;
 						this.cellarray[px1][py1] = 12345;
 						characters[this.aux].moveRight();
 						this.px1 = this.px1 + 1;
+						comprobarSiBatalla(this.pos1x,this.pos1y,this.px1,this.py1);
 						this.cellarray[px1][py1] = characters[this.aux].nump;
+						this.controlArray[this.aux][0] = characters[this.aux].px;
+						this.controlArray[this.aux][1] = characters[this.aux].py;
 						Tecles.keyright = false;
 					}
 					else{
 						if(Tecles.keyleft == true){
+							this.cambioPerso = 250;
 							this.cellarray[px1][py1] = 12345;
 							characters[this.aux].moveLeft();
 							this.px1 = this.px1 - 1;
+							comprobarSiBatalla(this.pos1x,this.pos1y,this.px1,this.py1);
 							this.cellarray[px1][py1] = characters[this.aux].nump;
+							this.controlArray[this.aux][0] = characters[this.aux].px;
+							this.controlArray[this.aux][1] = characters[this.aux].py;
 							Tecles.keyleft = false;
 						}
 					}
@@ -276,9 +300,50 @@ function actualizaJugadores(characters,cant){
 			characters[this.aux2].estado = this.num;
 		}
 	}
+	else{
+		if(Tecles.keyintro == true){
+			Tecles.keyintro = false;
+			this.num = 0;
+			characters[this.aux2].estado = this.num;
+			this.aux2 = this.aux2 + 1;
+			this.aux3 = this.contaje + 1;
+			if(this.aux2 == this.aux3) {
+				this.num = 1;
+				characters[0].estado = this.num;
+			}
+			else{
+				this.num = 1;
+				characters[this.aux2].estado = this.num;
+			}	
+		}//fin del if del keyintro
+	}//fin de else
 	
 }
 
+
+//Esta función comprobará si se debe entrar en batalla
+function comprobarSiBatalla(posix1,posiy1,posix2,posiy2){
+	
+	//para comprobar si ha de haber una batalla, tengo que comparar al personaje que se ha movido y la posicion que quiere ocupar, para saber 
+	//si hay alguien en la misma posición que la que el primero pretendía ocupar
+	
+	if(posix1 == posix2){
+		if(posiy1 == posiy2){
+			//llamar a la pelea
+			
+			
+		}
+	}
+	
+	
+	//mas que mirar el que sean iwales las posiciones..., i si comparo el "controlArray" con la posicion que pretende ocupar, a ver que numero tiene
+	//si es 100,85 o 30, es un obstáculo, pero si es otro numero..., será un personaje y, por lo tanto, que habrá que pelear.
+	//una vez termine la batalla, se volverá al actualizarJugadores y, se modificará la posicion del personaje, en el caso de que sea necesario
+	
+	//si se muere o choca con un obst
+	
+	
+}
 
 
 //Esta es la función que se encargará de limpiar la pantalla, dibujar tablero, jugadores e interfaz.
@@ -345,7 +410,8 @@ function creaVentanaSecundariaPrueba(){
 function ventanaInicial(){
 	
 	document.onmousedown = function(e){
-		if(e.which == 1){
+		if((e.which == 1)&&(Pulsar.primera==true)){
+			Pulsar.primera= false;
 			menu();			
 		}
 	}

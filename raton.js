@@ -4,12 +4,12 @@ Pulsar = {
 	
 	lbutton: false,
 	rbutton: false,
-	cbutton: false
+	cbutton: false,
+	primera: true
 
 };
 
 
-function pruebaraton(){
 	
 	document.onmousedown = function(e){
 	
@@ -28,4 +28,3 @@ function pruebaraton(){
 		
 	}
 	
-}

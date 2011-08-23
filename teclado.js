@@ -13,13 +13,13 @@ Tecles = {
 	keyleft: false,
 	keyesc: false,
 	keypause: false,
+	keyintro: false,
 	intento: false,
 	intento1: false
 };
 
 
 
-function prueba(){
 		
 	document.onkeydown = function (key){
 
@@ -43,7 +43,6 @@ function prueba(){
 			case 39:
 				Tecles.keyright = true;
 			break;
-			
 			case 27:
 				Tecles.keyesc = true;
 			break;
@@ -52,6 +51,10 @@ function prueba(){
 			case 80:  //letra P minúscula
 				Tecles.keypause = true;
 			break;
+			case 13:
+				Tecles.keyintro = true;
+			break;
+				
 		}
 
 	}
@@ -100,7 +103,7 @@ function prueba(){
 				}
 			//	Tecles.keypause = false;
 			break;
+
 		}
 
 	}
-}
