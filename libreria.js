@@ -16,8 +16,8 @@ var Inicio=
   
       this.canvas = document.getElementById('juego');
       this.ctx = this.canvas.getContext('2d');
-      this.width = this.canvas.height;
-      this.height = this.canvas.width;  
+      this.width = this.canvas.width;
+      this.height = this.canvas.height;  
     
   }
   

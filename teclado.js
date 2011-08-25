@@ -88,7 +88,7 @@ Tecles = {
 				}
 				else{
 					Tecles.intento1 = false;
-					Teles.keyesc = false;
+					Tecles.keyesc = false;
 				}
 			break;
 			case 80:  //letra P minúscula
@@ -99,7 +99,7 @@ Tecles = {
 				}
 				else{
 					Tecles.intento = false;
-					Teles.keypause = false;
+					Tecles.keypause = false;
 				}
 			//	Tecles.keypause = false;
 			break;

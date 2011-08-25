@@ -31,7 +31,7 @@ function pruebaParaCambiar(){
 	
 	
 	
-var loop = function{
+var loop = function(){
 	
 	redibujarEscenario();
 }

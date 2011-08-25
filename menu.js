@@ -8,20 +8,22 @@
 */
 
 var imagelist = [
-	{ "src" : './imagenes/escenario1.jpg', "posx" : 0, "posy" : 0, "w" : 1000, "h" : 650},
+     { "src" : './imagenes/escenario1.jpg', "posx" : 0, "posy" : 0, "w" : 1000, "h" : 650},
      { "src" : './imagenes/nami.jpg', "posx" : 0, "posy" : 0, "w" : 330, "h" : 321},
      { "src" : './imagenes/zoro.jpg', "posx" : 300, "posy" : 300, "w" : 200, "h" : 200}
-//zoro: 349, 315
+
 ];
 
-
-//He puesto que habrá 2 tipos de obstáculos, aunque falta encontrar las imagenes
-
+//Pese a que está la misma imagen, no es repetir código, puesto que no está en la misma posicion
+//es otra imagen diferente
 var obstaculos = [
 	{"src" : './imagenes/wall.jpg', "posx" : 300, "posy" : 0, "w" : 50, "h" : 50, "num": 100},
 	{"src" : './imagenes/infernal.jpg', "posx" : 0, "posy" : 300, "w" : 50, "h" : 50, "num": 85},
-	{"src" : './imagenes/mine.jpg', "posx" : 200, "posy" : 600, "w" : 50, "h" : 50, "num": 30}	
-//repetir lo de las imagenes aki no en el menu
+	{"src" : './imagenes/mine.jpg', "posx" : 200, "posy" : 550, "w" : 50, "h" : 50, "num": 30},
+	{"src" : './imagenes/wall.jpg', "posx" : 100, "posy" : 350, "w" : 50, "h" : 50, "num": 100},
+	{"src" : './imagenes/infernal.jpg', "posx" : 500, "posy" : 150, "w" : 50, "h" : 50, "num": 85},
+	{"src" : './imagenes/mine.jpg', "posx" : 800, "posy" : 500, "w" : 50, "h" : 50, "num": 30}
+	
 ];
 
 var imagePause = [
@@ -40,7 +42,7 @@ function inicializacionJuego(){
 	this.perso2 = null;
 	this.perso3 = null;
 	this.perso5 = null;
-	
+	this.obst = 0;
 	this.ctx = Inicio.ctx;
 	
 	this.myimages = new ImageSet();
@@ -60,10 +62,10 @@ function inicializacionJuego(){
 	//Si no me equivoco es así.
 	
 	//Empieza la creacion de la matriz
-	this.cellarray = new Array (20);
+	this.cellarray = new Array (13);
 	
-	for (i=0;i<20;i++){
-		this.cellarray[i] = new Array (13);
+	for (i=0;i<13;i++){
+		this.cellarray[i] = new Array (20);
 	}
 	//Finaliza la creacion de la matriz
 	inicializarMatriz();
@@ -73,7 +75,7 @@ function inicializacionJuego(){
 	Inicio.init();
 	//Es la función en la que está implementado el raton
 	//Es la función en la que está implementado el teclado, así se cargará la función y el teclado funcionará
-
+	pruebaRaton();
 }
 
 
@@ -81,8 +83,8 @@ function inicializacionJuego(){
 
 function inicializarMatriz (){
 	
-	for (i=0;i<20;i++){
-		for(j=0;j<13;j++){
+	for (i=0;i<13;i++){
+		for(j=0;j<20;j++){
 			this.cellarray[i][j] = 12345;  //12345 será el numero nulo por defecto, ya que el numero 0 lo necesita el personaje 1  
 		}
 	}
@@ -101,12 +103,12 @@ function valoresInicialesMatriz(){
 	
 	for (i=0;i<10;i++){
 		
-		z = this.controlArray[i][0];
+		z = this.controlArray[i].px;
 		z = z / 50;       
-		k = this.controlArray[i][1];
+		k = this.controlArray[i].py;
 		k = k / 50;
 
-		aux = this.controlArray[i][2];
+		aux = this.controlArray[i].num;
 
 		this.cellarray[k][z] = aux;
 	}
@@ -120,70 +122,41 @@ function valoresInicialesMatriz(){
 function createArray (numP,numObs){
 	
 	var cuantos = numP+numObs;
+	
 	this.controlArray = new Array (cuantos);   
 	
-	for (i=0;i<cuantos;i++){
-		this.controlArray[i] = new Array (3); 
-	} 
 }
 
 
 function ArrayData(px,py,nump){
-	this.px=px;
-	this.py=py;
+	this.px = px;
+	this.py = py;
+	this.num = nump;
 }
 //Inicializar el array guardando los valores por defecto, es decir
 //los personajes y los obstáculos iniciales
-function inicializarArray (a,b){
+function inicializarArray (){
 	
-	this.controlArray[0] = new ArrayData(this.perso.px,this.perso.py,this.perso.nump);
-	this.controlArray[0][0] =  0;
-	this.controlArray[0][1] = this.perso.py;
-	this.controlArray[0][2] = this.perso.nump;
-	
-	
-	this.controlArray[1][0] = this.perso2.px;
-	this.controlArray[1][1] = this.perso2.py;
-	this.controlArray[1][2] = this.perso2.nump;
-	
-	this.controlArray[2][0] = this.perso3.px;
-	this.controlArray[2][1] = this.perso3.py;
-	this.controlArray[2][2] = this.perso3.nump;
 
-	
-	this.controlArray[3][0] = this.perso5.px;
-	this.controlArray[3][1] = this.perso5.py;
-	this.controlArray[3][2] = this.perso5.nump;
-	
-	this.controlArray[4][0] = obstaculos[0].posx;
-	this.controlArray[4][1] = obstaculos[0].posy;
-	this.controlArray[4][2] = obstaculos[0].num;
-	
-	this.controlArray[5][0] = obstaculos[1].posx;
-	this.controlArray[5][1] = obstaculos[1].posy;
-	this.controlArray[5][2] = obstaculos[1].num;
-	
-	this.controlArray[6][0] = obstaculos[2].posx;
-	this.controlArray[6][1] = obstaculos[2].posy;
-	this.controlArray[6][2] = obstaculos[2].num;
-	
-	this.controlArray[7][0] = a - 400;
-	this.controlArray[7][1] = b - 300;
-	this.controlArray[7][2] = obstaculos[0].num;
-	
-	this.controlArray[8][0] = a - 200;
-	this.controlArray[8][1] = b - 150;
-	this.controlArray[8][2] = obstaculos[1].num;
-	
-	this.controlArray[9][0] = a;
-	this.controlArray[9][1] = b;
-	this.controlArray[9][2] = obstaculos[2].num;
+	this.controlArray[0] = new ArrayData(this.perso.px,this.perso.py,this.perso.nump);
+	this.controlArray[1] = new ArrayData(this.perso2.px,this.perso2.py,this.perso2.nump);
+	this.controlArray[2] = new ArrayData(this.perso3.px,this.perso3.py,this.perso3.nump);
+	this.controlArray[3] = new ArrayData(this.perso5.px,this.perso5.py,this.perso5.nump);
+	this.controlArray[4] = new ArrayData(obstaculos[0].posx,obstaculos[0].posy,obstaculos[0].num);
+	this.controlArray[5] = new ArrayData(obstaculos[1].posx,obstaculos[1].posy,obstaculos[1].num);
+	this.controlArray[6] = new ArrayData(obstaculos[2].posx,obstaculos[2].posy,obstaculos[2].num);
+	this.controlArray[7] = new ArrayData(obstaculos[3].posx,obstaculos[3].posy,obstaculos[3].num);
+	this.controlArray[8] = new ArrayData(obstaculos[4].posx,obstaculos[4].posy,obstaculos[4].num);
+	this.controlArray[9] = new ArrayData(obstaculos[5].posx,obstaculos[5].posy,obstaculos[5].num);
 	
 }
 
 
 //Esta es la "verdadera" función captura eventos
 function capturaEventos(){
+	
+	//AL haber cambiado la clase ratón, ya no va
+	
 	
 	//En esta parte aún no tiene mucha lógica utilizarlo, pero hago alguna cosa, para ver que funciona
 		
@@ -216,6 +189,7 @@ function actualizaJugadores(characters,cant){
 	this.pos1x = 0;
 	this.pos1y = 0;
 	
+
 	//El bucle tiene la gracia de la función, para cada jugador, miraré si tiene la variable X con el valor correspondiente a su cuadrado
 	//y entonces le variaré la posición, ya que no irán todos los jugadores a la vez, será por turnos, primero uno, después otro,...
 	for (this.aux = 0; this.aux <= cant; this.aux++){
@@ -231,49 +205,49 @@ function actualizaJugadores(characters,cant){
 
 			if (Tecles.keydown == true){
 				this.cambioPerso = 250;
-				this.cellarray[px1][py1] = 12345;
+				this.cellarray[py1][px1] = 12345;
 				characters[this.aux].moveDown();
 				this.py1 = this.py1 + 1;
-				comprobarSiBatalla(this.pos1x,this.pos1y,this.px1,this.py1);
-				this.cellarray[px1][py1] = characters[this.aux].nump;			
-				this.controlArray[this.aux][0] = characters[this.aux].px;
-				this.controlArray[this.aux][1] = characters[this.aux].py;
+			//	comprobarSiBatalla(this.pos1x,this.pos1y,this.px1,this.py1);
+				this.cellarray[py1][px1] = characters[this.aux].nump;			
+				this.controlArray[this.aux].px = characters[this.aux].px;
+				this.controlArray[this.aux].py = characters[this.aux].py;
 				Tecles.keydown = false;
 			}
 			else{
 				if(Tecles.keyup == true){
 					this.cambioPerso = 250;
-					this.cellarray[px1][py1] = 12345;
+					this.cellarray[py1][px1] = 12345;
 					characters[this.aux].moveUp();
 					this.py1 = this.py1 - 1;
-					comprobarSiBatalla(this.pos1x,this.pos1y,this.px1,this.py1);
-					this.cellarray[px1][py1] = characters[this.aux].nump;
-					this.controlArray[this.aux][0] = characters[this.aux].px;
-					this.controlArray[this.aux][1] = characters[this.aux].py;
+		//			comprobarSiBatalla(this.pos1x,this.pos1y,this.px1,this.py1);
+					this.cellarray[py1][px1] = characters[this.aux].nump;
+					this.controlArray[this.aux].px = characters[this.aux].px;
+					this.controlArray[this.aux].py = characters[this.aux].py;
 					Tecles.keyup = false;
 				}
 				else{
 					if(Tecles.keyright == true){
 						this.cambioPerso = 250;
-						this.cellarray[px1][py1] = 12345;
+						this.cellarray[py1][px1] = 12345;
 						characters[this.aux].moveRight();
 						this.px1 = this.px1 + 1;
-						comprobarSiBatalla(this.pos1x,this.pos1y,this.px1,this.py1);
-						this.cellarray[px1][py1] = characters[this.aux].nump;
-						this.controlArray[this.aux][0] = characters[this.aux].px;
-						this.controlArray[this.aux][1] = characters[this.aux].py;
+				//		comprobarSiBatalla(this.pos1x,this.pos1y,this.px1,this.py1);
+						this.cellarray[py1][px1] = characters[this.aux].nump;
+						this.controlArray[this.aux].px = characters[this.aux].px;
+						this.controlArray[this.aux].py = characters[this.aux].py;
 						Tecles.keyright = false;
 					}
 					else{
 						if(Tecles.keyleft == true){
 							this.cambioPerso = 250;
-							this.cellarray[px1][py1] = 12345;
+							this.cellarray[py1][px1] = 12345;
 							characters[this.aux].moveLeft();
 							this.px1 = this.px1 - 1;
-							comprobarSiBatalla(this.pos1x,this.pos1y,this.px1,this.py1);
-							this.cellarray[px1][py1] = characters[this.aux].nump;
-							this.controlArray[this.aux][0] = characters[this.aux].px;
-							this.controlArray[this.aux][1] = characters[this.aux].py;
+		//					comprobarSiBatalla(this.pos1x,this.pos1y,this.px1,this.py1);
+							this.cellarray[py1][px1] = characters[this.aux].nump;
+							this.controlArray[this.aux].px = characters[this.aux].px;
+							this.controlArray[this.aux].py = characters[this.aux].py;
 							Tecles.keyleft = false;
 						}
 					}
@@ -363,7 +337,7 @@ function redibujarEscenario (){
 
 var context = Inicio.ctx;
 	//Esto va, pero tengo que coordinar el momento de utilizarlo, porque sino se borra la pantalla i no se sabe si va o no
-	context.clearRect(0,0,500,500);
+	context.clearRect(0,0,1000,650);
 	//Poniendo esto ya va, hago que cada vez que se limpie la pantalla, se "repinte" el cuadrado
 	//De hecho, es el punto 3- dibujar jugadores/objetos
 
@@ -415,6 +389,7 @@ function ventanaInicial(){
 			menu();			
 		}
 	}
+	
 
 //Si pongo como codigo el primer comentario, se hace un lio despues en el menu, ya que hay 2 bucles. por lo menos se lia, creo que es por eso
 //Si pongo el segundo, no va, puesto que hace la pasada i como no le has dado antes, luego no hay forma de hacer que funcione
@@ -483,23 +458,13 @@ function menu(){
 		img.setPosition(obstaculos[i].posx,obstaculos[i].posy);
 		img.setSize(obstaculos[i].w,obstaculos[i].h);
 		this.myimageO.add(img);
+		this.obst = this.obst + 1;
 
 	}
-	
 	/*
 	*Modo cutre de hacer que una lista de imagenes se repita varias veces
 	*/
-	var z = 100;
-	var k = 200;
-	for (i=0;i<obstaculos.length;i++){
-		var img = new ImageData(i,context,obstaculos[i].src);
-		img.setPosition(k,z);
-		img.setSize(obstaculos[i].w,obstaculos[i].h);
-		this.myimageO.add(img);
-		z = z+200;
-		k = k+150;
 
-	}
 	
 	this.myimageO.draw();
 
@@ -546,8 +511,8 @@ this.perso5.drawImagen();
 //Pongo this.contaje+1 debido a que el contaje hace 0,1,2,3 (lo k suma 4 personajes) y si le paso this.contaje, le pasará 3
 //con lo que resultaria al crear el array 0,1,2, con lo cual faltaría una posición
 //6 son los obstáculos. 3 en el primer bucle de obstáculos y otros 3 en el segundo
-createArray(this.contaje+1, 6);
-inicializarArray(z,k);
+createArray(this.contaje+1, this.obst);
+inicializarArray();
 valoresInicialesMatriz();
 
 
@@ -578,6 +543,9 @@ var mainLoop = function () {
 //		Tecles.keyesc = false;
 //		creaVentanaSecundariaPrueba();
 //	}
+	
+
+	
 	this.cambioPerso = this.cambioPerso + 1;
 	
 	redibujarEscenario();

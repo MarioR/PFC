@@ -10,7 +10,7 @@ Pulsar = {
 };
 
 
-	
+function pruebaRaton(){
 	document.onmousedown = function(e){
 	
 		switch (e.which){
@@ -28,3 +28,21 @@ Pulsar = {
 		
 	}
 	
+	
+	document.onmouseup = function(e){
+	
+		switch (e.which){
+
+			case 1:
+				Pulsar.lbutton = false;
+			break;
+			case 2:
+				Pulsar.rbutton = false;
+			break;
+			case 4:
+				Pulsar.cbutton = false;
+			break;
+		}
+		
+	}
+}
