@@ -296,6 +296,9 @@ function actualizaJugadores(characters,cant){
 
 
 //Esta función comprobará si se debe entrar en batalla
+//VERSION ANTIGUA
+//primero cambiaré a "estados" el juego y después ya comprobaré para entrar en batalla y todo eso
+
 function comprobarSiBatalla(posix1,posiy1,posix2,posiy2){
 	
 	//para comprobar si ha de haber una batalla, tengo que comparar al personaje que se ha movido y la posicion que quiere ocupar, para saber 
