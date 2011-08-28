@@ -14,6 +14,7 @@ Tecles = {
 	keyesc: false,
 	keypause: false,
 	keyintro: false,
+	keyhelp: false,
 	intento: false,
 	intento1: false
 };
@@ -54,7 +55,9 @@ Tecles = {
 			case 13:
 				Tecles.keyintro = true;
 			break;
-				
+			case 72:
+				Tecles.keyhelp = true;
+			break;
 		}
 
 	}
@@ -103,7 +106,9 @@ Tecles = {
 				}
 			//	Tecles.keypause = false;
 			break;
-
+			case 72:
+				Tecles.keyhelp = false;
+			break;
 		}
 
 	}

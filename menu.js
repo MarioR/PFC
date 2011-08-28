@@ -33,6 +33,7 @@ var imagePause = [
 
 //Esta es la funcion que se encargará de inicializar todas las variables que "inicialmente" estén en juego.
 function inicializacionJuego(){
+
 	this.contenedor = new Array ();  //Esta variable contendrá la lista con los personajes creados
 	this.contaje = 0;
 	this.x = 0;
@@ -43,7 +44,12 @@ function inicializacionJuego(){
 	this.perso3 = null;
 	this.perso5 = null;
 	this.obst = 0;
+	Inicio.init();
+	
 	this.ctx = Inicio.ctx;
+	
+	this.ctx.fillStyle = "#000000";
+	this.ctx.font = "12px Verdana";
 	
 	this.myimages = new ImageSet();
 	this.myimageP = new ImageSet();
@@ -72,7 +78,6 @@ function inicializacionJuego(){
 	
 	
 	
-	Inicio.init();
 	//Es la función en la que está implementado el raton
 	//Es la función en la que está implementado el teclado, así se cargará la función y el teclado funcionará
 	pruebaRaton();
@@ -385,14 +390,15 @@ function creaVentanaSecundariaPrueba(){
 //De momento la primera VENTANA, con la que se inicia el juego. Si se pulsa el boton izquierdo del ratón
 //se pasará a ejecutar la función "menu()", que es la que tiene todo el programa en su interior
 function ventanaInicial(){
-	
+	inicializacionJuego();
+	this.ctx.fillText("HOLAAAAAAA", 200, 100);
 	document.onmousedown = function(e){
 		if((e.which == 1)&&(Pulsar.primera==true)){
 			Pulsar.primera= false;
 			menu();			
 		}
 	}
-	
+
 
 //Si pongo como codigo el primer comentario, se hace un lio despues en el menu, ya que hay 2 bucles. por lo menos se lia, creo que es por eso
 //Si pongo el segundo, no va, puesto que hace la pasada i como no le has dado antes, luego no hay forma de hacer que funcione
