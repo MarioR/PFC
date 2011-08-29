@@ -12,6 +12,11 @@
 //	 - Recuperar_estado  (Lo mismo que la anterior)
 	
 	
+//Está definido el contenedor de la imagen, pero falta hacer la parte de menú de este estado para que se inicialice la imagen y se pueda pintar
+var imageArrow = [
+
+     { "src" : './imagenes/flechader.jpg', "posx" : 0, "posy" : 0, "w" : 20, "h" : 20}
+];	
 
 Selecciones = {
 
@@ -21,20 +26,39 @@ Selecciones = {
 	
 };
 
+//Esta función será la que pintará las imagenes de cada estado.
+//Y se llamará a la función desde el UPDATE ESTADO y desde el "inicio", es decir, el primer pintaje de las imagenes
+function draw(){
+	
+	this.myimageA.draw();
+}
+
 
 //Esta función se va autohaciendo a medida que avanzo en la creacion de la clase, ya que no se las variables que se utilizan
-function inicializarEstado (){
-	
+function inicializarEstado(){
+	Inicio.init();  
 	this.keyD = 0;
 	this.cont = Inicio.ctx;
-	this.cont.fillStyle = "#000000";
-	this.cont.font = "12px Verdana";
+	this.cont.fillStyle = "#000000";   //definimos el color que tendrá el string que pintemos
+	this.cont.font = "12px Verdana";   //definimos el tamaño y el tipo de letra que escribiremos
+	
+	this.texto1 = "JUGAR";
+	this.texto2 = "AYUDA";
+	this.texto3 = "SALIR";
+	
+	
+	this.myimageA = new ImageData(1,this.cont,imageArrow[0].src);
+	
+	this.myimageA.setPosition(170,170);
+	this.myimageA.setSize (20,20);
+	
+	draw();
 	
 }
 	
 	
 //Esta función leerá el teclado y el ratón
-function leerAccion (){
+function leerAccion(){
 	
 	//Aqui tal vez se podría poner que si se pulsan las teclas, la opcion de seleccionar sea diferente, ir a juego, a ayuda, o salir de juego
 	//el salir de juego irá con ESC, aunque eso servirá también despues dentro del juego para salir y volver a la pantalla inicial
@@ -85,12 +109,51 @@ function leerAccion (){
 //Esta función actualizará el juego
 
 //No estoy muy seguro, pero creo que esto podría ser una funcion similar a lo que sería el redibujar escenario
-function updateEstado (){
+function updateEstado(){
 	
 	//Primero se limpia el escenario
-	cont.clearRect(0,0,1000,650);
+	this.cont.clearRect(0,0,1000,650);
+	
+	//Después escribimos los strings marcados
+	this.cont.fillText(this.texto1, 200, 100);   //Pintamos el string deseado en la pos x e y
+	this.cont.fillText(this.texto2, 200, 200);
+	this.cont.fillText(this.texto3, 200, 300);
+	
+	
+	
+
+	switch (this.keyD){
+		case 0:
+			this.myimageA.setPosition(170,170);
+		break;
+		case 1:
+			this.myimageA.setPosition(170,270);
+		break;
+		case 2:
+			this.myimageA.setPosition(170,370);
+		break;
+	}
+	
+	//this.myimageA.draw();
+	
+	draw();
+	
+	
 	
 	
 }
 
 
+//Esta función servirá para guardar el estado de las variables (como la imagen en este caso y en otros las teclas y el raton)
+function guardarEstado(){
+	
+	
+	
+}
+
+//Ahora creo que estas no son necesarias, ya que una vez se pulsa la letra, automaticamente se pone a false antes de poder hacer
+//otra cosa..., creo que no son necesarias..., a ver si luego lo veo de otra manera
+
+function restaurarEstado(){
+	
+}

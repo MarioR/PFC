@@ -10,7 +10,9 @@
 var imagelist = [
      { "src" : './imagenes/escenario1.jpg', "posx" : 0, "posy" : 0, "w" : 1000, "h" : 650},
      { "src" : './imagenes/nami.jpg', "posx" : 0, "posy" : 0, "w" : 330, "h" : 321},
-     { "src" : './imagenes/zoro.jpg', "posx" : 300, "posy" : 300, "w" : 200, "h" : 200}
+     { "src" : './imagenes/zoro.jpg', "posx" : 300, "posy" : 300, "w" : 200, "h" : 200},
+	 { "src" : './imagenes/help1.jpg', "posx" : 0, "posy" : 0, "w" : 1000, "h" : 650}
+     
 
 ];
 
@@ -28,7 +30,7 @@ var obstaculos = [
 
 var imagePause = [
 
-     { "src" : './imagenes/pause.jpg', "posx" : 0, "posy" : 0, "w" : 500, "h" : 500}
+     { "src" : './imagenes/pause.jpg', "posx" : 200, "posy" : 50, "w" : 500, "h" : 500}
 ];
 
 //Esta es la funcion que se encargará de inicializar todas las variables que "inicialmente" estén en juego.
@@ -361,7 +363,7 @@ var context = Inicio.ctx;
 		
 		if (Tecles.intento1 == true){
 		//	this.myimages.draw();
-			this.myimages.drawX(0);
+			this.myimages.drawX(3);
 		}
 		else{
 			this.myimages.drawX(0);  //esta siempre primero, que es el escenario de juego
@@ -391,7 +393,8 @@ function creaVentanaSecundariaPrueba(){
 //se pasará a ejecutar la función "menu()", que es la que tiene todo el programa en su interior
 function ventanaInicial(){
 	inicializacionJuego();
-	this.ctx.fillText("HOLAAAAAAA", 200, 100);
+	this.ctx.fillText("HOLAAAAAAA", 200, 100);   //Pintamos el string deseado en la pos x e y
+	this.ctx.fillText("MI JUEGO", 200, 200)
 	document.onmousedown = function(e){
 		if((e.which == 1)&&(Pulsar.primera==true)){
 			Pulsar.primera= false;
