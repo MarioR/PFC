@@ -89,20 +89,18 @@ function leerAccion(){
 		
 		if(this.keyD == 0){
 				Selecciones.jugar = true;
+		}
+		else{
+			if(this.keyD == 1){
+				Selecciones.ayuda = true;
 			}
 			else{
-				if(this.keyD == 1){
-					Selecciones.ayuda = true;
-				}
-				else{
-					if(this.keyD == 2){
-						Selecciones.salir = true;
-					}
+				if(this.keyD == 2){
+					Selecciones.salir = true;
 				}
 			}
-		} //fin del if del this.keyD == 0
-	}
-	
+		}
+	} //fin del if del this.keyD == 0
 }
 
 

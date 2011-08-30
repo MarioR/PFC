@@ -36,6 +36,7 @@ var imagePause = [
 //Esta es la funcion que se encargará de inicializar todas las variables que "inicialmente" estén en juego.
 function inicializacionJuego(){
 
+	this.prueba = 0;
 	this.contenedor = new Array ();  //Esta variable contendrá la lista con los personajes creados
 	this.contaje = 0;
 	this.x = 0;
@@ -108,7 +109,7 @@ function valoresInicialesMatriz(){
 	var k = 0;
 	var aux = 0;
 	
-	for (i=0;i<10;i++){
+	for (i=0;i<this.prueba;i++){
 		
 		z = this.controlArray[i].px;
 		z = z / 50;       
@@ -128,9 +129,8 @@ function valoresInicialesMatriz(){
 //numObs = numero de obstaculos (dependerá del nivel de dificultad)
 function createArray (numP,numObs){
 	
-	var cuantos = numP+numObs;
-	
-	this.controlArray = new Array (cuantos);   
+	this.prueba = numP+numObs;
+	this.controlArray = new Array (this.prueba);   
 	
 }
 
@@ -144,18 +144,19 @@ function ArrayData(px,py,nump){
 //los personajes y los obstáculos iniciales
 function inicializarArray (){
 	
-
-	this.controlArray[0] = new ArrayData(this.perso.px,this.perso.py,this.perso.nump);
-	this.controlArray[1] = new ArrayData(this.perso2.px,this.perso2.py,this.perso2.nump);
-	this.controlArray[2] = new ArrayData(this.perso3.px,this.perso3.py,this.perso3.nump);
-	this.controlArray[3] = new ArrayData(this.perso5.px,this.perso5.py,this.perso5.nump);
-	this.controlArray[4] = new ArrayData(obstaculos[0].posx,obstaculos[0].posy,obstaculos[0].num);
-	this.controlArray[5] = new ArrayData(obstaculos[1].posx,obstaculos[1].posy,obstaculos[1].num);
-	this.controlArray[6] = new ArrayData(obstaculos[2].posx,obstaculos[2].posy,obstaculos[2].num);
-	this.controlArray[7] = new ArrayData(obstaculos[3].posx,obstaculos[3].posy,obstaculos[3].num);
-	this.controlArray[8] = new ArrayData(obstaculos[4].posx,obstaculos[4].posy,obstaculos[4].num);
-	this.controlArray[9] = new ArrayData(obstaculos[5].posx,obstaculos[5].posy,obstaculos[5].num);
-	
+	var i;
+	for (i=0;i<this.prueba;i++){
+		this.controlArray[i] = new ArrayData(this.perso.px,this.perso.py,this.perso.nump);
+		this.controlArray[i] = new ArrayData(this.perso2.px,this.perso2.py,this.perso2.nump);
+		this.controlArray[i] = new ArrayData(this.perso3.px,this.perso3.py,this.perso3.nump);
+		this.controlArray[i] = new ArrayData(this.perso5.px,this.perso5.py,this.perso5.nump);
+		this.controlArray[i] = new ArrayData(obstaculos[0].posx,obstaculos[0].posy,obstaculos[0].num);
+		this.controlArray[i] = new ArrayData(obstaculos[1].posx,obstaculos[1].posy,obstaculos[1].num);
+		this.controlArray[i] = new ArrayData(obstaculos[2].posx,obstaculos[2].posy,obstaculos[2].num);
+		this.controlArray[i] = new ArrayData(obstaculos[3].posx,obstaculos[3].posy,obstaculos[3].num);
+		this.controlArray[i] = new ArrayData(obstaculos[4].posx,obstaculos[4].posy,obstaculos[4].num);
+		this.controlArray[i] = new ArrayData(obstaculos[5].posx,obstaculos[5].posy,obstaculos[5].num);
+	}
 }
 
 
@@ -437,15 +438,9 @@ pruebaraton();
 	
 }
 
-//Tengo que poner la función menu, ya que sino no se ejecuta el prueba.html, porque no va
-//De ahí que ponga dentro de la función el mainLoop y el setInterval.
-function menu(){
-	
-	//Llamada a la función inicializacionJuego(), que carga los parametros y variables iniciales
-	inicializacionJuego();
 
 
-	//LOAD THE IMAGES FROM THE DATA
+function cargaVecImg(){
 	var i;
 	var context = Inicio.ctx;
 	
@@ -473,6 +468,52 @@ function menu(){
 		this.obst = this.obst + 1;
 
 	}
+}
+
+function cargaPersonajes(){
+	var context = Inicio.ctx;
+		this.perso = new Character("#000080",100,100,this.contaje, context, imagelist[1].src);
+		this.perso.setestado(1);
+		this.contenedor[this.contaje] = this.perso; //kreo k no es asi, pero es posible
+		contaje ++;
+		this.perso.drawImagen();
+
+
+
+		this.perso2 = new Character("#00FF00",0,200,this.contaje, context,imagelist[1].src);
+		this.perso2.setestado(0);
+		this.contenedor[this.contaje] = this.perso2; //kreo k no es asi, pero es posible
+		contaje ++;
+	  	this.perso2.drawImagen();
+
+
+
+
+	this.perso3 = new Character(this.col,this.x,this.y,this.contaje, context,imagelist[2].src);
+	this.perso3.setestado(0);
+	this.contenedor[this.contaje] = this.perso3; //kreo k no es asi, pero es posible
+	this.perso3.drawImagen();
+
+	contaje++;
+
+	this.perso5 = new Character("#C0C0C0",300,300,this.contaje, context,imagelist[2].src);
+	this.perso5.setestado(0);
+	this.contenedor[this.contaje] = this.perso5; //kreo k no es asi, pero es posible
+	this.perso5.drawImagen();
+}
+
+
+//Tengo que poner la función menu, ya que sino no se ejecuta el prueba.html, porque no va
+//De ahí que ponga dentro de la función el mainLoop y el setInterval.
+function menu(){
+	var context = Inicio.ctx;
+	
+	//Llamada a la función inicializacionJuego(), que carga los parametros y variables iniciales
+	inicializacionJuego();
+
+	cargaVecImg();
+	//LOAD THE IMAGES FROM THE DATA
+
 	/*
 	*Modo cutre de hacer que una lista de imagenes se repita varias veces
 	*/
@@ -490,34 +531,7 @@ function menu(){
 	//4º se incrementa una variable necesaria para el array
 	//5º se dibuja el peronaje
 	
-	this.perso = new Character("#000080",100,100,this.contaje, context, imagelist[1].src);
-	this.perso.setestado(1);
-	this.contenedor[this.contaje] = this.perso; //kreo k no es asi, pero es posible
-	contaje ++;
-	this.perso.drawImagen();
-
-	
-
-	this.perso2 = new Character("#00FF00",0,200,this.contaje, context,imagelist[1].src);
-	this.perso2.setestado(0);
-	this.contenedor[this.contaje] = this.perso2; //kreo k no es asi, pero es posible
-	contaje ++;
-  	this.perso2.drawImagen();
-
-
-
-
-this.perso3 = new Character(this.col,this.x,this.y,this.contaje, context,imagelist[2].src);
-this.perso3.setestado(0);
-this.contenedor[this.contaje] = this.perso3; //kreo k no es asi, pero es posible
-this.perso3.drawImagen();
-
-contaje++;
-
-this.perso5 = new Character("#C0C0C0",300,300,this.contaje, context,imagelist[2].src);
-this.perso5.setestado(0);
-this.contenedor[this.contaje] = this.perso5; //kreo k no es asi, pero es posible
-this.perso5.drawImagen();
+cargaPersonajes();
 
 
 //Pongo this.contaje+1 debido a que el contaje hace 0,1,2,3 (lo k suma 4 personajes) y si le paso this.contaje, le pasará 3
