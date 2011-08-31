@@ -304,11 +304,29 @@ function actualizaJugadores(characters,cant){
 		this.aux3 = this.contaje + 1;
 		if(this.aux2 == this.aux3) {
 			this.num = 1;
-				characters[0].estado = this.num;
+			this.aux2 = 0;
+				if (characters[0].estado != 2){
+					characters[0].estado = this.num;
+				}
+				else{
+					this.aux2 = this.aux2 + 1;
+					characters[this.aux2].estado = this.num;
+				}
 		}
 		else{
 			this.num = 1;
+			if(characters[this.aux2].estado != 2){
 				characters[this.aux2].estado = this.num;
+			}
+			else{
+				this.aux2 = this.aux2 + 1;
+				if (this.aux2 == this.aux3){									//PARECE QUE TODO ESTO QUE HE HECHO VA, PORQUE PINTA LOS PERSONAJES
+					characters[0].estado = this.num;							//Prueba de FUEGO: mirar con "alert"
+				}																//CREO QUE SI QUE VAAAAAAAA!!!!!!!!!!!!!!!!
+				else{
+					characters[this.aux2].estado = this.num;
+				}
+			}
 		}
 	}
 	else{
@@ -320,11 +338,29 @@ function actualizaJugadores(characters,cant){
 			this.aux3 = this.contaje + 1;
 			if(this.aux2 == this.aux3) {
 				this.num = 1;
-				characters[0].estado = this.num;
+				this.aux2 = 0;
+					if (characters[0].estado != 2){
+						characters[0].estado = this.num;
+					}
+					else{
+						this.aux2 = this.aux2 + 1;
+						characters[this.aux2].estado = this.num;
+					}
 			}
 			else{
 				this.num = 1;
-				characters[this.aux2].estado = this.num;
+				if(characters[this.aux2].estado != 2){
+					characters[this.aux2].estado = this.num;
+				}
+				else{
+					this.aux2 = this.aux2 + 1;
+					if (this.aux2 == this.aux3){
+						characters[0].estado = this.num;
+					}
+					else{
+						characters[this.aux2].estado = this.num;
+					}
+				}
 			}	
 		}//fin del if del keyintro
 	}//fin de else
@@ -356,10 +392,7 @@ function comprobarSiBatalla(px,py,num,aux1){
 					this.contenedor[aux1].vida = this.contenedor[aux1].vida - 20;	
 				}
 				else{
-					this.contenedor[aux1].attack(this.contenedor[aux]);
-					alert(this.contenedor[aux1].vida);
-					alert(this.contenedor[aux].vida);
-					
+					this.contenedor[aux1].attack(this.contenedor[aux]);			
 				}
 			}//segundo else
 		}//primer else
@@ -413,7 +446,7 @@ var context = Inicio.ctx;
 
 
 
-			
+
 			this.perso.drawImagen();
 			this.perso2.drawImagen();
 			this.perso3.drawImagen();
@@ -542,7 +575,7 @@ function cargaPersonajes(){
 	contaje++;
 
 	this.perso5 = new Character("#C0C0C0",300,300,this.contaje, context,imagelist[2].src);
-	this.perso5.setestado(2);
+	this.perso5.setestado(0);
 	this.contenedor[this.contaje] = this.perso5; //kreo k no es asi, pero es posible
 	this.perso5.drawImagen();
 }
@@ -600,8 +633,6 @@ redibujarEscenario();
 var mainLoop = function () {
 	
 	actualizaJugadores(this.contenedor,this.contaje);
-	this.perso3.setExperiencia();
-	
 	
 	
 	capturaEventos();

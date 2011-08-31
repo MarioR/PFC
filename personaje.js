@@ -97,24 +97,15 @@ function Character (color,posx,posy,num,context,src){
 		}
 	}
 
-
-
-	//PROBANDO SI ESTO VA
-	//El programa no peta, así que debería ir, pero falta que Jordi conteste al mail para continuar
-	//Como he llamado a la funcion desde el menú..., i sigue funcionando, debería funcionar todo
-	
+	//Esta función se ejecuta cuando el personaje sube de nivel
 	this.actualizarExp = function(){
 		this.siguienteNiv = ((this.siguienteNiv) * (this.nivel)) + 1;
-		
-		
 	
-		//Prueba tonta para ver que entra en esta función
-
-	//	this.updatepos(400,400);
-
+		alert("NIVEL NUEVO");
+		
 	}
 	
-	//Si ha eliminado a un enemigo ha de actualizar su experiencia
+	//La función se actualiza para que cada vez que hiera al contrincante la función sea llamada
 	this.setExperiencia = function(){
 		
 		
@@ -123,38 +114,45 @@ function Character (color,posx,posy,num,context,src){
 
 		if (this.experiencia >= this.siguienteNiv){
 			this.nivel = this.nivel + 1;
-			//Llamar a la "subfunción" siguiente nivel, para que actualice la cantidad this.siguienteNiv, así cada vez le costará 
-			//más subir de nivel
+			this.vida = this.vida + 50;
+			
 			this.actualizarExp();  //parece que la llamada funciona, ya que la ejecución no se para
 
 		}
 		
 	}
+	
+	//Esta función reinicia al personaje en su posición inicial, con vida, nivel y siguienteNiv iniciales
 	this.reiniciarEstado = function(){
 		this.px = this.pxini;
 		this.py = this.pyini;
+		this.vida = 100;
 		this.nivel = 1;
 		this.siguienteNiv = 10;
 		this.estado = 0;
+		alert(this.nump);
 	}
-	//Si es atacado, pierde vida
+	
+	//Esta función es llamada cuando el personaje es atacado, con lo que pierde vida
 	this.esAtacado = function (){
 		
 		if(this.vida <= 10){
 			this.vida = 0;
 			this.estado = 2;
-			this.reiniciarEstado();  //Esto creo que lo cambio de sitio y lo pondré en el menu.js (estadojuego) cuando el estado del personaje sea 2
-									//Así resucitará y podrá volver a jugar, con los parámetros iniciales
+	
+			this.reiniciarEstado();  
+			
 		}
 		else{
 			this.vida = this.vida - 10;
 		}
 	}
 
+	//Esta función es requerida cuando el personaje ataca a otro
 	this.attack = function(persoAtac){
 		
 		persoAtac.esAtacado();
-		
+		this.setExperiencia();
 		if(persoAtac.estado == 2){
 			this.setExperiencia();
 		}

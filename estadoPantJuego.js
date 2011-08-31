@@ -24,12 +24,6 @@ var obstaculos = [
 ];
 
 
-QueHacer = {
-
-	batallar: false
-	
-};
-
 //Esta función será la que pintará las imagenes de cada estado.
 function draw(){
 
@@ -232,9 +226,7 @@ function comprobarSiBatalla(px,py,num,aux1){
 						this.contenedor[aux1].vida = this.contenedor[aux1].vida - 20;	
 					}
 					else{
-						QueHacer.batallar = true;
-						
-						this.contenedor[aux1].attack();
+						this.contenedor[aux1].attack(this.contenedor[aux]);
 					}
 				}//segundo else
 			}//primer else
@@ -358,11 +350,29 @@ function leerAccion(){
 		this.aux3 = this.contaje + 1;
 		if(this.aux2 == this.aux3) {
 			this.num = 1;
-			characters[0].estado = this.num;
+			this.aux2 = 0;
+				if (characters[0].estado != 2){
+					characters[0].estado = this.num;
+				}
+				else{
+					this.aux2 = this.aux2 + 1;
+					characters[this.aux2].estado = this.num;
+				}
 		}
 		else{
 			this.num = 1;
-			characters[this.aux2].estado = this.num;
+			if(characters[this.aux2].estado != 2){
+				characters[this.aux2].estado = this.num;
+			}
+			else{
+				this.aux2 = this.aux2 + 1;
+				if (this.aux2 == this.aux3){									
+					characters[0].estado = this.num;							
+				}																
+				else{
+					characters[this.aux2].estado = this.num;
+				}
+			}
 		}
 	}
 	else{
@@ -374,11 +384,29 @@ function leerAccion(){
 			this.aux3 = this.contaje + 1;
 			if(this.aux2 == this.aux3) {
 				this.num = 1;
-				characters[0].estado = this.num;
+				this.aux2 = 0;
+					if (characters[0].estado != 2){
+						characters[0].estado = this.num;
+					}
+					else{
+						this.aux2 = this.aux2 + 1;
+						characters[this.aux2].estado = this.num;
+					}
 			}
 			else{
 				this.num = 1;
-				characters[this.aux2].estado = this.num;
+				if(characters[this.aux2].estado != 2){
+					characters[this.aux2].estado = this.num;
+				}
+				else{
+					this.aux2 = this.aux2 + 1;
+					if (this.aux2 == this.aux3){
+						characters[0].estado = this.num;
+					}
+					else{
+						characters[this.aux2].estado = this.num;
+					}
+				}
 			}	
 		}//fin del if del keyintro
 	}//fin de else
