@@ -438,7 +438,7 @@ var context = Inicio.ctx;
 		
 		if (Tecles.intento1 == true){
 		//	this.myimages.draw();
-			this.myimages.drawX(4);
+			this.myimages.drawX(6);
 		}
 		else{
 			this.myimages.drawX(0);  //esta siempre primero, que es el escenario de juego

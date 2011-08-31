@@ -122,10 +122,7 @@ function pantIni (){
 			case 2:
 				this.myimageA.setPosition(170,370);
 			break;
-		}
-	
-		this.draw();
-	
+		}	
 	}
 
 }
