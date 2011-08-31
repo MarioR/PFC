@@ -216,7 +216,16 @@ function actualizaJugadores(characters,cant){
 				this.cellarray[py1][px1] = 12345;
 				characters[this.aux].moveDown();
 				this.py1 = this.py1 + 1;
-			//	comprobarSiBatalla(this.pos1x,this.pos1y,this.px1,this.py1);
+				comprobarSiBatalla(this.px1,this.py1,characters[this.aux].num,this.aux);
+	
+						if (this.cellarray[py1][px1] == 30){
+
+							this.py1 = this.pos1y;
+							characters[this.aux].moveUp();
+
+						}
+//solo está mirado para cuando es la MINA, que es la que funciona
+
 				this.cellarray[py1][px1] = characters[this.aux].nump;			
 				this.controlArray[this.aux].px = characters[this.aux].px;
 				this.controlArray[this.aux].py = characters[this.aux].py;
@@ -228,7 +237,15 @@ function actualizaJugadores(characters,cant){
 					this.cellarray[py1][px1] = 12345;
 					characters[this.aux].moveUp();
 					this.py1 = this.py1 - 1;
-		//			comprobarSiBatalla(this.pos1x,this.pos1y,this.px1,this.py1);
+					comprobarSiBatalla(this.px1,this.py1,characters[this.aux].num,this.aux);
+					
+						if (this.cellarray[py1][px1] == 30){
+
+							this.py1 = this.pos1y;
+							characters[this.aux].moveDown();
+
+						}
+					
 					this.cellarray[py1][px1] = characters[this.aux].nump;
 					this.controlArray[this.aux].px = characters[this.aux].px;
 					this.controlArray[this.aux].py = characters[this.aux].py;
@@ -240,7 +257,13 @@ function actualizaJugadores(characters,cant){
 						this.cellarray[py1][px1] = 12345;
 						characters[this.aux].moveRight();
 						this.px1 = this.px1 + 1;
-				//		comprobarSiBatalla(this.pos1x,this.pos1y,this.px1,this.py1);
+						comprobarSiBatalla(this.px1,this.py1,characters[this.aux].num,this.aux);
+							if (this.cellarray[py1][px1] == 30){
+
+								this.px1 = this.pos1x;
+								characters[this.aux].moveLeft();
+
+							}
 						this.cellarray[py1][px1] = characters[this.aux].nump;
 						this.controlArray[this.aux].px = characters[this.aux].px;
 						this.controlArray[this.aux].py = characters[this.aux].py;
@@ -252,7 +275,13 @@ function actualizaJugadores(characters,cant){
 							this.cellarray[py1][px1] = 12345;
 							characters[this.aux].moveLeft();
 							this.px1 = this.px1 - 1;
-		//					comprobarSiBatalla(this.pos1x,this.pos1y,this.px1,this.py1);
+							comprobarSiBatalla(this.px1,this.py1,characters[this.aux].num,this.aux);
+								if (this.cellarray[py1][px1] == 30){
+
+									this.px1 = this.pos1x;
+									characters[this.aux].moveRight();
+
+								}
 							this.cellarray[py1][px1] = characters[this.aux].nump;
 							this.controlArray[this.aux].px = characters[this.aux].px;
 							this.controlArray[this.aux].py = characters[this.aux].py;
@@ -275,11 +304,35 @@ function actualizaJugadores(characters,cant){
 		this.aux3 = this.contaje + 1;
 		if(this.aux2 == this.aux3) {
 			this.num = 1;
-			characters[0].estado = this.num;
+			if(characters[0].estado != 2){
+				characters[0].estado = this.num;
+			}
+			else{
+				this.aux2 = this.aux2+1;
+				characters[this.aux2] = this.num;
+			}
 		}
 		else{
 			this.num = 1;
-			characters[this.aux2].estado = this.num;
+			if (characters[this.aux2].estado != 2){
+				characters[this.aux2].estado = this.num;
+			}
+			else{
+				this.aux2 = this.aux2 + 1;
+				if(this.aux2 == this.aux3){
+					if(characters[0].estado != 2){
+						characters[0].estado = this.num;
+					}
+					else{
+						this.aux2 = this.aux2 + 1;
+						characters[this.aux2] = this.num;
+					}
+				}
+				else{
+					this.aux2 = this.aux2 + 1;
+					
+				}
+			}
 		}
 	}
 	else{
@@ -307,26 +360,30 @@ function actualizaJugadores(characters,cant){
 //VERSION ANTIGUA
 //primero cambiaré a "estados" el juego y después ya comprobaré para entrar en batalla y todo eso
 
-function comprobarSiBatalla(posix1,posiy1,posix2,posiy2){
+function comprobarSiBatalla(px,py,num,aux1){
 	
-	//para comprobar si ha de haber una batalla, tengo que comparar al personaje que se ha movido y la posicion que quiere ocupar, para saber 
-	//si hay alguien en la misma posición que la que el primero pretendía ocupar
+	var aux;
+	aux = this.cellarray[py][px];
 	
-	if(posix1 == posix2){
-		if(posiy1 == posiy2){
-			//llamar a la pelea
-			
-			
+	if(aux != 12345){
+		
+		if (aux == 100){
+			this.contenedor[aux1].vida = this.contenedor[aux1].vida - 5;		
 		}
-	}
-	
-	
-	//mas que mirar el que sean iwales las posiciones..., i si comparo el "controlArray" con la posicion que pretende ocupar, a ver que numero tiene
-	//si es 100,85 o 30, es un obstáculo, pero si es otro numero..., será un personaje y, por lo tanto, que habrá que pelear.
-	//una vez termine la batalla, se volverá al actualizarJugadores y, se modificará la posicion del personaje, en el caso de que sea necesario
-	
-	//si se muere o choca con un obst
-	
+		else{
+			if(aux == 85){
+				this.contenedor[aux1].vida = this.contenedor[aux1].vida - 50;	
+			}
+			else{
+				if(aux == 30){
+					this.contenedor[aux1].vida = this.contenedor[aux1].vida - 20;	
+				}
+				else{
+					this.contenedor[aux1].attack();
+				}
+			}//segundo else
+		}//primer else
+	}//if solitario
 	
 }
 
@@ -368,7 +425,15 @@ var context = Inicio.ctx;
 		}
 		else{
 			this.myimages.drawX(0);  //esta siempre primero, que es el escenario de juego
+			
 			this.myimageO.draw();
+
+//el problema es aqui, si uno se come un obstáculo, luego éste no debe salir, y como pinto el vector entero, la imagen se pintará
+//a ver como consigo arreglar eso
+
+
+
+			
 			this.perso.drawImagen();
 			this.perso2.drawImagen();
 			this.perso3.drawImagen();
@@ -497,7 +562,7 @@ function cargaPersonajes(){
 	contaje++;
 
 	this.perso5 = new Character("#C0C0C0",300,300,this.contaje, context,imagelist[2].src);
-	this.perso5.setestado(0);
+	this.perso5.setestado(2);
 	this.contenedor[this.contaje] = this.perso5; //kreo k no es asi, pero es posible
 	this.perso5.drawImagen();
 }

@@ -88,8 +88,9 @@ function Character (color,posx,posy,num,context,src){
 	
 	//Esta función pinta la imagen correspondiente al personaje
 	this.drawImagen = function(){
-		
-		this.img2.draw();
+		if(this.estado != 2){
+			this.img2.draw();
+		}
 	}
 
 

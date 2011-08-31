@@ -24,6 +24,12 @@ var obstaculos = [
 ];
 
 
+QueHacer = {
+
+	batallar: false
+	
+};
+
 //Esta función será la que pintará las imagenes de cada estado.
 function draw(){
 
@@ -205,26 +211,34 @@ function inicializarEstado(){
 
 }
 
-function comprobarSiBatalla(posix1,posiy1,posix2,posiy2){
+function comprobarSiBatalla(px,py,num,aux1){
 	
 	//para comprobar si ha de haber una batalla, tengo que comparar al personaje que se ha movido y la posicion que quiere ocupar, para saber 
 	//si hay alguien en la misma posición que la que el primero pretendía ocupar
+	var aux;
+	aux = this.cellarray[py][px];    //Cosas de ser inversa la x e y de la matriz y la x e i del personaje
 	
-	if(posix1 == posix2){
-		if(posiy1 == posiy2){
-			//llamar a la pelea
-			
-			
-		}
-	}
-	
-	
-	//mas que mirar el que sean iwales las posiciones..., i si comparo el "controlArray" con la posicion que pretende ocupar, a ver que numero tiene
-	//si es 100,85 o 30, es un obstáculo, pero si es otro numero..., será un personaje y, por lo tanto, que habrá que pelear.
-	//una vez termine la batalla, se volverá al actualizarJugadores y, se modificará la posicion del personaje, en el caso de que sea necesario
-	
-	//si se muere o choca con un obst
-	
+		if(aux != 12345){
+
+			if (aux == 100){
+				this.contenedor[aux1].vida = this.contenedor[aux1].vida - 5;		
+			}
+			else{
+				if(aux == 85){
+					this.contenedor[aux1].vida = this.contenedor[aux1].vida - 50;	
+				}
+				else{
+					if(aux == 30){
+						this.contenedor[aux1].vida = this.contenedor[aux1].vida - 20;	
+					}
+					else{
+						QueHacer.batallar = true;
+						
+						this.contenedor[aux1].attack();
+					}
+				}//segundo else
+			}//primer else
+		}//if solitario
 	
 }	
 	
@@ -251,15 +265,23 @@ function leerAccion(){
 			this.py1 = characters[this.aux].py;
 			this.px1 = this.px1 / 50;
 			this.py1 = this.py1 / 50;
-			this.pos1x = this.px1;
-			this.pos1y = this.py1;
+			this.pos1x = this.px1;        //Pongo esto en el caso de que no se pueda cambiar por batalla.
+			this.pos1y = this.py1;  	  //Pongo esto por si no se puede cambiar porque hay batalla, pera volver a pintar en el sitio previo.
 
 			if (Tecles.keydown == true){
 				this.cambioPerso = 250;
 				this.cellarray[py1][px1] = 12345;
 				characters[this.aux].moveDown();
 				this.py1 = this.py1 + 1;
-			//	comprobarSiBatalla(this.pos1x,this.pos1y,this.px1,this.py1);
+				comprobarSiBatalla(this.px1,this.py1,characters[this.aux].num,this.aux);
+			
+				if (this.cellarray[py1][px1] == 30){
+
+					this.py1 = this.pos1y;
+					characters[this.aux].moveUp();
+					
+				}
+			
 				this.cellarray[py1][px1] = characters[this.aux].nump;			
 				this.controlArray[this.aux].px = characters[this.aux].px;
 				this.controlArray[this.aux].py = characters[this.aux].py;
@@ -271,7 +293,13 @@ function leerAccion(){
 					this.cellarray[py1][px1] = 12345;
 					characters[this.aux].moveUp();
 					this.py1 = this.py1 - 1;
-		//			comprobarSiBatalla(this.pos1x,this.pos1y,this.px1,this.py1);
+					comprobarSiBatalla(this.px1,this.py1,characters[this.aux].num,this.aux);
+						if (this.cellarray[py1][px1] == 30){
+
+							this.py1 = this.pos1y;
+							characters[this.aux].moveDown();
+
+						}
 					this.cellarray[py1][px1] = characters[this.aux].nump;
 					this.controlArray[this.aux].px = characters[this.aux].px;
 					this.controlArray[this.aux].py = characters[this.aux].py;
@@ -283,7 +311,13 @@ function leerAccion(){
 						this.cellarray[py1][px1] = 12345;
 						characters[this.aux].moveRight();
 						this.px1 = this.px1 + 1;
-				//		comprobarSiBatalla(this.pos1x,this.pos1y,this.px1,this.py1);
+				    	comprobarSiBatalla(this.px1,this.py1,characters[this.aux].num,this.aux);
+							if (this.cellarray[py1][px1] == 30){
+
+								this.px1 = this.pos1x;
+								characters[this.aux].moveLeft();
+
+							}
 						this.cellarray[py1][px1] = characters[this.aux].nump;
 						this.controlArray[this.aux].px = characters[this.aux].px;
 						this.controlArray[this.aux].py = characters[this.aux].py;
@@ -295,7 +329,13 @@ function leerAccion(){
 							this.cellarray[py1][px1] = 12345;
 							characters[this.aux].moveLeft();
 							this.px1 = this.px1 - 1;
-		//					comprobarSiBatalla(this.pos1x,this.pos1y,this.px1,this.py1);
+							comprobarSiBatalla(this.px1,this.py1,characters[this.aux].num,this.aux);
+									if (this.cellarray[py1][px1] == 30){
+
+										this.px1 = this.pos1x;
+										characters[this.aux].moveRight();
+
+									}
 							this.cellarray[py1][px1] = characters[this.aux].nump;
 							this.controlArray[this.aux].px = characters[this.aux].px;
 							this.controlArray[this.aux].py = characters[this.aux].py;
