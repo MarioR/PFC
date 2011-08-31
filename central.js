@@ -14,7 +14,7 @@ var estado_pausa = new pantPause();
 
 var estado_juego = new pantGame();
 
-var estado_perdido = new pantGameOver();
+var estado_salir = new pantOut();
 
 
 var estado_actual;
@@ -36,6 +36,10 @@ var main = function(){
 		if (Selecciones.jugar == true){
 			Selecciones.jugar = false;
 			estado_actual = estado_juego;
+		}
+		if (Selecciones.salir == true){
+			Selecciones.salir = false;
+			estado_actual = estado_salir;
 		}
 	}
 	
@@ -59,7 +63,14 @@ var main = function(){
 			estado_actual = estado_pausa;
 		}
 		else{
-			estado_actual.cambioPerso = estado_actual.cambioPerso + 1;
+			if(Pausamos.salir == true){
+				Pausamos.salir = false;
+				estado_actual = estado_salir;
+				estado_juego = new pantGame();         //No es el método más efectivo, pero creo que está bien
+			}
+			else{
+				estado_actual.cambioPerso = estado_actual.cambioPerso + 1;
+			}
 		}
 	}
 	if(estado_actual.identificador == 4){
