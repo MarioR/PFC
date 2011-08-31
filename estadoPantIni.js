@@ -26,132 +26,106 @@ Selecciones = {
 	
 };
 
-//Esta función será la que pintará las imagenes de cada estado.
-//Y se llamará a la función desde el UPDATE ESTADO y desde el "inicio", es decir, el primer pintaje de las imagenes
-function draw(){
+function pantIni (){
 	
-	this.myimageA.draw();
-}
-
-
-//Esta función se va autohaciendo a medida que avanzo en la creacion de la clase, ya que no se las variables que se utilizan
-function inicializarEstado(){
 	Inicio.init();  
 	this.keyD = 0;
 	this.cont = Inicio.ctx;
 	this.cont.fillStyle = "#000000";   //definimos el color que tendrá el string que pintemos
 	this.cont.font = "12px Verdana";   //definimos el tamaño y el tipo de letra que escribiremos
-	
+
 	this.texto1 = "JUGAR";
 	this.texto2 = "AYUDA";
 	this.texto3 = "SALIR";
-	
-	
+
+
 	this.myimageA = new ImageData(1,this.cont,imageArrow[0].src);
-	
+
 	this.myimageA.setPosition(170,170);
 	this.myimageA.setSize (20,20);
+
+	this.draw();
+
+	//Esta función será la que pintará las imagenes de cada estado.
+	//Y se llamará a la función desde el UPDATE ESTADO y desde el "inicio", es decir, el primer pintaje de las imagenes
+	this.draw = function(){
 	
-	draw();
-	
-}
-	
-	
-//Esta función leerá el teclado y el ratón
-function leerAccion(){
-	
-	//Aqui tal vez se podría poner que si se pulsan las teclas, la opcion de seleccionar sea diferente, ir a juego, a ayuda, o salir de juego
-	//el salir de juego irá con ESC, aunque eso servirá también despues dentro del juego para salir y volver a la pantalla inicial
-	
-	if (Tecles.keydown == true){
-		//aqui irá si es la pimera vez, segunda vez,...
-		
-		this.keyD = this.keyD + 1;
-		
-		//Voy incrementando la variable, si es 3, querrá decir que ya había hecho 0,1,2 (las posibles), entonces al ser 3, es como si fuera 0
-		if (this.keyD == 3){
-			this.keyD = 0;
-		}
+		this.myimageA.draw();
 	}
-	else{
-		if (Tecles.keyup == true){
-			
-			this.keyD = this.keyD - 1;
-			
-			if (this.keyD == -1){
-				this.keyD = 2;
+	
+	//Esta función leerá el teclado y el ratón
+	this.leerAccion = function(){
+	
+		//Aqui tal vez se podría poner que si se pulsan las teclas, la opcion de seleccionar sea diferente, ir a juego, a ayuda, o salir de juego
+		//el salir de juego irá con ESC, aunque eso servirá también despues dentro del juego para salir y volver a la pantalla inicial
+	
+		if (Tecles.keydown == true){
+			//aqui irá si es la pimera vez, segunda vez,...
+		
+			this.keyD = this.keyD + 1;
+		
+			//Voy incrementando la variable, si es 3, querrá decir que ya había hecho 0,1,2 (las posibles), entonces al ser 3, es como si fuera 0
+			if (this.keyD == 3){
+				this.keyD = 0;
 			}
-			
-		}
-	}
-	
-	if (Pulsar.lbutton == true){
-		
-		if(this.keyD == 0){
-				Selecciones.jugar = true;
 		}
 		else{
-			if(this.keyD == 1){
-				Selecciones.ayuda = true;
-			}
-			else{
-				if(this.keyD == 2){
-					Selecciones.salir = true;
+			if (Tecles.keyup == true){
+			
+				this.keyD = this.keyD - 1;
+			
+				if (this.keyD == -1){
+					this.keyD = 2;
 				}
+			
 			}
 		}
-	} //fin del if del this.keyD == 0
-}
-
-
-//Esta función actualizará el juego
-
-//No estoy muy seguro, pero creo que esto podría ser una funcion similar a lo que sería el redibujar escenario
-function updateEstado(){
 	
-	//Primero se limpia el escenario
-	this.cont.clearRect(0,0,1000,650);
-	
-	//Después escribimos los strings marcados
-	this.cont.fillText(this.texto1, 200, 100);   //Pintamos el string deseado en la pos x e y
-	this.cont.fillText(this.texto2, 200, 200);
-	this.cont.fillText(this.texto3, 200, 300);
-	
-	
-	
-
-	switch (this.keyD){
-		case 0:
-			this.myimageA.setPosition(170,170);
-		break;
-		case 1:
-			this.myimageA.setPosition(170,270);
-		break;
-		case 2:
-			this.myimageA.setPosition(170,370);
-		break;
+		if (Pulsar.lbutton == true){
+		
+			if(this.keyD == 0){
+				Selecciones.jugar = true;
+			}
+			else{
+				if(this.keyD == 1){
+					Selecciones.ayuda = true;
+				}
+				else{
+					if(this.keyD == 2){
+						Selecciones.salir = true;
+					}
+				}
+			}
+		} //fin del if del this.keyD == 0
 	}
-	
-	//this.myimageA.draw();
-	
-	draw();
-	
-	
-	
-	
-}
 
+	//Esta función actualizará el juego
 
-//Esta función servirá para guardar el estado de las variables (como la imagen en este caso y en otros las teclas y el raton)
-function guardarEstado(){
+	//No estoy muy seguro, pero creo que esto podría ser una funcion similar a lo que sería el redibujar escenario
+	function updateEstado(){
 	
+		//Primero se limpia el escenario
+		this.cont.clearRect(0,0,1000,650);
 	
-	
-}
+		//Después escribimos los strings marcados
+		this.cont.fillText(this.texto1, 200, 100);   //Pintamos el string deseado en la pos x e y
+		this.cont.fillText(this.texto2, 200, 200);
+		this.cont.fillText(this.texto3, 200, 300);
 
-//Ahora creo que estas no son necesarias, ya que una vez se pulsa la letra, automaticamente se pone a false antes de poder hacer
-//otra cosa..., creo que no son necesarias..., a ver si luego lo veo de otra manera
-
-function restaurarEstado(){
+		switch (this.keyD){
+			case 0:
+				this.myimageA.setPosition(170,170);
+			break;
+			case 1:
+				this.myimageA.setPosition(170,270);
+			break;
+			case 2:
+				this.myimageA.setPosition(170,370);
+			break;
+		}
 	
+		this.draw();
+	
+	}
+
 }

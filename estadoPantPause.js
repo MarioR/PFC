@@ -15,16 +15,8 @@ Vars = {
 };
 
 
-//Esta función será la que pintará las imagenes de cada estado.
-function draw(){
+function pantPause(){
 
-	this.myimageA.draw();
-	
-}
-
-
-//Esta función se va autohaciendo a medida que avanzo en la creacion de la clase, ya que no se las variables que se utilizan
-function inicializarEstado(){
 	Inicio.init();  
 
 	this.cont = Inicio.ctx;	
@@ -34,31 +26,35 @@ function inicializarEstado(){
 	this.myimageA.setPosition(200,50);
 	this.myimageA.setSize (500,500);
 
-	draw();
+	this.draw();
+	//Esta función será la que pintará las imagenes de cada estado.
+	this.draw = function(){
+
+		this.myimageA.draw();
 	
-}
+	}	
 	
+	//Esta función leerá el teclado y el ratón
+	this.leerAccion = function(){
 	
-//Esta función leerá el teclado y el ratón
-function leerAccion(){
+		//Tal como tengo pensado de momento, sólo se utiliza el boton izquierdo del ratón
 	
-	//Tal como tengo pensado de momento, sólo se utiliza el boton izquierdo del ratón
+		if (Tecles.keypause == true){
+		 	Vars.volver = true;
+		}
 	
-	if (Tecles.keypause == true){
-		 Vars.volver = true;
 	}
+
+
+	//Esta función actualizará el juego
+
+	//No estoy muy seguro, pero creo que esto podría ser una funcion similar a lo que sería el redibujar escenario
+	this.updateEstado = function(){
 	
+		//Primero se limpia el escenario
+		this.cont.clearRect(0,0,1000,650);
+
+		this.draw();
+	}
+
 }
-
-
-//Esta función actualizará el juego
-
-//No estoy muy seguro, pero creo que esto podría ser una funcion similar a lo que sería el redibujar escenario
-function updateEstado(){
-	
-	//Primero se limpia el escenario
-	this.cont.clearRect(0,0,1000,650);
-
-	draw();
-}
-

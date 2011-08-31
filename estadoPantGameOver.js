@@ -14,50 +14,45 @@ Volver = {
 	
 };
 
-//Esta función será la que pintará las imagenes de cada estado.
-function draw(){
-
-	this.myimageA.draw();
+function pantGameOver(){
 	
-}
-
-
-//Esta función se va autohaciendo a medida que avanzo en la creacion de la clase, ya que no se las variables que se utilizan
-function inicializarEstado(){
 	Inicio.init();  
 
 	this.cont = Inicio.ctx;	
-	
+
 	this.myimageA = new ImageData(1,this.cont,imageGameOver[0].src);
-	
+
 	this.myimageA.setPosition(0,0);
 	this.myimageA.setSize (1000,650);
 
-	draw();
+	this.draw();
 	
-}
+	//Esta función será la que pintará las imagenes de cada estado.
+	this.draw = function(){
+
+		this.myimageA.draw();
 	
-	
-//Esta función leerá el teclado y el ratón
-function leerAccion(){
-	
-	//Tal como tengo pensado de momento, sólo se utiliza el boton izquierdo del ratón
-	
-	if (Pulsar.lbutton == true){
-		 Volver.atras = true;
 	}
+
+	//Esta función leerá el teclado y el ratón
+	this.leerAccion = function(){
 	
-}
-
-
-//Esta función actualizará el juego
-
-//No estoy muy seguro, pero creo que esto podría ser una funcion similar a lo que sería el redibujar escenario
-function updateEstado(){
+		//Tal como tengo pensado de momento, sólo se utiliza el boton izquierdo del ratón
+		if (Pulsar.lbutton == true){
+		 	Volver.inicio = true;
+		}
 	
-	//Primero se limpia el escenario
-	this.cont.clearRect(0,0,1000,650);
+	}
 
-	draw();
+	//Esta función actualizará el juego
+
+	//No estoy muy seguro, pero creo que esto podría ser una funcion similar a lo que sería el redibujar escenario
+	this.updateEstado = function(){
+	
+		//Primero se limpia el escenario
+		this.cont.clearRect(0,0,1000,650);
+
+		this.draw();
+	}
+
 }
-
