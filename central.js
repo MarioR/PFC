@@ -2,6 +2,10 @@
 
 
 
+
+function mygame(){
+
+
 var estado_inicial = new pantIni();
 
 var estado_ayuda = new pantHelp();
@@ -24,11 +28,22 @@ var main = function(){
 	estado_actual.leerAccion();
 	estado_actual.draw();
 	
+	if (estado_actual.identificador == 0){
+		if (Selecciones.ayuda == true){
+			estado_actual = estado_ayuda;
+		}
+		if (Selecciones.jugar == true){
+			estado_actual = estado_juego;
+		}
+	}
+	if(estado_actual.identificador == 3){
+		estado_actual.cambioPerso = estado_actual.cambioPerso + 1;
+	}
 	
 }
 
 var mainLoopId = setInterval (main,25);
 
 
-
+}
 //falta poner el que se incremente la variable this.cambioPerso del estadoPantGame, ya que sino cada 10 segundos no se cambiará de personaje

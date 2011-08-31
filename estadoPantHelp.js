@@ -17,6 +17,8 @@ QueSeHace = {
 
 function pantHelp(){
 
+	this.identificador = 1;
+
 	Inicio.init();  
 
 	this.cont = Inicio.ctx;	
@@ -26,7 +28,6 @@ function pantHelp(){
 	this.myimageA.setPosition(0,0);
 	this.myimageA.setSize (1000,650);
 
-	this.draw();
 
 	//Esta función será la que pintará las imagenes de cada estado.
 	this.draw = function(){
@@ -34,6 +35,9 @@ function pantHelp(){
 		this.myimageA.draw();
 	
 	}
+	
+	this.draw();
+	
 	
 	//Esta función leerá el teclado y el ratón
 	this.leerAccion = function(){
@@ -51,8 +55,6 @@ function pantHelp(){
 	
 		//Primero se limpia el escenario
 		this.cont.clearRect(0,0,1000,650);
-
-		this.draw();
 	}
 
 }

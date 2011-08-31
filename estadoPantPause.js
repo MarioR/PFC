@@ -17,6 +17,8 @@ Vars = {
 
 function pantPause(){
 
+	this.identificador = 2;
+	
 	Inicio.init();  
 
 	this.cont = Inicio.ctx;	
@@ -26,13 +28,15 @@ function pantPause(){
 	this.myimageA.setPosition(200,50);
 	this.myimageA.setSize (500,500);
 
-	this.draw();
 	//Esta función será la que pintará las imagenes de cada estado.
 	this.draw = function(){
 
 		this.myimageA.draw();
 	
 	}	
+	
+	this.draw();
+	
 	
 	//Esta función leerá el teclado y el ratón
 	this.leerAccion = function(){
@@ -54,7 +58,6 @@ function pantPause(){
 		//Primero se limpia el escenario
 		this.cont.clearRect(0,0,1000,650);
 
-		this.draw();
 	}
 
 }

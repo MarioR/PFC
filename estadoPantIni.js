@@ -28,6 +28,8 @@ Selecciones = {
 
 function pantIni (){
 	
+	this.identificador = 0;
+	
 	Inicio.init();  
 	this.keyD = 0;
 	this.cont = Inicio.ctx;
@@ -44,7 +46,6 @@ function pantIni (){
 	this.myimageA.setPosition(170,170);
 	this.myimageA.setSize (20,20);
 
-	this.draw();
 
 	//Esta función será la que pintará las imagenes de cada estado.
 	//Y se llamará a la función desde el UPDATE ESTADO y desde el "inicio", es decir, el primer pintaje de las imagenes
@@ -52,6 +53,9 @@ function pantIni (){
 	
 		this.myimageA.draw();
 	}
+	
+	
+	this.draw();
 	
 	//Esta función leerá el teclado y el ratón
 	this.leerAccion = function(){
@@ -68,6 +72,7 @@ function pantIni (){
 			if (this.keyD == 3){
 				this.keyD = 0;
 			}
+			Tecles.keydown = false;
 		}
 		else{
 			if (Tecles.keyup == true){
@@ -102,7 +107,7 @@ function pantIni (){
 	//Esta función actualizará el juego
 
 	//No estoy muy seguro, pero creo que esto podría ser una funcion similar a lo que sería el redibujar escenario
-	function updateEstado(){
+	this.updateEstado = function(){
 	
 		//Primero se limpia el escenario
 		this.cont.clearRect(0,0,1000,650);
@@ -114,13 +119,13 @@ function pantIni (){
 
 		switch (this.keyD){
 			case 0:
-				this.myimageA.setPosition(170,170);
+				this.myimageA.setPosition(170,85);
 			break;
 			case 1:
-				this.myimageA.setPosition(170,270);
+				this.myimageA.setPosition(170,185);
 			break;
 			case 2:
-				this.myimageA.setPosition(170,370);
+				this.myimageA.setPosition(170,285);
 			break;
 		}	
 	}

@@ -28,6 +28,8 @@ var obstaculos = [
 
 function pantGame(){
 	
+	this.identificador = 3;
+	
 	Inicio.init();  
 	this.contenedor = new Array ();  //Esta variable contendrá la lista con los personajes creados
 	this.contaje = 0;
@@ -56,19 +58,7 @@ function pantGame(){
 		this.cellarray[i] = new Array (20);
 	}
 	
-	this.cargaVectorImg();
 
-	this.cargaPersonajes();
-	
-	//Una vez creada la matriz, procedemos a inicializarla con un valor nulo
-	this.inicializarMatriz();
-	//Creamos el array con "this.contaje+1" personajes y "this.obst" obstáculos
-	this.createArray(this.contaje+1, this.obst);
-	//Una vez creado el array, lo rellenamos
-	this.inicializarArray();
-	//Una vez creado el array y demás, llenaremos con los valores de los personajes la matriz
-	//ya que utilizamos los datos del controlArray
-	this.valoresInicialesMatriz();
 	
 
 	//Esta función será la que pintará las imagenes de cada estado.
@@ -115,26 +105,26 @@ function pantGame(){
 		this.perso = new Character("#000080",100,100,this.contaje, this.cont, imagelist[1].src);
 		this.perso.setestado(1);
 		this.contenedor[this.contaje] = this.perso; //kreo k no es asi, pero es posible
-		contaje ++;
+		this.contaje ++;
 		this.perso.drawImagen();
 
 		this.perso2 = new Character("#00FF00",0,200,this.contaje, this.cont,imagelist[2].src);
 		this.perso2.setestado(0);
 		this.contenedor[this.contaje] = this.perso2; //kreo k no es asi, pero es posible
-		contaje ++;
+		this.contaje ++;
 		this.perso2.drawImagen();
 
-		this.perso3 = new Character(this.col,this.x,this.y,this.contaje, this.cont,imagelist[3].src);
+		this.perso3 = new Character("#223300",0,0,this.contaje, this.cont,imagelist[3].src);
 		this.perso3.setestado(0);
 		this.contenedor[this.contaje] = this.perso3; //kreo k no es asi, pero es posible
+		this.contaje++;
 		this.perso3.drawImagen();
-
-		contaje++;
 
 		this.perso5 = new Character("#C0C0C0",300,300,this.contaje, this.cont,imagelist[4].src);
 		this.perso5.setestado(0);
 		this.contenedor[this.contaje] = this.perso5; //kreo k no es asi, pero es posible
 		this.perso5.drawImagen();
+		
 	}
 
 	this.inicializarMatriz= function(){
@@ -240,12 +230,12 @@ function pantGame(){
 
 		//El bucle tiene la gracia de la función, para cada jugador, miraré si tiene la variable X con el valor correspondiente a su cuadrado
 		//y entonces le variaré la posición, ya que no irán todos los jugadores a la vez, será por turnos, primero uno, después otro,...
-		for (this.aux = 0; this.aux <= cant; this.aux++){
+		for (this.aux = 0; this.aux <= this.contaje; this.aux++){
 		
-			if(characters[this.aux].estado == 1){
+			if(this.contenedor[this.aux].estado == 1){
 				this.aux2 = this.aux;
-				this.px1 = characters[this.aux].px;
-				this.py1 = characters[this.aux].py;
+				this.px1 = this.contenedor[this.aux].px;
+				this.py1 = this.contenedor[this.aux].py;
 				this.px1 = this.px1 / 50;
 				this.py1 = this.py1 / 50;
 				this.pos1x = this.px1;        //Pongo esto en el caso de que no se pueda cambiar por batalla.
@@ -253,67 +243,67 @@ function pantGame(){
 
 				if (Tecles.keydown == true){
 					this.cambioPerso = 250;
-					this.cellarray[py1][px1] = 12345;
-					characters[this.aux].moveDown();
+					this.cellarray[this.py1][this.px1] = 12345;
+					this.contenedor[this.aux].moveDown();
 					this.py1 = this.py1 + 1;
-					this.comprobarSiBatalla(this.px1,this.py1,characters[this.aux].num,this.aux);
+					this.comprobarSiBatalla(this.px1,this.py1,this.contenedor[this.aux].num,this.aux);
 			
-					if (this.cellarray[py1][px1] == 30){
+					if (this.cellarray[this.py1][this.px1] == 30){
 						this.py1 = this.pos1y;
-						characters[this.aux].moveUp();
+						this.contenedor[this.aux].moveUp();
 					}
 			
-					this.cellarray[py1][px1] = characters[this.aux].nump;			
-					this.controlArray[this.aux].px = characters[this.aux].px;
-					this.controlArray[this.aux].py = characters[this.aux].py;
+					this.cellarray[this.py1][this.px1] = this.contenedor[this.aux].nump;			
+					this.controlArray[this.aux].px = this.contenedor[this.aux].px;
+					this.controlArray[this.aux].py = this.contenedor[this.aux].py;
 					Tecles.keydown = false;
 				}
 				else{
 					if(Tecles.keyup == true){
 						this.cambioPerso = 250;
-						this.cellarray[py1][px1] = 12345;
-						characters[this.aux].moveUp();
+						this.cellarray[this.py1][this.px1] = 12345;
+						this.contenedor[this.aux].moveUp();
 						this.py1 = this.py1 - 1;
-						this.comprobarSiBatalla(this.px1,this.py1,characters[this.aux].num,this.aux);
-						if (this.cellarray[py1][px1] == 30){
+						this.comprobarSiBatalla(this.px1,this.py1,this.contenedor[this.aux].num,this.aux);
+						if (this.cellarray[this.py1][this.px1] == 30){
 							this.py1 = this.pos1y;
-							characters[this.aux].moveDown();
+							this.contenedor[this.aux].moveDown();
 						}
-						this.cellarray[py1][px1] = characters[this.aux].nump;
-						this.controlArray[this.aux].px = characters[this.aux].px;
-						this.controlArray[this.aux].py = characters[this.aux].py;
+						this.cellarray[this.py1][this.px1] = this.contenedor[this.aux].nump;
+						this.controlArray[this.aux].px = this.contenedor[this.aux].px;
+						this.controlArray[this.aux].py = this.contenedor[this.aux].py;
 						Tecles.keyup = false;
 					}
 					else{
 						if(Tecles.keyright == true){
 							this.cambioPerso = 250;
-							this.cellarray[py1][px1] = 12345;
-							characters[this.aux].moveRight();
+							this.cellarray[this.py1][this.px1] = 12345;
+							this.contenedor[this.aux].moveRight();
 							this.px1 = this.px1 + 1;
-				    		this.comprobarSiBatalla(this.px1,this.py1,characters[this.aux].num,this.aux);
-							if (this.cellarray[py1][px1] == 30){
+				    		this.comprobarSiBatalla(this.px1,this.py1,this.contenedor[this.aux].num,this.aux);
+							if (this.cellarray[this.py1][this.px1] == 30){
 								this.px1 = this.pos1x;
-								characters[this.aux].moveLeft();
+								this.contenedor[this.aux].moveLeft();
 							}
-							this.cellarray[py1][px1] = characters[this.aux].nump;
-							this.controlArray[this.aux].px = characters[this.aux].px;
-							this.controlArray[this.aux].py = characters[this.aux].py;
+							this.cellarray[this.py1][this.px1] = this.contenedor[this.aux].nump;
+							this.controlArray[this.aux].px = this.contenedor[this.aux].px;
+							this.controlArray[this.aux].py = this.contenedor[this.aux].py;
 							Tecles.keyright = false;
 						}
 						else{
 							if(Tecles.keyleft == true){
 								this.cambioPerso = 250;
-								this.cellarray[py1][px1] = 12345;
-								characters[this.aux].moveLeft();
+								this.cellarray[this.py1][this.px1] = 12345;
+								this.contenedor[this.aux].moveLeft();
 								this.px1 = this.px1 - 1;
-								this.comprobarSiBatalla(this.px1,this.py1,characters[this.aux].num,this.aux);
-								if (this.cellarray[py1][px1] == 30){
+								this.comprobarSiBatalla(this.px1,this.py1,this.contenedor[this.aux].num,this.aux);
+								if (this.cellarray[this.py1][this.px1] == 30){
 									this.px1 = this.pos1x;
-									characters[this.aux].moveRight();
+									this.contenedor[this.aux].moveRight();
 								}
-								this.cellarray[py1][px1] = characters[this.aux].nump;
-								this.controlArray[this.aux].px = characters[this.aux].px;
-								this.controlArray[this.aux].py = characters[this.aux].py;
+								this.cellarray[this.py1][this.px1] = this.contenedor[this.aux].nump;
+								this.controlArray[this.aux].px = this.contenedor[this.aux].px;
+								this.controlArray[this.aux].py = this.contenedor[this.aux].py;
 								Tecles.keyleft = false;
 							}
 						}
@@ -326,32 +316,32 @@ function pantGame(){
 
 			this.cambioPerso = 0;
 			this.num = 0;
-			characters[this.aux2].estado = this.num;
+			this.contenedor[this.aux2].estado = this.num;
 			this.aux2 = this.aux2 + 1;
 			this.aux3 = this.contaje + 1;
 			if(this.aux2 == this.aux3) {
 				this.num = 1;
 				this.aux2 = 0;
-				if (characters[0].estado != 2){
-					characters[0].estado = this.num;
+				if (this.contenedor[0].estado != 2){
+					this.contenedor[0].estado = this.num;
 				}
 				else{
 					this.aux2 = this.aux2 + 1;
-					characters[this.aux2].estado = this.num;
+					this.contenedor[this.aux2].estado = this.num;
 				}
 			}
 			else{
 				this.num = 1;
-				if(characters[this.aux2].estado != 2){
-					characters[this.aux2].estado = this.num;
+				if(this.contenedor[this.aux2].estado != 2){
+					this.contenedor[this.aux2].estado = this.num;
 				}
 				else{
 					this.aux2 = this.aux2 + 1;
 					if (this.aux2 == this.aux3){									
-						characters[0].estado = this.num;							
+						this.contenedor[0].estado = this.num;							
 					}																
 					else{
-						characters[this.aux2].estado = this.num;
+						this.contenedor[this.aux2].estado = this.num;
 					}
 				}
 			}
@@ -360,32 +350,32 @@ function pantGame(){
 			if(Tecles.keyintro == true){
 				Tecles.keyintro = false;
 				this.num = 0;
-				characters[this.aux2].estado = this.num;
+				this.contenedor[this.aux2].estado = this.num;
 				this.aux2 = this.aux2 + 1;
 				this.aux3 = this.contaje + 1;
 				if(this.aux2 == this.aux3) {
 					this.num = 1;
 					this.aux2 = 0;
-					if (characters[0].estado != 2){
-						characters[0].estado = this.num;
+					if (this.contenedor[0].estado != 2){
+						this.contenedor[0].estado = this.num;
 					}
 					else{
 						this.aux2 = this.aux2 + 1;
-						characters[this.aux2].estado = this.num;
+						this.contenedor[this.aux2].estado = this.num;
 					}
 				}
 				else{
 			 		this.num = 1;
-					if(characters[this.aux2].estado != 2){
-						characters[this.aux2].estado = this.num;
+					if(this.contenedor[this.aux2].estado != 2){
+						this.contenedor[this.aux2].estado = this.num;
 					}
 					else{
 						this.aux2 = this.aux2 + 1;
 						if (this.aux2 == this.aux3){
-							characters[0].estado = this.num;
+							this.contenedor[0].estado = this.num;
 						}
 						else{
-							characters[this.aux2].estado = this.num;
+							this.contenedor[this.aux2].estado = this.num;
 						}
 					}
 				}	
@@ -398,7 +388,22 @@ function pantGame(){
 
 	this.updateEstado = function(){
 		this.cont.clearRect(0,0,1000,650);
-		this.draw();	
+
 	}
+	
+	
+	this.cargaVectorImg();
+
+	this.cargaPersonajes();
+	
+	//Una vez creada la matriz, procedemos a inicializarla con un valor nulo
+	this.inicializarMatriz();
+	//Creamos el array con "this.contaje+1" personajes y "this.obst" obstáculos
+	this.createArray(this.contaje+1, this.obst);
+	//Una vez creado el array, lo rellenamos
+	this.inicializarArray();
+	//Una vez creado el array y demás, llenaremos con los valores de los personajes la matriz
+	//ya que utilizamos los datos del controlArray
+	this.valoresInicialesMatriz();
 
 }

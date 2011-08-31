@@ -10,7 +10,7 @@ Pulsar = {
 };
 
 
-function pruebaRaton(){
+
 	document.onmousedown = function(e){
 	
 		switch (e.which){
@@ -45,4 +45,3 @@ function pruebaRaton(){
 		}
 		
 	}
-}
