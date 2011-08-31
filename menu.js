@@ -9,9 +9,13 @@
 
 var imagelist = [
      { "src" : './imagenes/escenario1.jpg', "posx" : 0, "posy" : 0, "w" : 1000, "h" : 650},
-     { "src" : './imagenes/nami.jpg', "posx" : 0, "posy" : 0, "w" : 330, "h" : 321},
-     { "src" : './imagenes/zoro.jpg', "posx" : 300, "posy" : 300, "w" : 200, "h" : 200},
-	 { "src" : './imagenes/help1.jpg', "posx" : 0, "posy" : 0, "w" : 1000, "h" : 650}
+     { "src" : './imagenes/nami.jpg', "posx" : 0, "posy" : 0, "w" : 789, "h" : 679},
+     { "src" : './imagenes/zoro.jpg', "posx" : 300, "posy" : 300, "w" : 714, "h" : 658},
+     { "src" : './imagenes/luffy.jpg', "posx" : 300, "posy" : 300, "w" : 345, "h" : 345},
+     { "src" : './imagenes/robin.jpg', "posx" : 300, "posy" : 300, "w" : 629, "h" : 615},
+	 { "src" : './imagenes/help1.jpg', "posx" : 0, "posy" : 0, "w" : 1000, "h" : 650},
+	 { "src" : './imagenes/gameOver.jpg', "posx" : 0, "posy" : 0, "w" : 1000, "h" : 650}
+    
      
 
 ];
@@ -434,7 +438,7 @@ var context = Inicio.ctx;
 		
 		if (Tecles.intento1 == true){
 		//	this.myimages.draw();
-			this.myimages.drawX(3);
+			this.myimages.drawX(4);
 		}
 		else{
 			this.myimages.drawX(0);  //esta siempre primero, que es el escenario de juego
@@ -558,7 +562,7 @@ function cargaPersonajes(){
 
 
 
-		this.perso2 = new Character("#00FF00",0,200,this.contaje, context,imagelist[1].src);
+		this.perso2 = new Character("#00FF00",0,200,this.contaje, context,imagelist[2].src);
 		this.perso2.setestado(0);
 		this.contenedor[this.contaje] = this.perso2; //kreo k no es asi, pero es posible
 		contaje ++;
@@ -567,14 +571,14 @@ function cargaPersonajes(){
 
 
 
-	this.perso3 = new Character(this.col,this.x,this.y,this.contaje, context,imagelist[2].src);
+	this.perso3 = new Character(this.col,this.x,this.y,this.contaje, context,imagelist[3].src);
 	this.perso3.setestado(0);
 	this.contenedor[this.contaje] = this.perso3; //kreo k no es asi, pero es posible
 	this.perso3.drawImagen();
 
 	contaje++;
 
-	this.perso5 = new Character("#C0C0C0",300,300,this.contaje, context,imagelist[2].src);
+	this.perso5 = new Character("#C0C0C0",300,300,this.contaje, context,imagelist[4].src);
 	this.perso5.setestado(0);
 	this.contenedor[this.contaje] = this.perso5; //kreo k no es asi, pero es posible
 	this.perso5.drawImagen();

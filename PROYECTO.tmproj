@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>raton.js</string>
+	<string>estadoPantIni.js</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -11,45 +11,59 @@
 			<array>
 				<dict>
 					<key>filename</key>
+					<string>estadoPantIni.js</string>
+					<key>lastUsed</key>
+					<date>2011-08-31T14:32:30Z</date>
+					<key>selected</key>
+					<true/>
+				</dict>
+				<dict>
+					<key>filename</key>
+					<string>prueba1.js</string>
+					<key>lastUsed</key>
+					<date>2011-08-28T13:38:16Z</date>
+				</dict>
+				<dict>
+					<key>filename</key>
 					<string>teclado.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-17T13:42:48Z</date>
+					<date>2011-08-31T10:07:07Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>ActualizarTeclado.js</string>
 					<key>lastUsed</key>
-					<date>2011-07-24T13:07:32Z</date>
+					<date>2011-08-31T08:57:06Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>personaje.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-17T14:47:39Z</date>
+					<date>2011-08-31T13:55:34Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>cuadrado.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-16T13:49:38Z</date>
+					<date>2011-08-24T16:53:40Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>libreria.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-07T08:40:54Z</date>
+					<date>2011-08-28T14:57:40Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>opciones.html</string>
 					<key>lastUsed</key>
-					<date>2011-08-16T08:36:21Z</date>
+					<date>2011-08-28T15:09:02Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>prueba.html</string>
 					<key>lastUsed</key>
-					<date>2011-08-17T09:38:07Z</date>
+					<date>2011-08-31T07:00:58Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
@@ -61,21 +75,43 @@
 					<key>filename</key>
 					<string>image.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-17T08:17:11Z</date>
+					<date>2011-08-30T20:46:03Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>raton.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-17T15:12:20Z</date>
-					<key>selected</key>
-					<true/>
+					<date>2011-08-30T14:07:31Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>menu.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-17T15:12:20Z</date>
+					<date>2011-08-31T14:32:30Z</date>
+				</dict>
+				<dict>
+					<key>filename</key>
+					<string>estadoPantHelp.js</string>
+					<key>lastUsed</key>
+					<date>2011-08-31T14:05:22Z</date>
+				</dict>
+				<dict>
+					<key>filename</key>
+					<string>estadoPantPause.js</string>
+					<key>lastUsed</key>
+					<date>2011-08-31T14:05:16Z</date>
+				</dict>
+				<dict>
+					<key>filename</key>
+					<string>estadoPantJuego.js</string>
+					<key>lastUsed</key>
+					<date>2011-08-31T14:00:00Z</date>
+				</dict>
+				<dict>
+					<key>filename</key>
+					<string>estadoPantGameOver.js</string>
+					<key>lastUsed</key>
+					<date>2011-08-31T14:09:00Z</date>
 				</dict>
 			</array>
 			<key>expanded</key>
@@ -88,6 +124,20 @@
 	<integer>200</integer>
 	<key>metaData</key>
 	<dict>
+		<key>ActualizarTeclado.js</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>1</integer>
+				<key>line</key>
+				<integer>75</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>54</integer>
+		</dict>
 		<key>cuadrado.js</key>
 		<dict>
 			<key>caret</key>
@@ -102,6 +152,92 @@
 			<key>firstVisibleLine</key>
 			<integer>9</integer>
 		</dict>
+		<key>estadoPantGameOver.js</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>1</integer>
+				<key>line</key>
+				<integer>21</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>estadoPantHelp.js</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>63</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+		</dict>
+		<key>estadoPantIni.js</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>19</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>11</integer>
+		</dict>
+		<key>estadoPantJuego.js</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>44</integer>
+				<key>line</key>
+				<integer>369</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>384</integer>
+		</dict>
+		<key>estadoPantPause.js</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>3</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>image.js</key>
 		<dict>
 			<key>caret</key>
@@ -114,7 +250,7 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>19</integer>
+			<integer>0</integer>
 		</dict>
 		<key>jquery-1.5.js</key>
 		<dict>
@@ -135,9 +271,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>38</integer>
+				<integer>51</integer>
 				<key>line</key>
-				<integer>0</integer>
+				<integer>16</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -149,14 +285,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>1</integer>
+				<integer>8</integer>
 				<key>line</key>
-				<integer>234</integer>
+				<integer>376</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>188</integer>
+			<integer>349</integer>
 		</dict>
 		<key>opciones.html</key>
 		<dict>
@@ -177,56 +313,88 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>14</integer>
+				<integer>1</integer>
 				<key>line</key>
-				<integer>45</integer>
+				<integer>132</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>117</integer>
 		</dict>
 		<key>prueba.html</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>32</integer>
+				<integer>9</integer>
 				<key>line</key>
-				<integer>13</integer>
+				<integer>15</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>15</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>16</integer>
+			</dict>
 		</dict>
 		<key>raton.js</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>15</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>11</integer>
+				<integer>12</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>6</integer>
+			<integer>0</integer>
 		</dict>
 		<key>teclado.js</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>9</integer>
+				<integer>2</integer>
 				<key>line</key>
-				<integer>35</integer>
+				<integer>34</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>17</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>9</integer>
+				<key>line</key>
+				<integer>36</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>2</integer>
+				<key>line</key>
+				<integer>34</integer>
+			</dict>
 		</dict>
 	</dict>
 	<key>openDocuments</key>
@@ -234,8 +402,14 @@
 		<string>prueba.html</string>
 		<string>opciones.html</string>
 		<string>menu.js</string>
+		<string>estadoPantIni.js</string>
+		<string>estadoPantHelp.js</string>
+		<string>estadoPantPause.js</string>
+		<string>estadoPantJuego.js</string>
+		<string>estadoPantGameOver.js</string>
 		<string>raton.js</string>
 		<string>image.js</string>
+		<string>ActualizarTeclado.js</string>
 		<string>jquery-1.5.js</string>
 		<string>teclado.js</string>
 		<string>cuadrado.js</string>

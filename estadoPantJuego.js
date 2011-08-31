@@ -6,8 +6,10 @@
 
 var imagelist = [
      { "src" : './imagenes/escenario1.jpg', "posx" : 0, "posy" : 0, "w" : 1000, "h" : 650},
-     { "src" : './imagenes/nami.jpg', "posx" : 0, "posy" : 0, "w" : 330, "h" : 321},
-     { "src" : './imagenes/zoro.jpg', "posx" : 300, "posy" : 300, "w" : 200, "h" : 200}     
+     { "src" : './imagenes/nami.jpg', "posx" : 0, "posy" : 0, "w" : 789, "h" : 679},
+     { "src" : './imagenes/zoro.jpg', "posx" : 300, "posy" : 300, "w" : 714, "h" : 658},
+     { "src" : './imagenes/luffy.jpg', "posx" : 300, "posy" : 300, "w" : 345, "h" : 345},
+     { "src" : './imagenes/robin.jpg', "posx" : 300, "posy" : 300, "w" : 629, "h" : 615}    
 
 ];
 
@@ -70,20 +72,20 @@ function cargaPersonajes(){
 	contaje ++;
 	this.perso.drawImagen();
 
-	this.perso2 = new Character("#00FF00",0,200,this.contaje, this.cont,imagelist[1].src);
+	this.perso2 = new Character("#00FF00",0,200,this.contaje, this.cont,imagelist[2].src);
 	this.perso2.setestado(0);
 	this.contenedor[this.contaje] = this.perso2; //kreo k no es asi, pero es posible
 	contaje ++;
 	this.perso2.drawImagen();
 
-	this.perso3 = new Character(this.col,this.x,this.y,this.contaje, this.cont,imagelist[2].src);
+	this.perso3 = new Character(this.col,this.x,this.y,this.contaje, this.cont,imagelist[3].src);
 	this.perso3.setestado(0);
 	this.contenedor[this.contaje] = this.perso3; //kreo k no es asi, pero es posible
 	this.perso3.drawImagen();
 
 	contaje++;
 
-	this.perso5 = new Character("#C0C0C0",300,300,this.contaje, this.cont,imagelist[2].src);
+	this.perso5 = new Character("#C0C0C0",300,300,this.contaje, this.cont,imagelist[4].src);
 	this.perso5.setestado(0);
 	this.contenedor[this.contaje] = this.perso5; //kreo k no es asi, pero es posible
 	this.perso5.drawImagen();
