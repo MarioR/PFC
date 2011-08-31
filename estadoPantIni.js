@@ -76,7 +76,7 @@ function pantIni (){
 		}
 		else{
 			if (Tecles.keyup == true){
-			
+				Tecles.keyup = false;
 				this.keyD = this.keyD - 1;
 			
 				if (this.keyD == -1){
@@ -87,7 +87,7 @@ function pantIni (){
 		}
 	
 		if (Pulsar.lbutton == true){
-		
+			Pulsar.lbutton = false;
 			if(this.keyD == 0){
 				Selecciones.jugar = true;
 			}

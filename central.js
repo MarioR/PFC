@@ -30,12 +30,22 @@ var main = function(){
 	
 	if (estado_actual.identificador == 0){
 		if (Selecciones.ayuda == true){
+			Selecciones.ayuda = false;
 			estado_actual = estado_ayuda;
 		}
 		if (Selecciones.jugar == true){
+			Selecciones.jugar = false;
 			estado_actual = estado_juego;
 		}
 	}
+	
+	if (estado_actual.identificador == 1){
+		if(QueSeHace.atras == true){
+			QueSeHace.atras = false;
+			estado_actual = estado_inicial;
+		}
+	}
+
 	if(estado_actual.identificador == 3){
 		estado_actual.cambioPerso = estado_actual.cambioPerso + 1;
 	}

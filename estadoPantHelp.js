@@ -43,6 +43,7 @@ function pantHelp(){
 	this.leerAccion = function(){
 		//Tal como tengo pensado de momento, sólo se utiliza el boton izquierdo del ratón
 		if (Pulsar.lbutton == true){
+			Pulsar.lbutton = false;
 		 	QueSeHace.atras = true;
 		}
 	}
