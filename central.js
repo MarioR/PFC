@@ -45,10 +45,30 @@ var main = function(){
 			estado_actual = estado_inicial;
 		}
 	}
+	
+	if(estado_actual.identificador == 2){
+		if(Vars.volver == true){
+			Vars.volver = false;
+			estado_actual = estado_juego;
+		}
+	}
 
 	if(estado_actual.identificador == 3){
-		estado_actual.cambioPerso = estado_actual.cambioPerso + 1;
+		if(Pausamos.pausa == true){
+			Pausamos.pausa = false;
+			estado_actual = estado_pausa;
+		}
+		else{
+			estado_actual.cambioPerso = estado_actual.cambioPerso + 1;
+		}
 	}
+	if(estado_actual.identificador == 4){
+		if(Volver.inicio == true){
+			Volver.inicio = false;
+			estado_actual = estado_inicial;
+		}
+	}
+	
 	
 }
 

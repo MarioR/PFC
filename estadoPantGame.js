@@ -25,6 +25,11 @@ var obstaculos = [
 	
 ];
 
+Pausamos = {
+
+	pausa: false
+	
+};
 
 function pantGame(){
 	
@@ -227,128 +232,93 @@ function pantGame(){
 		this.pos1x = 0;
 		this.pos1y = 0;
 	
-
-		//El bucle tiene la gracia de la función, para cada jugador, miraré si tiene la variable X con el valor correspondiente a su cuadrado
-		//y entonces le variaré la posición, ya que no irán todos los jugadores a la vez, será por turnos, primero uno, después otro,...
-		for (this.aux = 0; this.aux <= this.contaje; this.aux++){
+		if (Tecles.keypause == false){
+			//El bucle tiene la gracia de la función, para cada jugador, miraré si tiene la variable X con el valor correspondiente a su cuadrado
+			//y entonces le variaré la posición, ya que no irán todos los jugadores a la vez, será por turnos, primero uno, después otro,...
+			for (this.aux = 0; this.aux <= this.contaje; this.aux++){
 		
-			if(this.contenedor[this.aux].estado == 1){
-				this.aux2 = this.aux;
-				this.px1 = this.contenedor[this.aux].px;
-				this.py1 = this.contenedor[this.aux].py;
-				this.px1 = this.px1 / 50;
-				this.py1 = this.py1 / 50;
-				this.pos1x = this.px1;        //Pongo esto en el caso de que no se pueda cambiar por batalla.
-				this.pos1y = this.py1;  	  //Pongo esto por si no se puede cambiar porque hay batalla, pera volver a pintar en el sitio previo.
+				if(this.contenedor[this.aux].estado == 1){
+					this.aux2 = this.aux;
+					this.px1 = this.contenedor[this.aux].px;
+					this.py1 = this.contenedor[this.aux].py;
+					this.px1 = this.px1 / 50;
+					this.py1 = this.py1 / 50;
+					this.pos1x = this.px1;        //Pongo esto en el caso de que no se pueda cambiar por batalla.
+					this.pos1y = this.py1;  	  //Pongo esto por si no se puede cambiar porque hay batalla, pera volver a pintar en el sitio previo.
 
-				if (Tecles.keydown == true){
-					this.cambioPerso = 250;
-					this.cellarray[this.py1][this.px1] = 12345;
-					this.contenedor[this.aux].moveDown();
-					this.py1 = this.py1 + 1;
-					this.comprobarSiBatalla(this.px1,this.py1,this.contenedor[this.aux].num,this.aux);
-			
-					if (this.cellarray[this.py1][this.px1] == 30){
-						this.py1 = this.pos1y;
-						this.contenedor[this.aux].moveUp();
-					}
-			
-					this.cellarray[this.py1][this.px1] = this.contenedor[this.aux].nump;			
-					this.controlArray[this.aux].px = this.contenedor[this.aux].px;
-					this.controlArray[this.aux].py = this.contenedor[this.aux].py;
-					Tecles.keydown = false;
-				}
-				else{
-					if(Tecles.keyup == true){
+					if (Tecles.keydown == true){
 						this.cambioPerso = 250;
 						this.cellarray[this.py1][this.px1] = 12345;
-						this.contenedor[this.aux].moveUp();
-						this.py1 = this.py1 - 1;
+						this.contenedor[this.aux].moveDown();
+						this.py1 = this.py1 + 1;
 						this.comprobarSiBatalla(this.px1,this.py1,this.contenedor[this.aux].num,this.aux);
+			
 						if (this.cellarray[this.py1][this.px1] == 30){
 							this.py1 = this.pos1y;
-							this.contenedor[this.aux].moveDown();
+							this.contenedor[this.aux].moveUp();
 						}
-						this.cellarray[this.py1][this.px1] = this.contenedor[this.aux].nump;
+			
+						this.cellarray[this.py1][this.px1] = this.contenedor[this.aux].nump;			
 						this.controlArray[this.aux].px = this.contenedor[this.aux].px;
 						this.controlArray[this.aux].py = this.contenedor[this.aux].py;
-						Tecles.keyup = false;
+						Tecles.keydown = false;
 					}
 					else{
-						if(Tecles.keyright == true){
+						if(Tecles.keyup == true){
 							this.cambioPerso = 250;
 							this.cellarray[this.py1][this.px1] = 12345;
-							this.contenedor[this.aux].moveRight();
-							this.px1 = this.px1 + 1;
-				    		this.comprobarSiBatalla(this.px1,this.py1,this.contenedor[this.aux].num,this.aux);
+							this.contenedor[this.aux].moveUp();
+							this.py1 = this.py1 - 1;
+							this.comprobarSiBatalla(this.px1,this.py1,this.contenedor[this.aux].num,this.aux);
 							if (this.cellarray[this.py1][this.px1] == 30){
-								this.px1 = this.pos1x;
-								this.contenedor[this.aux].moveLeft();
+								this.py1 = this.pos1y;
+								this.contenedor[this.aux].moveDown();
 							}
 							this.cellarray[this.py1][this.px1] = this.contenedor[this.aux].nump;
 							this.controlArray[this.aux].px = this.contenedor[this.aux].px;
 							this.controlArray[this.aux].py = this.contenedor[this.aux].py;
-							Tecles.keyright = false;
+							Tecles.keyup = false;
 						}
 						else{
-							if(Tecles.keyleft == true){
+							if(Tecles.keyright == true){
 								this.cambioPerso = 250;
 								this.cellarray[this.py1][this.px1] = 12345;
-								this.contenedor[this.aux].moveLeft();
-								this.px1 = this.px1 - 1;
-								this.comprobarSiBatalla(this.px1,this.py1,this.contenedor[this.aux].num,this.aux);
+								this.contenedor[this.aux].moveRight();
+								this.px1 = this.px1 + 1;
+				    			this.comprobarSiBatalla(this.px1,this.py1,this.contenedor[this.aux].num,this.aux);
 								if (this.cellarray[this.py1][this.px1] == 30){
 									this.px1 = this.pos1x;
-									this.contenedor[this.aux].moveRight();
+									this.contenedor[this.aux].moveLeft();
 								}
 								this.cellarray[this.py1][this.px1] = this.contenedor[this.aux].nump;
 								this.controlArray[this.aux].px = this.contenedor[this.aux].px;
 								this.controlArray[this.aux].py = this.contenedor[this.aux].py;
-								Tecles.keyleft = false;
+								Tecles.keyright = false;
+							}
+							else{
+								if(Tecles.keyleft == true){
+									this.cambioPerso = 250;
+									this.cellarray[this.py1][this.px1] = 12345;
+									this.contenedor[this.aux].moveLeft();
+									this.px1 = this.px1 - 1;
+									this.comprobarSiBatalla(this.px1,this.py1,this.contenedor[this.aux].num,this.aux);
+									if (this.cellarray[this.py1][this.px1] == 30){
+										this.px1 = this.pos1x;
+										this.contenedor[this.aux].moveRight();
+									}
+									this.cellarray[this.py1][this.px1] = this.contenedor[this.aux].nump;
+									this.controlArray[this.aux].px = this.contenedor[this.aux].px;
+									this.controlArray[this.aux].py = this.contenedor[this.aux].py;
+									Tecles.keyleft = false;
+								}
 							}
 						}
 					}
-				}
-			}//fin de 1er IF	
-		}//FIN DE FOR
+				}//fin de 1er IF	
+			}//FIN DE FOR
 	
-		if (this.cambioPerso >= 250){
-
-			this.cambioPerso = 0;
-			this.num = 0;
-			this.contenedor[this.aux2].estado = this.num;
-			this.aux2 = this.aux2 + 1;
-			this.aux3 = this.contaje + 1;
-			if(this.aux2 == this.aux3) {
-				this.num = 1;
-				this.aux2 = 0;
-				if (this.contenedor[0].estado != 2){
-					this.contenedor[0].estado = this.num;
-				}
-				else{
-					this.aux2 = this.aux2 + 1;
-					this.contenedor[this.aux2].estado = this.num;
-				}
-			}
-			else{
-				this.num = 1;
-				if(this.contenedor[this.aux2].estado != 2){
-					this.contenedor[this.aux2].estado = this.num;
-				}
-				else{
-					this.aux2 = this.aux2 + 1;
-					if (this.aux2 == this.aux3){									
-						this.contenedor[0].estado = this.num;							
-					}																
-					else{
-						this.contenedor[this.aux2].estado = this.num;
-					}
-				}
-			}
-		}
-		else{
-			if(Tecles.keyintro == true){
-				Tecles.keyintro = false;
+			if (this.cambioPerso >= 250){
+				this.cambioPerso = 0;
 				this.num = 0;
 				this.contenedor[this.aux2].estado = this.num;
 				this.aux2 = this.aux2 + 1;
@@ -365,22 +335,61 @@ function pantGame(){
 					}
 				}
 				else{
-			 		this.num = 1;
+					this.num = 1;
 					if(this.contenedor[this.aux2].estado != 2){
 						this.contenedor[this.aux2].estado = this.num;
 					}
 					else{
 						this.aux2 = this.aux2 + 1;
-						if (this.aux2 == this.aux3){
-							this.contenedor[0].estado = this.num;
-						}
+						if (this.aux2 == this.aux3){									
+							this.contenedor[0].estado = this.num;							
+						}																
 						else{
 							this.contenedor[this.aux2].estado = this.num;
 						}
 					}
-				}	
-			}//fin del if del keyintro
-		}//fin de else
+				}
+			}
+			else{
+				if(Tecles.keyintro == true){
+					Tecles.keyintro = false;
+					this.num = 0;
+					this.contenedor[this.aux2].estado = this.num;
+					this.aux2 = this.aux2 + 1;
+					this.aux3 = this.contaje + 1;
+					if(this.aux2 == this.aux3) {
+						this.num = 1;
+						this.aux2 = 0;
+						if (this.contenedor[0].estado != 2){
+							this.contenedor[0].estado = this.num;
+						}
+						else{
+							this.aux2 = this.aux2 + 1;
+							this.contenedor[this.aux2].estado = this.num;
+						}
+					}
+					else{
+			 			this.num = 1;
+						if(this.contenedor[this.aux2].estado != 2){
+							this.contenedor[this.aux2].estado = this.num;
+						}
+						else{
+							this.aux2 = this.aux2 + 1;
+							if (this.aux2 == this.aux3){
+								this.contenedor[0].estado = this.num;
+							}
+							else{
+								this.contenedor[this.aux2].estado = this.num;
+							}
+						}
+					}	
+				}//fin del if del keyintro
+			}//fin de else
+		}
+		else{
+			Tecles.keypause = false;
+			Pausamos.pausa = true;
+		}
 	
 	}
 

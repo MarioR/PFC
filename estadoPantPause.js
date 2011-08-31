@@ -44,6 +44,7 @@ function pantPause(){
 		//Tal como tengo pensado de momento, sólo se utiliza el boton izquierdo del ratón
 	
 		if (Tecles.keypause == true){
+			Tecles.keypause = false;
 		 	Vars.volver = true;
 		}
 	

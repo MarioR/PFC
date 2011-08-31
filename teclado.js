@@ -85,25 +85,10 @@ Tecles = {
 				Tecles.keyright = false;
 			break;
 			case 27:
-				if (Tecles.intento1 == false){
-					Tecles.keyesc = true;
-					Tecles.intento1 = true;
-				}
-				else{
-					Tecles.intento1 = false;
 					Tecles.keyesc = false;
-				}
 			break;
 			case 80:  //letra P minúscula
-			
-				if (Tecles.intento == false){
-					Tecles.keypause = true;
-					Tecles.intento = true;
-				}
-				else{
-					Tecles.intento = false;
-					Tecles.keypause = false;
-				}
+				Tecles.keypause = false;
 			//	Tecles.keypause = false;
 			break;
 			case 72:
