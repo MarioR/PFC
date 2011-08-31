@@ -20,6 +20,10 @@ function Character (color,posx,posy,num,context,src){
 	
 	this.py = posy;
 	
+	this.pxini = this.px;
+	
+	this.pyini= this.py;
+	
 	this.experiencia = 0;     //Experiencia que tiene el personaje
 	
 	this.nivel = 1;  		  //Nivel que tiene el personaje
@@ -32,7 +36,7 @@ function Character (color,posx,posy,num,context,src){
 	this.img2 = new ImageData('personaje'+num, context,src);
 	this.img2.setPosition(this.px,this.py);
 	this.img2.setSize(50, 50);
-	
+		
 	this.drawSquare = function (cont){
 		
 		if(this.estado != 2){
@@ -126,13 +130,21 @@ function Character (color,posx,posy,num,context,src){
 		}
 		
 	}
-	
+	this.reiniciarEstado = function(){
+		this.px = this.pxini;
+		this.py = this.pyini;
+		this.nivel = 1;
+		this.siguienteNiv = 10;
+		this.estado = 0;
+	}
 	//Si es atacado, pierde vida
 	this.esAtacado = function (){
 		
 		if(this.vida <= 10){
 			this.vida = 0;
 			this.estado = 2;
+			this.reiniciarEstado();  //Esto creo que lo cambio de sitio y lo pondré en el menu.js (estadojuego) cuando el estado del personaje sea 2
+									//Así resucitará y podrá volver a jugar, con los parámetros iniciales
 		}
 		else{
 			this.vida = this.vida - 10;

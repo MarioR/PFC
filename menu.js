@@ -304,35 +304,11 @@ function actualizaJugadores(characters,cant){
 		this.aux3 = this.contaje + 1;
 		if(this.aux2 == this.aux3) {
 			this.num = 1;
-			if(characters[0].estado != 2){
 				characters[0].estado = this.num;
-			}
-			else{
-				this.aux2 = this.aux2+1;
-				characters[this.aux2] = this.num;
-			}
 		}
 		else{
 			this.num = 1;
-			if (characters[this.aux2].estado != 2){
 				characters[this.aux2].estado = this.num;
-			}
-			else{
-				this.aux2 = this.aux2 + 1;
-				if(this.aux2 == this.aux3){
-					if(characters[0].estado != 2){
-						characters[0].estado = this.num;
-					}
-					else{
-						this.aux2 = this.aux2 + 1;
-						characters[this.aux2] = this.num;
-					}
-				}
-				else{
-					this.aux2 = this.aux2 + 1;
-					
-				}
-			}
 		}
 	}
 	else{
@@ -355,7 +331,6 @@ function actualizaJugadores(characters,cant){
 	
 }
 
-
 //Esta función comprobará si se debe entrar en batalla
 //VERSION ANTIGUA
 //primero cambiaré a "estados" el juego y después ya comprobaré para entrar en batalla y todo eso
@@ -363,6 +338,8 @@ function actualizaJugadores(characters,cant){
 function comprobarSiBatalla(px,py,num,aux1){
 	
 	var aux;
+	var x1;
+	var y1;
 	aux = this.cellarray[py][px];
 	
 	if(aux != 12345){
@@ -379,7 +356,10 @@ function comprobarSiBatalla(px,py,num,aux1){
 					this.contenedor[aux1].vida = this.contenedor[aux1].vida - 20;	
 				}
 				else{
-					this.contenedor[aux1].attack();
+					this.contenedor[aux1].attack(this.contenedor[aux]);
+					alert(this.contenedor[aux1].vida);
+					alert(this.contenedor[aux].vida);
+					
 				}
 			}//segundo else
 		}//primer else
