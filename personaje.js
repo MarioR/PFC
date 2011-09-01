@@ -99,10 +99,7 @@ function Character (color,posx,posy,num,context,src){
 
 	//Esta función se ejecuta cuando el personaje sube de nivel
 	this.actualizarExp = function(){
-		this.siguienteNiv = ((this.siguienteNiv) * (this.nivel)) + 1;
-	
-		alert("NIVEL NUEVO");
-		
+		this.siguienteNiv = ((this.siguienteNiv) * (this.nivel)) + 1;		
 	}
 	
 	//La función se actualiza para que cada vez que hiera al contrincante la función sea llamada
@@ -130,7 +127,6 @@ function Character (color,posx,posy,num,context,src){
 		this.nivel = 1;
 		this.siguienteNiv = 10;
 		this.estado = 0;
-		alert(this.nump);
 	}
 	
 	//Esta función es llamada cuando el personaje es atacado, con lo que pierde vida
