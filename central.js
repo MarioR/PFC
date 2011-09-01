@@ -77,6 +77,7 @@ var main = function(){
 		if(Volver.inicio == true){
 			Volver.inicio = false;
 			estado_actual = estado_inicial;
+			
 		}
 	}
 	

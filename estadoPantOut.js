@@ -19,6 +19,10 @@ function pantOut(){
 	this.identificador = 4;
 	
 	Inicio.init();  
+	
+	Inicio.init2();
+	
+	this.cont2 = Inicio.ctx2;
 
 	this.cont = Inicio.ctx;	
 
@@ -55,6 +59,7 @@ function pantOut(){
 	
 		//Primero se limpia el escenario
 		this.cont.clearRect(0,0,1000,650);
+		this.cont2.clearRect(0,0,300,650);
 
 	}
 
