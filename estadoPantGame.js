@@ -56,6 +56,7 @@ function pantGame(){
 	this.texto8 = "Luffy";
 	this.texto9 = "Robin";
 	this.texto10 = "Tiempo de turno:";
+	this.texto11 = "Nivel:";
 	
 	this.cambioPerso = 0;                                       //Lo de incrementar la variable para que a los 10 seg pase a otro jugador lo haré
 										         				//desde el bucle principal, que si el estado es el de juego, se incremente, sino no
@@ -426,7 +427,7 @@ function pantGame(){
 	//Esta función actualizará el juego
 
 	this.updateEstado = function(){
-		
+		this.tiempo = 0;
 		this.aux = 0;
 		this.signiv = 0;
 		
@@ -439,6 +440,7 @@ function pantGame(){
 		this.cont2.fillText(this.texto3, 0, 200);
 		this.cont2.fillText(this.texto4, 0, 250);
 		this.cont2.fillText(this.texto5, 0, 300);
+		this.cont2.fillText(this.texto11,0, 350);
 	
 		for (this.aux = 0; this.aux <= this.contaje; this.aux++){
 		
@@ -450,6 +452,7 @@ function pantGame(){
 					this.cont2.fillText(this.contenedor[this.aux].experiencia,90,250);
 					this.signiv = this.contenedor[this.aux].siguienteNiv - this.contenedor[this.aux].experiencia;
 					this.cont2.fillText(this.signiv,200,300);					
+					this.cont2.fillText(this.contenedor[this.aux].nivel, 70, 350);
 				}
 				if(this.contenedor[this.aux].nump == 1){
 					this.cont2.fillText(this.contenedor[this.aux].nump, 70, 100);
@@ -457,7 +460,8 @@ function pantGame(){
 					this.cont2.fillText(this.contenedor[this.aux].vida,70,200);
 					this.cont2.fillText(this.contenedor[this.aux].experiencia,90,250);
 					this.signiv = this.contenedor[this.aux].siguienteNiv - this.contenedor[this.aux].experiencia;
-					this.cont2.fillText(this.signiv,200,300);					
+					this.cont2.fillText(this.signiv,200,300);		
+					this.cont2.fillText(this.contenedor[this.aux].nivel, 70, 350);			
 				}
 				if(this.contenedor[this.aux].nump == 2){
 					this.cont2.fillText(this.contenedor[this.aux].nump, 70, 100);
@@ -466,6 +470,7 @@ function pantGame(){
 					this.cont2.fillText(this.contenedor[this.aux].experiencia,90,250);
 					this.signiv = this.contenedor[this.aux].siguienteNiv - this.contenedor[this.aux].experiencia;
 					this.cont2.fillText(this.signiv,200,300);					
+					this.cont2.fillText(this.contenedor[this.aux].nivel, 70, 350);
 				}
 				if(this.contenedor[this.aux].nump == 3){
 					this.cont2.fillText(this.contenedor[this.aux].nump, 70, 100);
@@ -473,13 +478,17 @@ function pantGame(){
 					this.cont2.fillText(this.contenedor[this.aux].vida,70,200);
 					this.cont2.fillText(this.contenedor[this.aux].experiencia,90,250);
 					this.signiv = this.contenedor[this.aux].siguienteNiv - this.contenedor[this.aux].experiencia;
-					this.cont2.fillText(this.signiv,200,300);					
+					this.cont2.fillText(this.signiv,200,300);		
+					this.cont2.fillText(this.contenedor[this.aux].nivel, 70, 350);			
 				}
 			}
 		
 		}	
 		
+		this.tiempo = this.cambioPerso / 25;
+		this.tiempo = parseInt(this.tiempo);
 		this.cont2.fillText(this.texto10,0,400);	
+		this.cont2.fillText(this.tiempo, 150, 400);
 
 	}
 	
