@@ -16,12 +16,12 @@ var imagelist = [
 //Pese a que está la misma imagen, no es repetir código, puesto que no está en la misma posicion
 //es otra imagen diferente
 var obstaculos = [
-	{"src" : './imagenes/wall.jpg', "posx" : 300, "posy" : 0, "w" : 50, "h" : 50, "num": 100},
-	{"src" : './imagenes/infernal.jpg', "posx" : 0, "posy" : 300, "w" : 50, "h" : 50, "num": 85},
-	{"src" : './imagenes/mine.jpg', "posx" : 200, "posy" : 550, "w" : 50, "h" : 50, "num": 30},
-	{"src" : './imagenes/wall.jpg', "posx" : 100, "posy" : 350, "w" : 50, "h" : 50, "num": 100},
-	{"src" : './imagenes/infernal.jpg', "posx" : 500, "posy" : 150, "w" : 50, "h" : 50, "num": 85},
-	{"src" : './imagenes/mine.jpg', "posx" : 800, "posy" : 500, "w" : 50, "h" : 50, "num": 30}
+	{"src" : './imagenes/wall.jpg', "posx" : 300, "posy" : 0, "w" : 50, "h" : 50, "num" : 100},
+	{"src" : './imagenes/infernal.jpg', "posx" : 0, "posy" : 300, "w" : 50, "h" : 50, "num" : 85},
+	{"src" : './imagenes/mine.jpg', "posx" : 200, "posy" : 550, "w" : 50, "h" : 50, "num" : 30},
+	{"src" : './imagenes/wall.jpg', "posx" : 100, "posy" : 350, "w" : 50, "h" : 50, "num" : 100},
+	{"src" : './imagenes/infernal.jpg', "posx" : 500, "posy" : 150, "w" : 50, "h" : 50, "num" : 85},
+	{"src" : './imagenes/mine.jpg', "posx" : 800, "posy" : 500, "w" : 50, "h" : 50, "num" : 30}
 	
 ];
 
@@ -35,7 +35,7 @@ Pausamos = {
 function pantGame(){
 	
 	this.identificador = 3;
-	
+	this.pruebafin = 0;
 	Inicio.init(); 
 	Inicio.init2(); 
 	this.contenedor = new Array ();  //Esta variable contendrá la lista con los personajes creados
@@ -172,20 +172,18 @@ function pantGame(){
 	//Inicializar el array guardando los valores por defecto, es decir
 	//los personajes y los obstáculos iniciales
 	this.inicializarArray = function(){
-	
-		var i;
-		for (i=0;i<this.prueba;i++){
-			this.controlArray[i] = new ArrayData(this.perso.px,this.perso.py,this.perso.nump);
-			this.controlArray[i] = new ArrayData(this.perso2.px,this.perso2.py,this.perso2.nump);
-			this.controlArray[i] = new ArrayData(this.perso3.px,this.perso3.py,this.perso3.nump);
-			this.controlArray[i] = new ArrayData(this.perso5.px,this.perso5.py,this.perso5.nump);
-			this.controlArray[i] = new ArrayData(obstaculos[0].posx,obstaculos[0].posy,obstaculos[0].num);
-			this.controlArray[i] = new ArrayData(obstaculos[1].posx,obstaculos[1].posy,obstaculos[1].num);
-			this.controlArray[i] = new ArrayData(obstaculos[2].posx,obstaculos[2].posy,obstaculos[2].num);
-			this.controlArray[i] = new ArrayData(obstaculos[3].posx,obstaculos[3].posy,obstaculos[3].num);
-			this.controlArray[i] = new ArrayData(obstaculos[4].posx,obstaculos[4].posy,obstaculos[4].num);
-			this.controlArray[i] = new ArrayData(obstaculos[5].posx,obstaculos[5].posy,obstaculos[5].num);
-		}	
+
+		this.controlArray[0] = new ArrayData(this.perso.px,this.perso.py,this.perso.nump);
+		this.controlArray[1] = new ArrayData(this.perso2.px,this.perso2.py,this.perso2.nump);
+		this.controlArray[2] = new ArrayData(this.perso3.px,this.perso3.py,this.perso3.nump);
+		this.controlArray[3] = new ArrayData(this.perso5.px,this.perso5.py,this.perso5.nump);
+		this.controlArray[4] = new ArrayData(obstaculos[0].posx,obstaculos[0].posy,obstaculos[0].num);
+		this.controlArray[5] = new ArrayData(obstaculos[1].posx,obstaculos[1].posy,obstaculos[1].num);
+		this.controlArray[6] = new ArrayData(obstaculos[2].posx,obstaculos[2].posy,obstaculos[2].num);
+		this.controlArray[7] = new ArrayData(obstaculos[3].posx,obstaculos[3].posy,obstaculos[3].num);
+		this.controlArray[8] = new ArrayData(obstaculos[4].posx,obstaculos[4].posy,obstaculos[4].num);
+		this.controlArray[9] = new ArrayData(obstaculos[5].posx,obstaculos[5].posy,obstaculos[5].num);
+
 	}
 
 	this.valoresInicialesMatriz = function(){
@@ -215,19 +213,18 @@ function pantGame(){
 		//si hay alguien en la misma posición que la que el primero pretendía ocupar
 		var aux;
 		aux = this.cellarray[py][px];    //Cosas de ser inversa la x e y de la matriz y la x e i del personaje
-	
 		if(aux != 12345){
 
 			if (aux == 100){
-				this.contenedor[aux1].vida = this.contenedor[aux1].vida - 5;		
+				this.contenedor[aux1].vida = this.contenedor[aux1].vida - 5;	
 			}
 			else{
 				if(aux == 85){
-					this.contenedor[aux1].vida = this.contenedor[aux1].vida - 50;	
+					this.contenedor[aux1].vida = this.contenedor[aux1].vida - 50;
 				}
 				else{
 					if(aux == 30){
-						this.contenedor[aux1].vida = this.contenedor[aux1].vida - 20;	
+						this.contenedor[aux1].vida = this.contenedor[aux1].vida - 20;							
 					}
 					else{
 						this.contenedor[aux1].attack(this.contenedor[aux]);
@@ -276,14 +273,23 @@ function pantGame(){
 								this.py1 = this.py1 + 1;
 								this.comprobarSiBatalla(this.px1,this.py1,this.contenedor[this.aux].num,this.aux);
 			
-								if (this.cellarray[this.py1][this.px1] == 30){
+								if ((this.cellarray[this.py1][this.px1] == 30)||(this.cellarray[this.py1][this.px1] == 85)||(this.cellarray[this.py1][this.px1] == 100)){
 									this.py1 = this.pos1y;
 									this.contenedor[this.aux].moveUp();
 								}
-			
-								this.cellarray[this.py1][this.px1] = this.contenedor[this.aux].nump;			
-								this.controlArray[this.aux].px = this.contenedor[this.aux].px;
-								this.controlArray[this.aux].py = this.contenedor[this.aux].py;
+								if(this.contenedor[this.aux].vida <=0){
+									this.contenedor[this.aux].reiniciarEstado();
+									this.py1 = (this.contenedor[this.aux].py) / 50;
+									this.px1 = (this.contenedor[this.aux].px) / 50;
+									this.cellarray[this.py1][this.px1] = this.contenedor[this.aux].nump;
+									this.controlArray[this.aux].px = this.contenedor[this.aux].px;
+									this.controlArray[this.aux].py = this.contenedor[this.aux].py;
+								}
+								else{
+									this.cellarray[this.py1][this.px1] = this.contenedor[this.aux].nump;
+									this.controlArray[this.aux].px = this.contenedor[this.aux].px;
+									this.controlArray[this.aux].py = this.contenedor[this.aux].py;
+								}
 							}
 							Tecles.keydown = false;
 						}
@@ -295,13 +301,23 @@ function pantGame(){
 									this.contenedor[this.aux].moveUp();
 									this.py1 = this.py1 - 1;
 									this.comprobarSiBatalla(this.px1,this.py1,this.contenedor[this.aux].num,this.aux);
-									if (this.cellarray[this.py1][this.px1] == 30){
+									if ((this.cellarray[this.py1][this.px1] == 30)||(this.cellarray[this.py1][this.px1] == 85)||(this.cellarray[this.py1][this.px1] == 100)){
 										this.py1 = this.pos1y;
 										this.contenedor[this.aux].moveDown();
 									}
-									this.cellarray[this.py1][this.px1] = this.contenedor[this.aux].nump;
-									this.controlArray[this.aux].px = this.contenedor[this.aux].px;
-									this.controlArray[this.aux].py = this.contenedor[this.aux].py;
+									if(this.contenedor[this.aux].vida <=0){
+										this.contenedor[this.aux].reiniciarEstado();
+										this.py1 = (this.contenedor[this.aux].py) / 50;
+										this.px1 = (this.contenedor[this.aux].px) / 50;
+										this.cellarray[this.py1][this.px1] = this.contenedor[this.aux].nump;
+										this.controlArray[this.aux].px = this.contenedor[this.aux].px;
+										this.controlArray[this.aux].py = this.contenedor[this.aux].py;
+									}
+									else{
+										this.cellarray[this.py1][this.px1] = this.contenedor[this.aux].nump;
+										this.controlArray[this.aux].px = this.contenedor[this.aux].px;
+										this.controlArray[this.aux].py = this.contenedor[this.aux].py;
+									}
 								}
 								Tecles.keyup = false;
 							}
@@ -313,13 +329,23 @@ function pantGame(){
 										this.contenedor[this.aux].moveRight();
 										this.px1 = this.px1 + 1;
 				    					this.comprobarSiBatalla(this.px1,this.py1,this.contenedor[this.aux].num,this.aux);
-										if (this.cellarray[this.py1][this.px1] == 30){
+										if ((this.cellarray[this.py1][this.px1] == 30)||(this.cellarray[this.py1][this.px1] == 85)||(this.cellarray[this.py1][this.px1] == 100)){
 											this.px1 = this.pos1x;
 											this.contenedor[this.aux].moveLeft();
 										}
-										this.cellarray[this.py1][this.px1] = this.contenedor[this.aux].nump;
-										this.controlArray[this.aux].px = this.contenedor[this.aux].px;
-										this.controlArray[this.aux].py = this.contenedor[this.aux].py;
+										if(this.contenedor[this.aux].vida <=0){
+											this.contenedor[this.aux].reiniciarEstado();
+											this.py1 = (this.contenedor[this.aux].py) / 50;
+											this.px1 = (this.contenedor[this.aux].px) / 50;
+											this.cellarray[this.py1][this.px1] = this.contenedor[this.aux].nump;
+											this.controlArray[this.aux].px = this.contenedor[this.aux].px;
+											this.controlArray[this.aux].py = this.contenedor[this.aux].py;
+										}
+										else{
+											this.cellarray[this.py1][this.px1] = this.contenedor[this.aux].nump;
+											this.controlArray[this.aux].px = this.contenedor[this.aux].px;
+											this.controlArray[this.aux].py = this.contenedor[this.aux].py;
+										}
 									}
 									Tecles.keyright = false;
 								}
@@ -331,13 +357,23 @@ function pantGame(){
 											this.contenedor[this.aux].moveLeft();
 											this.px1 = this.px1 - 1;
 											this.comprobarSiBatalla(this.px1,this.py1,this.contenedor[this.aux].num,this.aux);
-											if (this.cellarray[this.py1][this.px1] == 30){
+											if ((this.cellarray[this.py1][this.px1] == 30)||(this.cellarray[this.py1][this.px1] == 85)||(this.cellarray[this.py1][this.px1] == 100)){
 												this.px1 = this.pos1x;
 												this.contenedor[this.aux].moveRight();
 											}
-											this.cellarray[this.py1][this.px1] = this.contenedor[this.aux].nump;
-											this.controlArray[this.aux].px = this.contenedor[this.aux].px;
-											this.controlArray[this.aux].py = this.contenedor[this.aux].py;
+											if(this.contenedor[this.aux].vida <=0){
+												this.contenedor[this.aux].reiniciarEstado();
+												this.py1 = (this.contenedor[this.aux].py) / 50;
+												this.px1 = (this.contenedor[this.aux].px) / 50;
+												this.cellarray[this.py1][this.px1] = this.contenedor[this.aux].nump;
+												this.controlArray[this.aux].px = this.contenedor[this.aux].px;
+												this.controlArray[this.aux].py = this.contenedor[this.aux].py;
+											}
+											else{
+												this.cellarray[this.py1][this.px1] = this.contenedor[this.aux].nump;
+												this.controlArray[this.aux].px = this.contenedor[this.aux].px;
+												this.controlArray[this.aux].py = this.contenedor[this.aux].py;
+											}
 										}
 										Tecles.keyleft = false;
 									}
@@ -500,7 +536,8 @@ function pantGame(){
 	//Una vez creada la matriz, procedemos a inicializarla con un valor nulo
 	this.inicializarMatriz();
 	//Creamos el array con "this.contaje+1" personajes y "this.obst" obstáculos
-	this.createArray(this.contaje+1, this.obst);
+	this.pruebafin= this.contaje + 1;
+	this.createArray(this.pruebafin, this.obst);
 	//Una vez creado el array, lo rellenamos
 	this.inicializarArray();
 	//Una vez creado el array y demás, llenaremos con los valores de los personajes la matriz
