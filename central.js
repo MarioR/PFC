@@ -58,7 +58,7 @@ var main = function(){
 	}
 
 	if(estado_actual.identificador == 3){
-
+		soundManager.play('music1');
 		if(Pausamos.pausa == true){
 			Pausamos.pausa = false;
 			estado_actual = estado_pausa;
