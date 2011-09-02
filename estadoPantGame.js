@@ -81,6 +81,36 @@ function pantGame(){
 	}
 	
 
+	//Esta función pintará la cuadricula que representa la matriz de juego
+	this.cuadricula = function(){
+		var i;
+		this.cont.beginPath();
+		for (i=0;i<=650;i++){
+			if(i%50 == 0){
+				this.cont.moveTo(0, i);
+				this.cont.lineTo(1000, i);
+			}
+		//	this.cont.moveTo(0, 100);
+		//	this.cont.lineTo(1000, 100);
+		//	this.cont.moveTo(0, 150);
+		//	this.cont.lineTo(1000, 150);
+		//	this.cont.moveTo(0, 200);
+		//	this.cont.lineTo(1000, 200);
+		//	this.cont.moveTo(0, 250);
+		//	this.cont.lineTo(1000, 250);
+		}
+		
+		for (i=0;i<=1000;i++){
+			if (i%50 == 0){
+				this.cont.moveTo(i, 0);
+				this.cont.lineTo(i, 650);
+			}
+		}
+		
+		this.cont.strokeStyle = "#AAFFAA";
+		this.cont.stroke();
+		
+	}
 	
 
 	//Esta función será la que pintará las imagenes de cada estado.
@@ -91,6 +121,7 @@ function pantGame(){
 		//Imagen de escenario
 		this.myimages.drawX(0);
 	
+		this.cuadricula();
 		//Obstáculos en el juego
 		this.myimageO.draw();
 	
@@ -459,6 +490,8 @@ function pantGame(){
 		}
 	
 	}
+	
+
 
 	//Esta función actualizará el juego
 
