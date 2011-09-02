@@ -58,6 +58,7 @@ var main = function(){
 	}
 
 	if(estado_actual.identificador == 3){
+
 		if(Pausamos.pausa == true){
 			Pausamos.pausa = false;
 			estado_actual = estado_pausa;
