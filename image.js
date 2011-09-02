@@ -36,6 +36,12 @@ function ImageData(id,context,src)
 		this.context.drawImage(this.img, this.posX, this.posY, this.img.width, this.img.height);
 	};
 	
+	this.draw2 = function(x,y){
+		var cont = Inicio.ctx2;
+		cont.drawImage(this.img, x, y, this.img.width, this.img.height);
+		
+	}
+	
 	//Checks if the point x,y is inside the image
 	this.isInside = function(x,y){
 		if (x>=this.posX && x<=(this.posX+this.img.width) 

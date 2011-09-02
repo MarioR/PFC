@@ -90,26 +90,15 @@ function pantGame(){
 				this.cont.moveTo(0, i);
 				this.cont.lineTo(1000, i);
 			}
-		//	this.cont.moveTo(0, 100);
-		//	this.cont.lineTo(1000, 100);
-		//	this.cont.moveTo(0, 150);
-		//	this.cont.lineTo(1000, 150);
-		//	this.cont.moveTo(0, 200);
-		//	this.cont.lineTo(1000, 200);
-		//	this.cont.moveTo(0, 250);
-		//	this.cont.lineTo(1000, 250);
 		}
-		
 		for (i=0;i<=1000;i++){
 			if (i%50 == 0){
 				this.cont.moveTo(i, 0);
 				this.cont.lineTo(i, 650);
 			}
 		}
-		
 		this.cont.strokeStyle = "#AAFFAA";
 		this.cont.stroke();
-		
 	}
 	
 
@@ -522,6 +511,8 @@ function pantGame(){
 					this.signiv = this.contenedor[this.aux].siguienteNiv - this.contenedor[this.aux].experiencia;
 					this.cont2.fillText(this.signiv,200,300);					
 					this.cont2.fillText(this.contenedor[this.aux].nivel, 70, 350);
+					this.perso.drawImagen2 (100,500);
+					
 				}
 				if(this.contenedor[this.aux].nump == 1){
 					this.cont2.fillText(this.contenedor[this.aux].nump, 70, 100);
@@ -530,7 +521,8 @@ function pantGame(){
 					this.cont2.fillText(this.contenedor[this.aux].experiencia,90,250);
 					this.signiv = this.contenedor[this.aux].siguienteNiv - this.contenedor[this.aux].experiencia;
 					this.cont2.fillText(this.signiv,200,300);		
-					this.cont2.fillText(this.contenedor[this.aux].nivel, 70, 350);			
+					this.cont2.fillText(this.contenedor[this.aux].nivel, 70, 350);		
+					this.perso2.drawImagen2 (100,500);	
 				}
 				if(this.contenedor[this.aux].nump == 2){
 					this.cont2.fillText(this.contenedor[this.aux].nump, 70, 100);
@@ -540,6 +532,7 @@ function pantGame(){
 					this.signiv = this.contenedor[this.aux].siguienteNiv - this.contenedor[this.aux].experiencia;
 					this.cont2.fillText(this.signiv,200,300);					
 					this.cont2.fillText(this.contenedor[this.aux].nivel, 70, 350);
+					this.perso3.drawImagen2 (100,500);
 				}
 				if(this.contenedor[this.aux].nump == 3){
 					this.cont2.fillText(this.contenedor[this.aux].nump, 70, 100);
@@ -548,7 +541,8 @@ function pantGame(){
 					this.cont2.fillText(this.contenedor[this.aux].experiencia,90,250);
 					this.signiv = this.contenedor[this.aux].siguienteNiv - this.contenedor[this.aux].experiencia;
 					this.cont2.fillText(this.signiv,200,300);		
-					this.cont2.fillText(this.contenedor[this.aux].nivel, 70, 350);			
+					this.cont2.fillText(this.contenedor[this.aux].nivel, 70, 350);	
+					this.perso5.drawImagen2 (100,500);		
 				}
 			}
 		

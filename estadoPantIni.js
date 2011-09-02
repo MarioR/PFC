@@ -18,6 +18,11 @@ var imageArrow = [
      { "src" : './imagenes/flechader.jpg', "posx" : 0, "posy" : 0, "w" : 20, "h" : 20}
 ];	
 
+var imageSunny = [
+
+     { "src" : './imagenes/sunnygo.jpg', "posx" : 0, "posy" : 0, "w" : 1000, "h" : 650}
+];
+
 Selecciones = {
 
 	jugar: false,
@@ -34,7 +39,7 @@ function pantIni (){
 	this.keyD = 0;
 	this.cont = Inicio.ctx;
 	this.cont.fillStyle = "#000000";   //definimos el color que tendrá el string que pintemos
-	this.cont.font = "12px Verdana";   //definimos el tamaño y el tipo de letra que escribiremos
+	this.cont.font = "Bold 12px Verdana";   //definimos el tamaño y el tipo de letra que escribiremos (está en negrita, por eso BOLD)
 
 	this.texto1 = "JUGAR";
 	this.texto2 = "AYUDA";
@@ -42,9 +47,13 @@ function pantIni (){
 
 
 	this.myimageA = new ImageData(1,this.cont,imageArrow[0].src);
+	this.myimageB = new ImageData(2,this.cont,imageSunny[0].src);
 
 	this.myimageA.setPosition(170,170);
 	this.myimageA.setSize (20,20);
+	
+	this.myimageB.setPosition(0,0);
+	this.myimageB.setSize (1000,650);
 
 
 	//Esta función será la que pintará las imagenes de cada estado.
@@ -112,6 +121,8 @@ function pantIni (){
 		//Primero se limpia el escenario
 		this.cont.clearRect(0,0,1000,650);
 	
+		this.myimageB.draw();
+		
 		//Después escribimos los strings marcados
 		this.cont.fillText(this.texto1, 200, 100);   //Pintamos el string deseado en la pos x e y
 		this.cont.fillText(this.texto2, 200, 200);

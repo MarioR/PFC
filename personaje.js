@@ -63,28 +63,28 @@ function Character (color,posx,posy,num,context,src){
 	
 	//Esta función actualiza la posición del cuadrado moviéndolo a la izquierda cuando se tenga que pintar
 	this.moveLeft = function (){
-		this.px = this.px-50;
+		this.px = this.px-(50*this.nivel);
 		this.img2.setPosition(this.px,this.py);
 		//this.sq.setposx(this.sq.x - 1);
 	}
 	
 	//Esta función actualiza la posición del cuadrado moviéndolo a la derecha cuando se tenga que pintar
 	this.moveRight = function(){
-		this.px = this.px+50;
+		this.px = this.px+(50*this.nivel);
 		this.img2.setPosition(this.px,this.py);
 		//this.sq.setposx(this.sq.x + 1);
 	}
 	
 	//Esta función actualiza la posición del cuadrado moviéndolo arriba cuando se tenga que pintar
 	this.moveUp = function(){
-		this.py = this.py-50;
+		this.py = this.py-(50*this.nivel);
 		this.img2.setPosition(this.px,this.py);
 		//this.sq.setposy(this.sq.y - 1);
 	}
 	
 	//Esta función actualiza la posición del cuadrado moviéndolo abajo cuando se tenga que pintar
 	this.moveDown = function(){
-		this.py = this.py+50;
+		this.py = this.py+(50*this.nivel);
 		this.img2.setPosition(this.px,this.py);
 		//this.sq.setposy(this.sq.y + 1);
 	}
@@ -96,6 +96,10 @@ function Character (color,posx,posy,num,context,src){
 			this.img2.draw();
 		}
 	}
+	
+	this.drawImagen2 = function(x,y){
+		this.img2.draw2(x,y);
+	}
 
 	//Esta función se ejecuta cuando el personaje sube de nivel
 	this.actualizarExp = function(){
@@ -104,7 +108,6 @@ function Character (color,posx,posy,num,context,src){
 	
 	//La función se actualiza para que cada vez que hiera al contrincante la función sea llamada
 	this.setExperiencia = function(){
-		
 		
 		this.experiencia = this.experiencia + 2;
 		
@@ -130,7 +133,7 @@ function Character (color,posx,posy,num,context,src){
 	}
 	
 	//Esta función es llamada cuando el personaje es atacado, con lo que pierde vida
-	this.esAtacado = function (){
+	this.esAtacado = function (niv){
 		
 		if(this.vida <= 10){
 			this.vida = 0;
@@ -140,14 +143,14 @@ function Character (color,posx,posy,num,context,src){
 			
 		}
 		else{
-			this.vida = this.vida - 10;
+			this.vida = this.vida - (10*niv);
 		}
 	}
 
 	//Esta función es requerida cuando el personaje ataca a otro
 	this.attack = function(persoAtac){
 		
-		persoAtac.esAtacado();
+		persoAtac.esAtacado(this.nivel);
 		this.setExperiencia();
 		if(persoAtac.estado == 2){
 			this.setExperiencia();
