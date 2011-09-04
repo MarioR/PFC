@@ -26,7 +26,7 @@ var obstaculos = [
 ];
 
 Pausamos = {
-	primera: true,
+	primera: false,
 	salir: false,
 	pausa: false
 	
@@ -131,7 +131,6 @@ function pantGame(){
 			img.setSize(imagelist[i].w,imagelist[i].h);
 			this.myimages.add(img);
 		}
-		this.myimages.drawX(0);
 	
 		for (i=0;i<obstaculos.length;i++){
 			var img = new ImageData(i,this.cont,obstaculos[i].src);
@@ -140,7 +139,6 @@ function pantGame(){
 			this.myimageO.add(img);
 			this.obst = this.obst + 1;
 		}
-		this.myimageO.draw();
 	}
 
 	this.cargaPersonajes = function(){
@@ -148,24 +146,20 @@ function pantGame(){
 		this.perso.setestado(1);
 		this.contenedor[this.contaje] = this.perso; //kreo k no es asi, pero es posible
 		this.contaje ++;
-		this.perso.drawImagen();
 
 		this.perso2 = new Character("#00FF00",0,200,this.contaje, this.cont,imagelist[2].src);
 		this.perso2.setestado(0);
 		this.contenedor[this.contaje] = this.perso2; //kreo k no es asi, pero es posible
 		this.contaje ++;
-		this.perso2.drawImagen();
 
 		this.perso3 = new Character("#223300",0,0,this.contaje, this.cont,imagelist[3].src);
 		this.perso3.setestado(0);
 		this.contenedor[this.contaje] = this.perso3; //kreo k no es asi, pero es posible
 		this.contaje++;
-		this.perso3.drawImagen();
 
 		this.perso5 = new Character("#C0C0C0",300,300,this.contaje, this.cont,imagelist[4].src);
 		this.perso5.setestado(0);
 		this.contenedor[this.contaje] = this.perso5; //kreo k no es asi, pero es posible
-		this.perso5.drawImagen();
 		
 	}
 

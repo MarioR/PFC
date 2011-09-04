@@ -64,7 +64,6 @@ function pantIni (){
 	}
 	
 	
-	this.draw();
 	
 	//Esta función leerá el teclado y el ratón
 	this.leerAccion = function(){

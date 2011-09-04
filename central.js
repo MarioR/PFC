@@ -72,17 +72,17 @@ var main = function(){
 		else{
 			if(Pausamos.salir == true){
 				music.stop();
-				Pausamos.primera = true;
+				Pausamos.primera = false;
 				Pausamos.salir = false;
 				estado_actual = estado_salir;
 				estado_juego = new pantGame();         //No es el método más efectivo, pero creo que está bien
 			}
 			else{
-				if(Pausamos.primera == true){
+				if(Pausamos.primera == false){
 					music.play({
 			                 loops: 5
 			       		});
-					Pausamos.primera = false;
+					Pausamos.primera = true;
 				}
 				estado_actual.cambioPerso = estado_actual.cambioPerso + 1;
 			}

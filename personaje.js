@@ -96,7 +96,7 @@ function Character (color,posx,posy,num,context,src){
 			this.img2.draw();
 		}
 	}
-	
+	//Esta función pinta la imagen correspondiente al personaje en el canvas de información
 	this.drawImagen2 = function(x,y){
 		this.img2.draw2(x,y);
 	}
@@ -153,9 +153,7 @@ function Character (color,posx,posy,num,context,src){
 		
 		persoAtac.esAtacado(this.nivel);
 		this.setExperiencia();
-		if(persoAtac.estado == 2){
-			this.setExperiencia();
-		}
+
 	}
 
 	 

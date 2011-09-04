@@ -36,7 +36,6 @@ function pantHelp(){
 	
 	}
 	
-	this.draw();
 	
 	
 	//Esta función leerá el teclado y el ratón
