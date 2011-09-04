@@ -4,8 +4,7 @@ Pulsar = {
 	
 	lbutton: false,
 	rbutton: false,
-	cbutton: false,
-	primera: true
+	cbutton: false
 
 };
 

@@ -22,6 +22,9 @@ var estado_actual;
 
 estado_actual = estado_inicial;
 
+music.pause();
+music2.pause();
+
 var main = function(){
 	
 	estado_actual.updateEstado();
@@ -54,22 +57,33 @@ var main = function(){
 		if(Vars.volver == true){
 			Vars.volver = false;
 			estado_actual = estado_juego;
+			music.play();
 		}
 	}
 
 	if(estado_actual.identificador == 3){
+	
 
 		if(Pausamos.pausa == true){
+			music.pause();
 			Pausamos.pausa = false;
 			estado_actual = estado_pausa;
 		}
 		else{
 			if(Pausamos.salir == true){
+				music.stop();
+				Pausamos.primera = true;
 				Pausamos.salir = false;
 				estado_actual = estado_salir;
 				estado_juego = new pantGame();         //No es el método más efectivo, pero creo que está bien
 			}
 			else{
+				if(Pausamos.primera == true){
+					music.play({
+			                 loops: 5
+			       		});
+					Pausamos.primera = false;
+				}
 				estado_actual.cambioPerso = estado_actual.cambioPerso + 1;
 			}
 		}

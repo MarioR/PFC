@@ -26,16 +26,16 @@ var obstaculos = [
 ];
 
 Pausamos = {
-	
+	primera: true,
 	salir: false,
 	pausa: false
 	
 };
 
 function pantGame(){
-	
+
 	this.identificador = 3;
-	this.pruebafin = 0;
+	this.pruebafin = 0;   //Cosas del contaje
 	Inicio.init(); 
 	Inicio.init2(); 
 	this.contenedor = new Array ();  //Esta variable contendrá la lista con los personajes creados
@@ -236,17 +236,21 @@ function pantGame(){
 		if(aux != 12345){
 
 			if (aux == 100){
-				this.contenedor[aux1].vida = this.contenedor[aux1].vida - 5;	
+				music2.play();
+				this.contenedor[aux1].vida = this.contenedor[aux1].vida - 5;
 			}
 			else{
 				if(aux == 85){
+					music2.play();
 					this.contenedor[aux1].vida = this.contenedor[aux1].vida - 50;
 				}
 				else{
 					if(aux == 30){
+						music2.play();
 						this.contenedor[aux1].vida = this.contenedor[aux1].vida - 20;							
 					}
 					else{
+						music2.play();
 						this.contenedor[aux1].attack(this.contenedor[aux]);
 					}
 				}//segundo else
@@ -290,7 +294,7 @@ function pantGame(){
 							if(this.py1+1 <= 12){
 								this.cellarray[this.py1][this.px1] = 12345;
 								this.contenedor[this.aux].moveDown();
-								this.py1 = this.py1 + 1;
+								this.py1 = this.py1 + 1*this.contenedor[this.aux].nivel;
 								this.comprobarSiBatalla(this.px1,this.py1,this.contenedor[this.aux].num,this.aux);
 			
 								if ((this.cellarray[this.py1][this.px1] == 30)||(this.cellarray[this.py1][this.px1] == 85)||(this.cellarray[this.py1][this.px1] == 100)){
@@ -319,7 +323,7 @@ function pantGame(){
 								if(this.py1-1 >= 0){
 									this.cellarray[this.py1][this.px1] = 12345;
 									this.contenedor[this.aux].moveUp();
-									this.py1 = this.py1 - 1;
+									this.py1 = this.py1 - 1*this.contenedor[this.aux].nivel;
 									this.comprobarSiBatalla(this.px1,this.py1,this.contenedor[this.aux].num,this.aux);
 									if ((this.cellarray[this.py1][this.px1] == 30)||(this.cellarray[this.py1][this.px1] == 85)||(this.cellarray[this.py1][this.px1] == 100)){
 										this.py1 = this.pos1y;
@@ -347,7 +351,7 @@ function pantGame(){
 									if(this.px1+1 <=19){
 										this.cellarray[this.py1][this.px1] = 12345;
 										this.contenedor[this.aux].moveRight();
-										this.px1 = this.px1 + 1;
+										this.px1 = this.px1 + 1*this.contenedor[this.aux].nivel;
 				    					this.comprobarSiBatalla(this.px1,this.py1,this.contenedor[this.aux].num,this.aux);
 										if ((this.cellarray[this.py1][this.px1] == 30)||(this.cellarray[this.py1][this.px1] == 85)||(this.cellarray[this.py1][this.px1] == 100)){
 											this.px1 = this.pos1x;
@@ -375,7 +379,7 @@ function pantGame(){
 										if(this.px1-1 >=0){
 											this.cellarray[this.py1][this.px1] = 12345;
 											this.contenedor[this.aux].moveLeft();
-											this.px1 = this.px1 - 1;
+											this.px1 = this.px1 - 1*this.contenedor[this.aux].nivel;
 											this.comprobarSiBatalla(this.px1,this.py1,this.contenedor[this.aux].num,this.aux);
 											if ((this.cellarray[this.py1][this.px1] == 30)||(this.cellarray[this.py1][this.px1] == 85)||(this.cellarray[this.py1][this.px1] == 100)){
 												this.px1 = this.pos1x;

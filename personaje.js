@@ -129,6 +129,7 @@ function Character (color,posx,posy,num,context,src){
 		this.vida = 100;
 		this.nivel = 1;
 		this.siguienteNiv = 10;
+		this.experiencia = 0;
 		this.estado = 0;
 	}
 	

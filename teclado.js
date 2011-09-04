@@ -14,9 +14,7 @@ Tecles = {
 	keyesc: false,
 	keypause: false,
 	keyintro: false,
-	keyhelp: false,
-	intento: false,
-	intento1: false
+	keyhelp: false
 };
 
 
@@ -89,7 +87,6 @@ Tecles = {
 			break;
 			case 80:  //letra P minúscula
 				Tecles.keypause = false;
-			//	Tecles.keypause = false;
 			break;
 			case 72:
 				Tecles.keyhelp = false;

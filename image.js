@@ -25,11 +25,6 @@ function ImageData(id,context,src)
 		this.img.height = height;	
 	};
 	
-	//Sets the depth of the image
-	//Depth must be an integer value between 0 (back) and 20 (front)
-	this.setDepth = function(depth){
-		this.depth = depth;
-	};
 	
 	//Renders the image in the screen
 	this.draw = function(){
@@ -41,34 +36,6 @@ function ImageData(id,context,src)
 		cont.drawImage(this.img, x, y, this.img.width, this.img.height);
 		
 	}
-	
-	//Checks if the point x,y is inside the image
-	this.isInside = function(x,y){
-		if (x>=this.posX && x<=(this.posX+this.img.width) 
-				&& y>=this.posY && y<=(this.posY+this.img.height)) return true;
-		return false;
-	};
-	
-	//Activates the image as a draggable element
-	this.setDraggable = function(){
-		//Save some data
-		this.previousDepth= this.depth;
-		this.depth=20;
-		this.startX = this.posX;
-		this.startY = this.posY;
-	};
-	
-	
-	//Deactivates the image as a draggable element
-	this.unsetDraggable = function(){
-		this.depth= this.previousDepth;
-	};
-	
-	//Drags the image according to a relative increment
-	this.drag = function(incX,incY){
-		this.posX =  this.startX-incX;
-		this.posY =  this.startY-incY;
-	};
 } 
 
 
@@ -110,22 +77,4 @@ function ImageSet()
 		return this.images[x];
 	}
 	
-	
-	
-	
-	
-	//Returns the most frontal image at position x,y
-	this.getFrontImage = function(x, y){
-		var img = 'notfound';
-		var currentdepth = 0;
-		
-		for (i=0;i<this.num_images;i++){
-			if(this.images[i].isInside(x,y) && 
-			   this.images[i].depth>=currentdepth) {
-				img = this.images[i];
-				currentdepth = this.images[i].depth;
-			}
-		}	
-		return img;
-	};
 }
