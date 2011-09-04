@@ -25,7 +25,7 @@ soundManager.onready(function(){
        // SM2 has loaded - now you can create and play sounds!
        music2 = soundManager.createSound({
                id: 'music2',
-               url: 'op.mp3'
+               url: 'sound.mp3'
        // onload: myOnloadHandler,
        // other options here..
        });
