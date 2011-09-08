@@ -437,6 +437,7 @@ function pantGame(){
 				else{
 					if(Tecles.keyintro == true){
 						Tecles.keyintro = false;
+						this.cambioPerso = 0;
 						this.num = 0;
 						this.contenedor[this.aux2].estado = this.num;
 						this.aux2 = this.aux2 + 1;
