@@ -13,9 +13,7 @@ var imagelist = [
      { "src" : './imagenes/zoro.jpg', "posx" : 300, "posy" : 300, "w" : 714, "h" : 658},
      { "src" : './imagenes/luffy.jpg', "posx" : 300, "posy" : 300, "w" : 345, "h" : 345},
      { "src" : './imagenes/robin.jpg', "posx" : 300, "posy" : 300, "w" : 629, "h" : 615},
-	 { "src" : './imagenes/help1.jpg', "posx" : 0, "posy" : 0, "w" : 1000, "h" : 650},
-	 { "src" : './imagenes/gameOver.jpg', "posx" : 0, "posy" : 0, "w" : 1000, "h" : 650}
-    
+	 { "src" : './imagenes/help1.jpg', "posx" : 0, "posy" : 0, "w" : 1000, "h" : 650}    
      
 
 ];

@@ -25,8 +25,18 @@ var obstaculos = [
 	
 ];
 
+var obst2 = [
+	{"src" : './imagenes/wall.jpg', "posx" : 750, "posy" : 600, "w" : 50, "h" : 50, "num" : 100},
+	{"src" : './imagenes/infernal.jpg', "posx" : 0, "posy" : 300, "w" : 50, "h" : 50, "num" : 85},
+	{"src" : './imagenes/mine.jpg', "posx" : 450, "posy" : 450, "w" : 50, "h" : 50, "num" : 30},
+	{"src" : './imagenes/wall.jpg', "posx" : 800, "posy" : 200, "w" : 50, "h" : 50, "num" : 100},
+	{"src" : './imagenes/infernal.jpg', "posx" : 700, "posy" : 350, "w" : 50, "h" : 50, "num" : 85},
+	{"src" : './imagenes/mine.jpg', "posx" : 900, "posy" : 100, "w" : 50, "h" : 50, "num" : 30}
+];
+
 Pausamos = {
 	primera: false,
+	primCarg: true,
 	salir: false,
 	pausa: false
 	
@@ -68,6 +78,7 @@ function pantGame(){
 
 	this.myimages = new ImageSet();
 	this.myimageO = new ImageSet();
+	this.myimageObs = new ImageSet();
 
 	this.prueba = 0;   //Esta variable está para la creación de un vector
 	
@@ -113,6 +124,10 @@ function pantGame(){
 		this.cuadricula();
 		//Obstáculos en el juego
 		this.myimageO.draw();
+		
+		if(Opcion.dificil == true){
+			this.myimageObs.draw();
+		}
 	
 		//Personajes del juego
 		this.perso.drawImagen();
@@ -139,6 +154,15 @@ function pantGame(){
 			this.myimageO.add(img);
 			this.obst = this.obst + 1;
 		}
+					
+		for (i=0;i<obst2.length;i++){
+			var img = new ImageData(i,this.cont,obst2[i].src);
+			img.setPosition(obst2[i].posx,obst2[i].posy);
+			img.setSize(obst2[i].w,obst2[i].h);
+			this.myimageObs.add(img);
+			this.obst = this.obst + 1;
+		}
+		
 	}
 
 	this.cargaPersonajes = function(){
@@ -197,7 +221,28 @@ function pantGame(){
 		this.controlArray[7] = new ArrayData(obstaculos[3].posx,obstaculos[3].posy,obstaculos[3].num);
 		this.controlArray[8] = new ArrayData(obstaculos[4].posx,obstaculos[4].posy,obstaculos[4].num);
 		this.controlArray[9] = new ArrayData(obstaculos[5].posx,obstaculos[5].posy,obstaculos[5].num);
+		this.controlArray[10] = new ArrayData(obst2[0].posx,obst2[0].posy,obst2[0].num);
+		this.controlArray[11] = new ArrayData(obst2[1].posx,obst2[1].posy,obst2[1].num);
+		this.controlArray[12] = new ArrayData(obst2[2].posx,obst2[2].posy,obst2[2].num);
+		this.controlArray[13] = new ArrayData(obst2[3].posx,obst2[3].posy,obst2[3].num);
+		this.controlArray[14] = new ArrayData(obst2[4].posx,obst2[4].posy,obst2[4].num);
+		this.controlArray[15] = new ArrayData(obst2[5].posx,obst2[5].posy,obst2[5].num);
 
+	}
+	
+	this.opcionFacil = function(){
+		var z = 0;
+		var k = 0;
+		var aux = 0;
+		
+		for (i=10;i<=15;i++){
+			z = this.controlArray[i].px;
+			z = z / 50;       
+			k = this.controlArray[i].py;
+			k = k / 50;			
+
+			this.cellarray[k][z] = 12345;
+		}
 	}
 
 	this.valoresInicialesMatriz = function(){
@@ -216,6 +261,7 @@ function pantGame(){
 			k = k / 50;
 
 			aux = this.controlArray[i].num;
+			
 
 			this.cellarray[k][z] = aux;
 		}		
@@ -254,6 +300,13 @@ function pantGame(){
 	
 	//Esta función leerá el teclado y el ratón
 	this.leerAccion = function(){
+		
+		if(Pausamos.primCarg == true){
+			if(Opcion.facil == true){
+				this.opcionFacil();
+			}
+			Pausamos.primCarg = false;
+		}
 	
 		this.num = 0;
 		this.aux = 0;

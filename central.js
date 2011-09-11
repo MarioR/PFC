@@ -16,6 +16,8 @@ var estado_juego = new pantGame();
 
 var estado_salir = new pantOut();
 
+var estado_dific = new pantDific();
+
 
 var estado_actual;
 
@@ -38,7 +40,7 @@ var main = function(){
 		}
 		if (Selecciones.jugar == true){
 			Selecciones.jugar = false;
-			estado_actual = estado_juego;
+			estado_actual = estado_dific;
 		}
 		if (Selecciones.salir == true){
 			Selecciones.salir = false;
@@ -93,6 +95,13 @@ var main = function(){
 			Volver.inicio = false;
 			estado_actual = estado_inicial;
 			
+		}
+	}
+	
+	if(estado_actual.identificador == 5){
+		if((Opcion.facil == true)||(Opcion.dificil == true)){
+
+			estado_actual = estado_juego;
 		}
 	}
 	

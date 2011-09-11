@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>estadoPantIni.js</string>
+	<string>central.js</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -13,105 +13,111 @@
 					<key>filename</key>
 					<string>estadoPantIni.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-31T14:32:30Z</date>
-					<key>selected</key>
-					<true/>
-				</dict>
-				<dict>
-					<key>filename</key>
-					<string>prueba1.js</string>
-					<key>lastUsed</key>
-					<date>2011-08-28T13:38:16Z</date>
+					<date>2011-09-10T08:55:07Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>teclado.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-31T10:07:07Z</date>
-				</dict>
-				<dict>
-					<key>filename</key>
-					<string>ActualizarTeclado.js</string>
-					<key>lastUsed</key>
-					<date>2011-08-31T08:57:06Z</date>
+					<date>2011-09-05T10:57:34Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>personaje.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-31T13:55:34Z</date>
+					<date>2011-09-10T14:58:42Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>cuadrado.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-24T16:53:40Z</date>
+					<date>2011-09-10T14:58:39Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>libreria.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-28T14:57:40Z</date>
-				</dict>
-				<dict>
-					<key>filename</key>
-					<string>opciones.html</string>
-					<key>lastUsed</key>
-					<date>2011-08-28T15:09:02Z</date>
+					<date>2011-09-08T16:43:35Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>prueba.html</string>
 					<key>lastUsed</key>
-					<date>2011-08-31T07:00:58Z</date>
+					<date>2011-09-10T14:52:43Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>jquery-1.5.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-07T17:25:59Z</date>
+					<date>2011-09-03T21:05:01Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>image.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-30T20:46:03Z</date>
+					<date>2011-09-10T14:58:48Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>raton.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-30T14:07:31Z</date>
+					<date>2011-09-05T08:30:41Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>menu.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-31T14:32:30Z</date>
+					<date>2011-09-10T15:30:38Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>estadoPantHelp.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-31T14:05:22Z</date>
+					<date>2011-09-05T19:23:54Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
 					<string>estadoPantPause.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-31T14:05:16Z</date>
+					<date>2011-09-10T08:54:46Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
-					<string>estadoPantJuego.js</string>
+					<string>estadoPantGame.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-31T14:00:00Z</date>
+					<date>2011-09-08T08:18:24Z</date>
 				</dict>
 				<dict>
 					<key>filename</key>
-					<string>estadoPantGameOver.js</string>
+					<string>estadoPantOut.js</string>
 					<key>lastUsed</key>
-					<date>2011-08-31T14:09:00Z</date>
+					<date>2011-09-05T14:06:39Z</date>
+				</dict>
+				<dict>
+					<key>filename</key>
+					<string>central.js</string>
+					<key>lastUsed</key>
+					<date>2011-09-10T17:24:34Z</date>
+					<key>selected</key>
+					<true/>
+				</dict>
+				<dict>
+					<key>filename</key>
+					<string>soundmanager2.js</string>
+					<key>lastUsed</key>
+					<date>2011-09-10T09:32:32Z</date>
+				</dict>
+				<dict>
+					<key>filename</key>
+					<string>sonido.js</string>
+					<key>lastUsed</key>
+					<date>2011-09-10T14:52:43Z</date>
+				</dict>
+				<dict>
+					<key>filename</key>
+					<string>estadoPantDific.js</string>
+					<key>lastUsed</key>
+					<date>2011-09-10T17:24:34Z</date>
 				</dict>
 			</array>
 			<key>expanded</key>
@@ -124,19 +130,19 @@
 	<integer>200</integer>
 	<key>metaData</key>
 	<dict>
-		<key>ActualizarTeclado.js</key>
+		<key>central.js</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>1</integer>
+				<integer>34</integer>
 				<key>line</key>
-				<integer>75</integer>
+				<integer>54</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>54</integer>
+			<integer>31</integer>
 		</dict>
 		<key>cuadrado.js</key>
 		<dict>
@@ -150,21 +156,35 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>9</integer>
+			<integer>0</integer>
 		</dict>
-		<key>estadoPantGameOver.js</key>
+		<key>estadoPantDific.js</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>1</integer>
+				<integer>32</integer>
 				<key>line</key>
-				<integer>21</integer>
+				<integer>127</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
+		</dict>
+		<key>estadoPantGame.js</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>27</integer>
+				<key>line</key>
+				<integer>439</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>398</integer>
 		</dict>
 		<key>estadoPantHelp.js</key>
 		<dict>
@@ -173,27 +193,27 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>0</integer>
+				<integer>15</integer>
 			</dict>
 			<key>columnSelection</key>
 			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>4</integer>
 			<key>selectFrom</key>
 			<dict>
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>63</integer>
+				<integer>9</integer>
 			</dict>
 			<key>selectTo</key>
 			<dict>
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>0</integer>
+				<integer>15</integer>
 			</dict>
 		</dict>
 		<key>estadoPantIni.js</key>
@@ -201,28 +221,28 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>2</integer>
 				<key>line</key>
-				<integer>19</integer>
+				<integer>0</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>11</integer>
+			<integer>0</integer>
 		</dict>
-		<key>estadoPantJuego.js</key>
+		<key>estadoPantOut.js</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>44</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>369</integer>
+				<integer>36</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>384</integer>
+			<integer>23</integer>
 		</dict>
 		<key>estadoPantPause.js</key>
 		<dict>
@@ -231,35 +251,21 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>3</integer>
+				<integer>37</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>0</integer>
+			<integer>21</integer>
 		</dict>
 		<key>image.js</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>3</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>25</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>jquery-1.5.js</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>38</integer>
-				<key>line</key>
-				<integer>8147</integer>
+				<integer>10</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -271,9 +277,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>51</integer>
+				<integer>101</integer>
 				<key>line</key>
-				<integer>16</integer>
+				<integer>31</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -285,23 +291,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>8</integer>
+				<integer>82</integer>
 				<key>line</key>
-				<integer>376</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>349</integer>
-		</dict>
-		<key>opciones.html</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>10</integer>
-				<key>line</key>
-				<integer>11</integer>
+				<integer>15</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -315,42 +307,26 @@
 				<key>column</key>
 				<integer>1</integer>
 				<key>line</key>
-				<integer>132</integer>
+				<integer>29</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>117</integer>
+			<integer>0</integer>
 		</dict>
 		<key>prueba.html</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>9</integer>
-				<key>line</key>
-				<integer>15</integer>
-			</dict>
-			<key>columnSelection</key>
-			<false/>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>15</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
+				<integer>41</integer>
 				<key>line</key>
 				<integer>16</integer>
 			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>1</integer>
 		</dict>
 		<key>raton.js</key>
 		<dict>
@@ -359,7 +335,35 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>12</integer>
+				<integer>7</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>1</integer>
+		</dict>
+		<key>sonido.js</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>25</integer>
+				<key>line</key>
+				<integer>34</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>soundmanager2.js</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>14</integer>
+				<key>line</key>
+				<integer>72</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -373,48 +377,33 @@
 				<key>column</key>
 				<integer>2</integer>
 				<key>line</key>
-				<integer>34</integer>
+				<integer>17</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>17</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>9</integer>
-				<key>line</key>
-				<integer>36</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>2</integer>
-				<key>line</key>
-				<integer>34</integer>
-			</dict>
+			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>prueba.html</string>
-		<string>opciones.html</string>
-		<string>menu.js</string>
-		<string>estadoPantIni.js</string>
-		<string>estadoPantHelp.js</string>
-		<string>estadoPantPause.js</string>
-		<string>estadoPantJuego.js</string>
-		<string>estadoPantGameOver.js</string>
-		<string>raton.js</string>
-		<string>image.js</string>
-		<string>ActualizarTeclado.js</string>
-		<string>jquery-1.5.js</string>
-		<string>teclado.js</string>
+		<string>libreria.js</string>
+		<string>estadoPantDific.js</string>
 		<string>cuadrado.js</string>
 		<string>personaje.js</string>
-		<string>libreria.js</string>
+		<string>image.js</string>
+		<string>estadoPantGame.js</string>
+		<string>estadoPantHelp.js</string>
+		<string>estadoPantIni.js</string>
+		<string>estadoPantPause.js</string>
+		<string>estadoPantOut.js</string>
+		<string>teclado.js</string>
+		<string>raton.js</string>
+		<string>central.js</string>
+		<string>soundmanager2.js</string>
+		<string>sonido.js</string>
+		<string>menu.js</string>
+		<string>prueba.html</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
